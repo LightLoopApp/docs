@@ -1,0 +1,104 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "LightLoop",
+  "logo": {
+    "dark": "/images/logo-dark.png",
+    "light": "/images/logo-light.png"
+  },
+  "favicon": "/images/favicon.png",
+  "colors": {
+    "primary": "#6366F1",
+    "light": "#818CF8",
+    "dark": "#4338CA",
+    "anchors": {
+      "from": "#6366F1",
+      "to": "#818CF8"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Sign In",
+      "url": "https://lightloop.app"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get Started Free",
+    "url": "https://lightloop.app"
+  },
+  "tabs": [
+    {
+      "name": "Guides",
+      "url": "getting-started"
+    },
+    {
+      "name": "Web App",
+      "url": "web-app"
+    },
+    {
+      "name": "Apple TV",
+      "url": "apple-tv"
+    },
+    {
+      "name": "Integrations",
+      "url": "integrations"
+    },
+    {
+      "name": "Reference",
+      "url": "reference"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "getting-started/introduction",
+        "getting-started/quick-start",
+        "getting-started/connect-apple-tv"
+      ]
+    },
+    {
+      "group": "Web App",
+      "pages": [
+        "web-app/dashboard",
+        "web-app/media-library",
+        "web-app/playlists",
+        "web-app/feeds",
+        "web-app/content-types",
+        "web-app/scheduling",
+        "web-app/teams"
+      ]
+    },
+    {
+      "group": "Apple TV App",
+      "pages": [
+        "apple-tv/installation",
+        "apple-tv/connecting",
+        "apple-tv/playback",
+        "apple-tv/remote-controls",
+        "apple-tv/offline-caching"
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        "integrations/google-drive",
+        "integrations/canva",
+        "integrations/youtube",
+        "integrations/planning-center",
+        "integrations/google-calendar",
+        "integrations/kidddo"
+      ]
+    },
+    {
+      "group": "Reference",
+      "pages": [
+        "reference/content-types",
+        "reference/faq",
+        "reference/troubleshooting"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "website": "https://lightloop.app"
+  }
+}

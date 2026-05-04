@@ -1,0 +1,102 @@
+---
+title: "Playlists"
+description: "Build ordered sequences of media, configure transitions, add soundtracks, and organize content into groups."
+---
+
+{/* SCREENSHOT PLACEHOLDER: Playlist editor showing an ordered list of 5 media items with drag handles, the sidebar showing playlist settings (auto-advance, transition duration, soundtrack) */}
+
+A playlist is an ordered sequence of media items. It's the core building block of LightLoop — playlists go into feeds, feeds go to Apple TVs.
+
+## Creating a playlist
+
+1. Click the **Playlists** tab
+2. Click **New Playlist**
+3. Enter a name
+4. Optionally upload or select **cover art** (appears as the playlist thumbnail on Apple TV)
+5. Click **Create**
+
+{/* SCREENSHOT PLACEHOLDER: New playlist dialog with the name field and cover art upload area */}
+
+## Adding items to a playlist
+
+Inside the playlist editor, click **Add Items** to open a media picker. Select one or more items from your library and click **Add**.
+
+Items appear in the order you add them. Drag the handle on the left side of any item to reorder.
+
+{/* SCREENSHOT PLACEHOLDER: Media picker modal showing a grid of thumbnails with checkboxes, and 2 items already selected */}
+
+## Reordering and removing items
+
+- **Drag** the handle icon to reorder
+- **Click the eye icon** to hide an item without removing it (it won't play but stays in the list)
+- **Click the trash icon** to remove an item from this playlist (doesn't delete the file from your library)
+
+{/* SCREENSHOT PLACEHOLDER: Close-up of a playlist item row showing the drag handle, eye/hide toggle, and remove button */}
+
+## Hiding items
+
+Toggling an item's visibility is useful during a live service when you want to skip content without permanently removing it. Hidden items appear grayed out in the list but are ignored during playback.
+
+## Auto-advance
+
+By default, playlists auto-advance through items automatically. Under **Playlist Settings** you can configure:
+
+| Setting | Description |
+|---------|-------------|
+| **Auto-advance** | Toggle on/off. When off, playback pauses at the end of each item and waits for a manual tap on the Siri Remote. |
+| **Transition duration** | The crossfade duration in seconds between items (0 = instant cut, up to 5 seconds). |
+
+{/* SCREENSHOT PLACEHOLDER: Playlist settings panel showing the Auto-advance toggle and Transition Duration slider */}
+
+## Soundtracks
+
+A soundtrack is an audio-only playlist that plays as a background layer — music or ambient sound behind your main visual content.
+
+To add a soundtrack:
+1. Open a playlist
+2. Under **Soundtrack**, click **Choose Soundtrack**
+3. Select an audio-only playlist from your library
+4. Adjust the **volume** (0–100%)
+5. Toggle **Loop** (repeats the soundtrack) or **Shuffle** (plays tracks in random order)
+
+{/* SCREENSHOT PLACEHOLDER: Soundtrack section showing a selected audio playlist, volume slider at 60%, and Loop/Shuffle toggles */}
+
+The soundtrack plays independently — it doesn't stop when visual items transition, and it loops seamlessly when the playlist restarts.
+
+<Tip>
+  Create a dedicated "Background Music" playlist with only audio files, then reference it as the soundtrack for your main visual playlists.
+</Tip>
+
+## Sharing a playlist for review
+
+Before a service, share a read-only preview link with your team, pastor, or worship leader for approval.
+
+1. Open the playlist
+2. Click **Share Preview**
+3. Copy the link
+
+Anyone with the link can see the playlist contents and order without signing in. They cannot make changes.
+
+{/* SCREENSHOT PLACEHOLDER: Playlist share modal with a copyable link and a QR code */}
+
+## Playlist groups
+
+Groups are folders that organize related playlists in the sidebar. For example: `Series: Summer 2025`, `Kidddo`, `Pre-Service`.
+
+### Creating a group
+
+1. In the Playlists sidebar, click **New Group**
+2. Name the group
+3. Drag playlists into it (or drag them out to move them back to the top level)
+
+{/* SCREENSHOT PLACEHOLDER: Playlists sidebar with two groups shown — one collapsed and one expanded showing 3 playlists inside */}
+
+Groups are visual only — they don't affect playback order on Apple TV.
+
+## Deleting a playlist
+
+Open the playlist, scroll to **Danger Zone**, and click **Delete Playlist**. Confirm the deletion.
+
+<Warning>
+  Deleting a playlist removes it from any feeds it belongs to. Connected Apple TVs will receive the update and purge the cached files for that playlist.
+</Warning>

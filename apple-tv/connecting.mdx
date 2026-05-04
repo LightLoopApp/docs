@@ -1,0 +1,79 @@
+---
+title: "Connecting to a Feed"
+description: "Pair your Apple TV with a LightLoop feed using your server URL and Feed ID."
+---
+
+{/* SCREENSHOT PLACEHOLDER: tvOS setup screen showing two input fields: Server URL and Feed ID, with a Connect button */}
+
+Before your Apple TV can play content, it needs to connect to a feed. You'll need two pieces of information from the web dashboard:
+
+- **Server URL** — the address of your LightLoop server (e.g., `https://screens.myorg.workers.dev`)
+- **Feed ID** — the 6-character code for the specific feed (e.g., `AB12CD`)
+
+Both are found on the **Feeds** page in the dashboard.
+
+## Entering your credentials
+
+<Steps>
+  <Step title="Open LightLoop">
+    Launch the app from the Apple TV home screen. First-time users see the setup screen automatically.
+  </Step>
+  <Step title="Enter the server URL">
+    Use the on-screen keyboard to type your server URL. You can also hold the microphone button on the Siri Remote to use voice dictation — say the URL letter by letter or spell it out.
+    
+    {/* SCREENSHOT PLACEHOLDER: tvOS on-screen keyboard with the server URL being typed */}
+  </Step>
+  <Step title="Enter the Feed ID">
+    Type the 6-character Feed ID. Capitalization doesn't matter.
+    
+    {/* SCREENSHOT PLACEHOLDER: tvOS Feed ID input field with "AB12CD" typed in */}
+  </Step>
+  <Step title="Press Connect">
+    Highlight the **Connect** button and press the Siri Remote's center button. The app validates your credentials and begins fetching the feed.
+    
+    If the connection fails, double-check the server URL (include `https://`) and Feed ID.
+    
+    {/* SCREENSHOT PLACEHOLDER: Connection success — feed name appears at the top and the playlist grid starts loading */}
+  </Step>
+</Steps>
+
+## Download progress
+
+After connecting, the Apple TV downloads all media in the feed. Each playlist card shows a progress bar.
+
+{/* SCREENSHOT PLACEHOLDER: Playlist grid with progress bars under each card — one showing 100%, one showing 60%, one showing 0% with "Queued" */}
+
+- Items marked with a **play icon** (video/image/audio) must be fully downloaded before they can play
+- Items with an **antenna icon** (livestream) are ready immediately — no download needed
+- Items with a **globe icon** (web), **chart icon** (monitor), or **calendar icon** are also ready immediately — they're served from the cloud
+
+## Live connection status
+
+Once connected, the Apple TV maintains a live WebSocket connection to your server. When you make changes in the dashboard:
+
+- The TV receives a push notification within a few seconds
+- It automatically re-fetches the feed and begins downloading any new or changed items
+- Unchanged items use the existing cached files — no re-download needed
+
+If the WebSocket is interrupted, the TV falls back to polling every 30 seconds.
+
+{/* SCREENSHOT PLACEHOLDER: Status bar or indicator at the bottom of the playlist grid showing "Connected" in green */}
+
+## Reconnecting after a restart
+
+Your credentials are saved locally. When the Apple TV restarts, LightLoop automatically reconnects to the same feed — no re-entry needed.
+
+## Connecting to multiple feeds
+
+A single Apple TV can only connect to one feed at a time. If you need the same Apple TV to show different content, consolidate everything into one feed (using multiple playlists) or use separate Apple TVs for separate feeds.
+
+## Switching feeds
+
+To connect a TV to a different feed:
+
+1. On the Apple TV, navigate to the **Settings** gear in the app
+2. Select **Disconnect**
+3. The app clears all cached files and returns to the setup screen
+4. Enter the new server URL and Feed ID
+
+{/* SCREENSHOT PLACEHOLDER: Settings panel on tvOS showing the Disconnect button */}

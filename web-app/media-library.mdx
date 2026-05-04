@@ -1,0 +1,121 @@
+---
+title: "Media Library"
+description: "Upload, organize, and manage every piece of content in your LightLoop account."
+---
+
+{/* SCREENSHOT PLACEHOLDER: Media library grid view showing a variety of media types with their type badges visible */}
+
+The Media Library is where all your content lives. Every video, image, audio file, web snapshot, and live feed you add to LightLoop appears here.
+
+## Uploading media
+
+### Drag-and-drop upload
+
+Drag video or image files directly onto the Media tab. You can drop multiple files at once.
+
+{/* SCREENSHOT PLACEHOLDER: Media tab with a file being dragged over it, showing the drop zone highlight */}
+
+### From the Upload button
+
+Click **Upload** to open the file picker. Select one or more files and click **Open**.
+
+Uploads go directly to your Google Drive — LightLoop streams them straight from your browser. A thumbnail is generated automatically on your device before the file finishes uploading so you can see a preview right away.
+
+### Resumable uploads
+
+If your connection drops mid-upload, LightLoop resumes where it left off. Large video files are safe to upload even on spotty connections.
+
+### Importing from Canva or YouTube
+
+Use the import options to bring in content without re-uploading:
+
+- **Canva** — paste a Canva design link; LightLoop fetches it as an image or video ([learn more](/integrations/canva))
+- **YouTube** — paste a YouTube URL to download as a video or extract audio only ([learn more](/integrations/youtube))
+
+{/* SCREENSHOT PLACEHOLDER: The import modal showing the Canva link field and YouTube URL field side by side */}
+
+## Media detail panel
+
+Click any item in the library to open its detail panel on the right side.
+
+{/* SCREENSHOT PLACEHOLDER: Media detail panel showing a video item with fields for: title, duration, tags, pause points, in/out markers, and "Used in playlists" section */}
+
+### Fields you can edit
+
+| Field | Description |
+|-------|-------------|
+| **Title** | Display name shown in playlists and on Apple TV |
+| **Tags** | Custom labels for filtering and organization |
+| **Duration** | Override the display time (for images or short loops) |
+| **In / Out markers** | Trim start and end of a video |
+| **Pause points** | Timestamps where playback auto-pauses during a service |
+| **Subtitles** | Enable or upload a subtitle track |
+
+### Pause points
+
+Pause points let you insert automatic pauses into a video — perfect for curriculum videos with built-in discussion questions.
+
+{/* SCREENSHOT PLACEHOLDER: Pause points editor showing a video timeline with two pause point markers at timestamps 1:23 and 3:45 */}
+
+1. Open the media detail panel
+2. Scroll to **Pause Points**
+3. Click **Add Pause Point** and enter a timestamp (e.g., `1:23`)
+4. Save
+
+When this item plays on an Apple TV, playback automatically stops at each pause point. Press **Menu** on the Siri Remote to advance to the next section.
+
+### In / Out markers
+
+Trim the beginning or end of a video without re-editing the file:
+
+1. Open the media detail panel
+2. Enter an **In** time (when to start) and/or **Out** time (when to stop)
+3. Save
+
+<Note>
+  In/Out markers don't modify the original file in Google Drive. They're metadata instructions LightLoop sends to the Apple TV.
+</Note>
+
+## Organizing with tags
+
+Tags are freeform labels you assign to media items. Use them to filter your library quickly — for example, tag videos by series name, season, or event type.
+
+To add a tag:
+1. Open the media detail panel
+2. Click the **Tags** field
+3. Type a tag name and press Enter
+4. Tags are shared across your team (not private)
+
+To filter by tag, use the **Filter** dropdown in the media grid and select one or more tags.
+
+{/* SCREENSHOT PLACEHOLDER: Tag filter dropdown showing a list of existing tags with checkboxes */}
+
+## Bulk actions
+
+Select multiple items using the checkbox on each card (or click **Select All**), then use the action bar that appears at the bottom to:
+
+- **Delete** selected items (also removes them from any playlists)
+- **Add tags** in bulk
+- **Remove tags** in bulk
+
+{/* SCREENSHOT PLACEHOLDER: Media grid with three items checked and the bulk action bar visible at the bottom with Delete and Tag options */}
+
+## Incompatible media
+
+Occasionally an Apple TV will flag a video as incompatible — the file's codec or container isn't supported by that device. These items appear grayed out with a warning badge in the library.
+
+{/* SCREENSHOT PLACEHOLDER: Media card showing a grayed-out video with a yellow warning triangle badge */}
+
+Incompatibility is reported by the Apple TV itself after it attempts to play the file. To resolve it, re-export the video in H.264 / MP4 format and re-upload.
+
+## Deleting media
+
+To delete a media item:
+
+1. Open the detail panel
+2. Scroll to the bottom and click **Delete**
+3. Confirm the deletion
+
+<Warning>
+  Deleting a media item removes it from all playlists and triggers a re-cache on every Apple TV subscribed to those feeds. It also deletes the file from your Google Drive.
+</Warning>

@@ -1,0 +1,126 @@
+---
+title: "Content Types Reference"
+description: "Complete reference for all media types supported by LightLoop."
+---
+
+## Summary table
+
+| Type | Icon | Storage | Download required | Internet at playback | Notes |
+|------|------|---------|-------------------|---------------------|-------|
+| **Video** | ▶ | Google Drive | Yes | No | H.264/MP4 recommended |
+| **Image** | 🖼 | Google Drive | Yes | No | JPEG, PNG, WebP |
+| **Audio** | ♪ | Google Drive | Yes | No | Soundtrack layer only |
+| **Livestream** | 📡 | External (HLS) | No | Yes | .m3u8 URL |
+| **Web** | 🌐 | Cloudflare R2 | No | For refresh | Server-rendered JPEG |
+| **Monitor** | 📋 | Server-rendered | No | Yes | PCO/Kidddo rosters |
+| **Calendar** | 📅 | Server-rendered | No | Yes | Google/PCO calendars |
+
+---
+
+## Video
+
+**File formats:** MP4, MOV, M4V  
+**Recommended codec:** H.264 (AVC) for maximum compatibility  
+**Max resolution:** 4K (3840×2160); 1080p for Apple TV HD  
+**Audio:** Stereo AAC recommended
+
+**Supported options:**
+- Custom duration override (for looping short clips)
+- In/Out markers (trim without re-encoding)
+- Pause points (auto-pause at timestamps)
+- Subtitle track (embedded or uploaded SRT)
+
+**Incompatibility:** If an Apple TV cannot decode the file, it flags the item as incompatible. The item is grayed out in the dashboard. Re-export as H.264 MP4 to resolve.
+
+---
+
+## Image
+
+**File formats:** JPEG, PNG, WebP, GIF (static — first frame only)  
+**Recommended resolution:** 1920×1080 (16:9 landscape) or 1080×1920 (9:16 portrait)
+
+**Supported options:**
+- Custom duration (how long to show the image, in seconds; default: 10s)
+
+---
+
+## Audio
+
+**File formats:** MP3, M4A, AAC, WAV  
+**Use:** Soundtrack layer only (background audio behind visual content)
+
+Audio items cannot be added directly to a visual playlist as a primary content item — they are used as soundtracks assigned to a playlist.
+
+**Supported options:**
+- Loop (repeat the audio track)
+- Shuffle (randomize track order when multiple tracks are in a soundtrack playlist)
+- Volume (0–100%; independent of main content)
+
+---
+
+## Livestream
+
+**Format:** HLS (.m3u8 URL)  
+**Requires internet at playback:** Yes — the Apple TV streams the HLS URL in real time  
+**Download:** None — the URL is sent to Apple TV as metadata
+
+If the stream is unavailable when it's time to play, the Apple TV skips to the next item rather than stalling.
+
+---
+
+## Web
+
+**What it is:** A server-side screenshot of a live website, stored as a JPEG and updated at a configurable interval.
+
+**Device profiles:**
+| Profile | Viewport | Use case |
+|---------|----------|----------|
+| Mobile | 375×812 | Mobile-optimized pages |
+| Tablet | 768×1024 | General websites |
+| TV | 1920×1080 | Pages designed for large screens |
+
+**Refresh interval:** How often LightLoop re-renders the page (e.g., every 5 minutes)
+
+**Use cases:** Google Slides decks, church bulletins, event websites, custom HTML pages
+
+---
+
+## Monitor
+
+**What it is:** A server-rendered live roster from Planning Center Check-In or Kidddo.
+
+**Supported sources:**
+- Planning Center Check-In (polls every few seconds)
+- Kidddo (webhook-triggered)
+
+**Refresh:** Automatically — no configuration needed  
+**Requires internet:** Yes — renders live from PCO/Kidddo data
+
+---
+
+## Calendar
+
+**What it is:** A server-rendered upcoming-events display from Google Calendar or Planning Center.
+
+**Supported sources:**
+- Google Calendar (`calendar.readonly` OAuth scope)
+- Planning Center Calendar
+
+**Display options:** Event count, date range, text size, multi-calendar color coding  
+**Refresh:** Automatic — always shows current upcoming events  
+**Requires internet:** Yes — pulls live calendar data
+
+---
+
+## Orientation options
+
+Every media item can override the feed-level orientation. Options:
+
+| Value | Description |
+|-------|-------------|
+| **Inherit** | Use the feed's orientation setting |
+| **Landscape** | 16:9 horizontal |
+| **Portrait Left** | 9:16, rotated 90° counter-clockwise |
+| **Portrait Right** | 9:16, rotated 90° clockwise |
+
+Item-level orientation override is useful when one screen in a lobby is vertical and the rest are horizontal but share a feed.

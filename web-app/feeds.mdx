@@ -1,0 +1,96 @@
+---
+title: "Feeds"
+description: "Create and configure feeds — the bridge between your playlists and your Apple TVs."
+---
+
+{/* SCREENSHOT PLACEHOLDER: Feed editor showing feed name, Feed ID badge, a list of assigned playlists, and the settings panel on the right */}
+
+A **feed** is a collection of playlists that an Apple TV subscribes to. Think of it as a channel: one feed per screen (or per group of screens showing identical content).
+
+## Creating a feed
+
+1. Click the **Feeds** tab
+2. Click **New Feed**
+3. Enter a name (e.g., "Main Lobby", "Kidddo Room 1", "Worship Stage")
+4. Click **Create**
+
+LightLoop generates a unique **Feed ID** — a 6-character alphanumeric code your Apple TV uses to connect.
+
+{/* SCREENSHOT PLACEHOLDER: New feed dialog with the name field */}
+
+## Feed ID
+
+The Feed ID is displayed prominently at the top of the feed editor. It looks like `AB12CD`.
+
+{/* SCREENSHOT PLACEHOLDER: Close-up of the Feed ID badge with a copy-to-clipboard button */}
+
+<Tip>
+  Your server URL is the same for all feeds. Only the Feed ID differs. Share the Feed ID with whoever is setting up the Apple TV.
+</Tip>
+
+## Adding playlists to a feed
+
+1. Inside the feed editor, click **Add Playlist**
+2. Select a playlist from your library
+3. Optionally set a **Start Date** and **End Date** to schedule when this playlist is visible in the feed
+
+{/* SCREENSHOT PLACEHOLDER: Feed editor with three playlists listed — one with a date range badge showing "Jun 1 – Jun 30" */}
+
+Playlists appear in the feed in the order they're listed. Apple TV shows them as a grid the user (or auto-play logic) can browse through.
+
+## Scheduling playlist visibility
+
+Each playlist in a feed can have an optional date window:
+
+| Setting | Description |
+|---------|-------------|
+| **Start date** | The playlist won't appear in the feed until this date |
+| **End date** | The playlist is automatically hidden after this date |
+
+This is useful for seasonal content: add your Christmas playlist now with `Start: Dec 1` and `End: Jan 1` — it appears and disappears automatically.
+
+{/* SCREENSHOT PLACEHOLDER: Playlist date picker within the feed editor showing a calendar with a start and end date selected */}
+
+## Feed settings
+
+Click **Settings** in the feed editor to configure:
+
+### Orientation
+
+| Option | Description |
+|--------|-------------|
+| **Landscape** (default) | Standard 16:9 horizontal layout |
+| **Portrait Left** | Screen rotated 90° counter-clockwise |
+| **Portrait Right** | Screen rotated 90° clockwise |
+
+Set this to match how your physical screen is mounted. The Apple TV's entire interface rotates to match.
+
+{/* SCREENSHOT PLACEHOLDER: Orientation selector showing three icons — landscape TV, portrait-left TV, portrait-right TV */}
+
+### Screensaver
+
+Toggle **Prevent screensaver** to stop the Apple TV from going to sleep or activating its screensaver during playback. Recommended for lobby displays.
+
+### Subtitles
+
+Toggle **Enable subtitles** to automatically show subtitle tracks when available on a video. Useful for accessibility or for rooms where audio isn't ideal.
+
+## Timed playlists (scheduled broadcasts)
+
+Beyond simple date windows, you can schedule a specific playlist to take over a feed at an exact time — weekly or as a one-time event.
+
+See [Scheduling](/web-app/scheduling) for the full guide.
+
+## Removing a playlist from a feed
+
+Hover over the playlist in the feed editor and click the remove icon. The playlist is removed from the feed but not deleted from your library.
+
+Apple TVs subscribed to this feed will receive the update and purge the cached files for that playlist.
+
+## Deleting a feed
+
+Open the feed, scroll to **Danger Zone**, and click **Delete Feed**. Any Apple TVs connected to this feed will disconnect and return to the setup screen.
+
+<Warning>
+  Deleting a feed is permanent. Apple TVs using this Feed ID will stop receiving updates and cannot reconnect with the same ID.
+</Warning>

@@ -1,0 +1,124 @@
+---
+title: "Troubleshooting"
+description: "Solutions for common issues with the LightLoop web app and Apple TV."
+---
+
+## Apple TV issues
+
+### Apple TV won't connect to the feed
+
+<Steps>
+  <Step title="Check the server URL">
+    Make sure the URL starts with `https://` and matches exactly what's shown in the dashboard. Even a trailing slash difference can cause a connection failure.
+  </Step>
+  <Step title="Check the Feed ID">
+    Feed IDs are 6 characters. Double-check you haven't transposed any characters. The ID is not case-sensitive.
+  </Step>
+  <Step title="Check internet connectivity">
+    On the Apple TV, go to **Settings → Network** and verify the TV has an internet connection.
+  </Step>
+  <Step title="Try restarting the app">
+    Press the **TV/Home button** twice to see the app switcher, swipe up on LightLoop to quit it, then relaunch.
+  </Step>
+</Steps>
+
+---
+
+### Content isn't updating on the Apple TV
+
+The Apple TV syncs via WebSocket (near-instant) with a 30-second polling fallback. If updates aren't appearing:
+
+1. **Wait 30 seconds** — the polling fallback will pick up the change
+2. **Check internet connectivity** on the Apple TV
+3. **Restart the LightLoop app** to force a fresh connection
+4. **Verify the change was saved** — make sure you clicked Save in the dashboard after editing
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV status indicator showing "Connected" vs. "Reconnecting..." states */}
+
+---
+
+### A video is grayed out and shows a warning badge
+
+This means the Apple TV flagged the video as incompatible with its hardware.
+
+**Fix:** Re-export the video as **H.264, MP4, constant frame rate** and re-upload it to LightLoop. Delete the original incompatible item.
+
+Common causes:
+- H.265/HEVC on Apple TV HD (not supported — Apple TV 4K only)
+- Variable frame rate footage
+- Unsupported container format (MKV, AVI, WMV)
+- Very high bit rate files
+
+---
+
+### The screen goes to sleep during playback
+
+Enable **Prevent screensaver** in the feed settings:
+
+1. Dashboard → Feeds → select your feed → **Settings**
+2. Toggle on **Prevent screensaver**
+3. Save
+
+---
+
+### Playback is choppy or stutters
+
+LightLoop downloads videos before playing them, so network issues during playback shouldn't cause stuttering. If you see stuttering:
+
+1. **Check if the download finished** — if a video plays before it's fully cached (shouldn't happen normally), there may be a re-download in progress
+2. **Check video format** — very high bit rate or 4K files on Apple TV HD may stutter; re-encode at a lower bit rate
+3. **Restart the Apple TV** — clears any memory pressure
+
+---
+
+### Portrait mode isn't working
+
+1. Confirm the feed's **Orientation** is set correctly in the dashboard (not "Landscape")
+2. The Apple TV doesn't physically rotate the HDMI output — if your screen requires a hardware signal rotation, you may need to configure that in your display's settings
+3. Make sure the **TV itself** is physically mounted in portrait orientation
+
+---
+
+## Web app issues
+
+### Upload failed or stalled
+
+1. Check your internet connection
+2. LightLoop uploads are resumable — if the upload failed, click **Upload** again on the same file; it will resume where it left off
+3. Check your Google Drive storage quota — uploads fail silently if Drive is full
+
+---
+
+### I can't sign in
+
+1. Make sure you're using a Google account (no other sign-in method is supported)
+2. Check that cookies and third-party sign-in are enabled in your browser
+3. Try an incognito/private window
+4. If you see a permissions error, try revoking and re-granting LightLoop's Google access at [myaccount.google.com/permissions](https://myaccount.google.com/permissions)
+
+---
+
+### A Canva import isn't appearing
+
+1. Verify your Canva account is still connected under **Integrations**
+2. Make sure the Canva design is published (not in draft) — LightLoop can only fetch published designs
+3. Re-authorize Canva access if the token has expired
+
+---
+
+### The scheduled broadcast didn't activate at the right time
+
+1. Check your **account timezone** — scheduled times use the timezone in your Account Settings, not the server's timezone
+2. Verify the broadcast's recurrence and day-of-week settings
+3. Check that the target feed still has the scheduled playlist assigned
+
+---
+
+## Getting more help
+
+If you're experiencing an issue not covered here, please file a bug report at [github.com/lightloop/issues](https://github.com/lightloop/issues) with:
+
+- A description of the problem
+- What you expected to happen
+- Your Apple TV model and tvOS version (if applicable)
+- Screenshots or screen recordings if relevant

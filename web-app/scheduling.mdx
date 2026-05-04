@@ -1,0 +1,100 @@
+---
+title: "Scheduling"
+description: "Automatically show the right content at the right time — weekly services, seasonal playlists, and one-time events."
+---
+
+LightLoop has two layers of scheduling: **date-windowed playlists** for seasonal content and **timed broadcasts** for exact time-of-day control.
+
+---
+
+## Date windows (show/hide by date)
+
+Every playlist in a feed can have a start date and end date. Outside those dates the playlist is invisible in the feed — it won't appear on Apple TV.
+
+**When to use:**
+- Christmas content that should appear Dec 1 and disappear Jan 1
+- A special event playlist for a single weekend
+- Summer series content that runs June through August
+
+**How to set it:**
+
+1. Open the **Feeds** tab and select your feed
+2. Find the playlist in the feed and click the **schedule icon** next to it
+3. Set a **Start date** and/or **End date**
+4. Save
+
+{/* SCREENSHOT PLACEHOLDER: Feed playlist row with the date range picker open, showing a start date of Dec 1 and end date of Jan 1 */}
+
+<Tip>
+  You can add a playlist to a feed now and set a future start date so it's ready to go the moment the date arrives — no last-minute scramble.
+</Tip>
+
+---
+
+## Timed broadcasts (exact time control)
+
+Timed broadcasts let a specific playlist take over a feed at an exact time — automatically, with no one touching anything.
+
+**When to use:**
+- Switch from a pre-service loop to a live worship countdown at 9:55 AM every Sunday
+- Show a "Service starting soon" screen 10 minutes before each service
+- Run a one-time announcement at a specific event
+
+### Creating a timed broadcast
+
+1. Open the **Feeds** tab and select your feed
+2. Click **Add Scheduled Broadcast**
+3. Configure the schedule:
+
+{/* SCREENSHOT PLACEHOLDER: Timed broadcast creation dialog showing: playlist picker, target feed, start time (9:55 AM), duration (30 min), recurrence (weekly), day of week (Sunday) */}
+
+| Field | Description |
+|-------|-------------|
+| **Playlist** | Which playlist to show |
+| **Target feed** | Which feed to broadcast to |
+| **Start time** | Time of day (in your account timezone) |
+| **Duration** | How long this playlist plays before reverting to the normal feed |
+| **Recurrence** | One-time or weekly |
+| **Day of week** | (Weekly only) Which day(s) to run |
+| **Start date** | When to begin this schedule |
+| **End date** | (Optional) When to stop |
+
+### How it works on Apple TV
+
+When a timed broadcast is active:
+
+1. The Apple TV receives a WebSocket push (or detects the broadcast at its next poll)
+2. The current playlist smoothly transitions to the scheduled playlist
+3. After the broadcast duration expires, the feed reverts to its normal playlist order
+4. No one needs to touch the Apple TV or the dashboard
+
+{/* VIDEO PLACEHOLDER: Screen recording showing an Apple TV's playlist grid switching to a scheduled playlist at the appointed time, then returning to normal content after the duration */}
+
+### Viewing and editing broadcasts
+
+All scheduled broadcasts for a feed appear under the **Scheduled** tab within the feed editor. You can edit or delete any broadcast from there.
+
+{/* SCREENSHOT PLACEHOLDER: Scheduled broadcasts list showing two entries: "Sunday 9:55 AM — Weekly" and "Memorial Day — One time (May 26)" */}
+
+---
+
+## Combining both methods
+
+You can use date windows and timed broadcasts together. For example:
+
+- Add your **Christmas playlist** to the feed with a date window of Dec 1 – Jan 1 (it appears automatically in the grid)
+- Add a **Christmas service countdown** as a timed broadcast for 10 AM on Dec 24 and Dec 25
+
+The two systems work independently and don't interfere with each other.
+
+---
+
+## Timezone
+
+All scheduled times use the timezone set in your account settings. Make sure your timezone is correct, especially when your server and your building are in different regions.
+
+To check or update your timezone:
+1. Click your profile picture → **Settings**
+2. Find the **Timezone** field and update it
+
+{/* SCREENSHOT PLACEHOLDER: Account settings panel with the Timezone dropdown highlighted */}

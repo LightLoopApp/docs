@@ -1,0 +1,123 @@
+---
+title: "Planning Center Online"
+description: "Connect PCO to display live check-in monitors, calendar events, and Welcome Party greetings."
+---
+
+{/* SCREENSHOT PLACEHOLDER: Integrations page showing the Planning Center section with three feature cards: Check-In Monitor, Calendar, and Welcome Party */}
+
+Planning Center Online (PCO) integration unlocks three powerful features: a live check-in monitor, a calendar display, and the Welcome Party check-in greeting.
+
+## Connecting your PCO account
+
+1. Click your profile picture → **Integrations**
+2. Find the **Planning Center** section and click **Connect Planning Center**
+3. Sign in with your PCO account and authorize LightLoop
+
+LightLoop requests read-only access to your PCO data.
+
+{/* SCREENSHOT PLACEHOLDER: PCO OAuth authorization screen showing the permissions LightLoop is requesting */}
+
+---
+
+## Check-In Monitor
+
+The Check-In Monitor displays a live roster of who has checked in to a PCO Check-In event — updated every few seconds.
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV showing the Check-In Monitor: a styled screen with the event name at the top, a list of checked-in names, and a total count badge */}
+
+### Setting up a monitor
+
+1. In the Media library, click **Add Monitor**
+2. Select **Planning Center Check-In**
+3. Choose the event and location to monitor
+4. Configure the display format:
+   - Show names as a list
+   - Show total count only
+   - Show both
+5. Save — the monitor appears in your library as a media item
+
+Add it to any playlist the same way you'd add a video or image.
+
+{/* SCREENSHOT PLACEHOLDER: Monitor configuration panel showing the event selector, location selector, and display format options */}
+
+### How it works
+
+LightLoop renders the check-in data as a JPEG image server-side, using Cloudflare's browser rendering. The Apple TV fetches a fresh render every few seconds when the monitor is on screen.
+
+<Note>
+  The Check-In Monitor always requires an internet connection to display current data. If the connection drops, the Apple TV shows the last rendered image rather than a blank screen.
+</Note>
+
+---
+
+## PCO Calendar
+
+Display upcoming events from your PCO calendar — service times, events, room bookings, and more.
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV showing a PCO Calendar display with a clean event list: "Sunday Service — 9:00 AM, 11:00 AM", "Youth Group — Wednesday 6:30 PM" */}
+
+### Setting up a calendar display
+
+1. In the Media library, click **Add Calendar**
+2. Select **Planning Center Calendar**
+3. Choose which calendars to include
+4. Configure the display (number of events to show, date range)
+5. Save
+
+The calendar auto-refreshes and always shows current upcoming events.
+
+See also: [Google Calendar integration](/integrations/google-calendar)
+
+---
+
+## Welcome Party
+
+Welcome Party is a full-screen celebration overlay that appears on your Apple TVs the moment a child checks in through PCO Check-In.
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV showing the Welcome Party overlay — a joyful full-screen display with a child's photo, their name in large text ("Welcome, Emma!"), confetti animation, and celebratory text */}
+
+{/* VIDEO PLACEHOLDER: Screen recording showing normal content playing on Apple TV, then the Welcome Party overlay bursting onto the screen with animation and sound, then auto-dismissing after a few seconds */}
+
+### Setting up Welcome Party
+
+1. In the Media library, click **Add Monitor → Welcome Party**
+2. Select the **PCO Check-In event** to watch
+3. Configure:
+
+| Setting | Description |
+|---------|-------------|
+| **Welcome message** | Custom text (e.g., "We're so glad you're here!") |
+| **Display duration** | How long the overlay stays on screen (seconds) |
+| **Sound effect** | Choose from: Bells, Cheer, Celebration, Fanfare, or None |
+
+4. Save and add to a playlist
+
+{/* SCREENSHOT PLACEHOLDER: Welcome Party configuration panel showing the message field, duration slider, and sound effect picker */}
+
+### How it works
+
+LightLoop polls PCO Check-In for new arrivals every few seconds. When a new check-in is detected:
+
+1. PCO returns the child's name and photo
+2. LightLoop pushes a WebSocket message to subscribed Apple TVs
+3. The Welcome Party overlay appears on top of whatever content is currently playing
+4. After the configured duration, the overlay dismisses and normal content resumes
+
+### Multiple TVs
+
+If multiple Apple TVs are subscribed to the same feed, the Welcome Party appears on all of them simultaneously.
+
+### PCO vs. Kidddo
+
+LightLoop supports Welcome Party through both PCO (polling-based) and Kidddo (webhook-based). Kidddo triggers faster — within a second of a scan — because it uses a push webhook rather than polling.
+
+See the [Kidddo integration](/integrations/kidddo) if you use Kidddo for check-in.
+
+---
+
+## Disconnecting Planning Center
+
+1. Click your profile picture → **Integrations**
+2. Click **Disconnect** next to Planning Center
+
+Previously created monitors and calendar displays remain in your library as items, but they'll stop receiving live updates once PCO is disconnected.

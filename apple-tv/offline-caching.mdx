@@ -1,0 +1,81 @@
+---
+title: "Offline Caching"
+description: "How LightLoop pre-downloads all content so your screens work even without internet."
+---
+
+One of LightLoop's core principles is **download-first playback**. Every video, image, and audio file is downloaded to the Apple TV before it plays — so your service runs smoothly even if the internet goes out.
+
+## How caching works
+
+When an Apple TV connects to a feed or receives an update:
+
+1. It fetches the current feed structure (playlists, items, settings)
+2. For each item that needs to be downloaded (video, image, audio), it checks whether the file is already cached
+3. **Cached files are reused** — only new or changed items are downloaded
+4. Downloads happen in the background — you can use the TV while it downloads
+5. Once an item is fully downloaded, it becomes available for playback
+
+{/* SCREENSHOT PLACEHOLDER: Playlist grid during active download — one playlist shows 100% and is fully playable, another shows a progress bar at 45% */}
+
+## What's cached vs. what's live
+
+| Type | Behavior |
+|------|----------|
+| Video | Downloaded entirely before playing |
+| Image | Downloaded entirely before playing |
+| Audio (soundtrack) | Downloaded entirely before playing |
+| Livestream | Never downloaded — streams in real time |
+| Web snapshot | Not stored locally — fetched from server on each view |
+| Monitor | Not stored locally — rendered live by server |
+| Calendar | Not stored locally — rendered live by server |
+
+<Note>
+  Livestreams, web snapshots, monitors, and calendars require internet connectivity to display current content. However, if internet is unavailable, these items are simply skipped rather than freezing or crashing.
+</Note>
+
+## Playing without internet
+
+Once all items in a playlist are cached, that playlist plays without any internet connection. This means:
+
+- **Power outages with backup generator** — LightLoop keeps playing
+- **ISP issues during a service** — no interruption to pre-service loops or announcement slides
+- **Rural locations with unreliable connectivity** — cache everything before Sunday, then go offline
+
+<Tip>
+  Finish loading content changes at least an hour before your service to give the Apple TV time to download everything, especially large video files.
+</Tip>
+
+## Storage usage
+
+LightLoop caches files in the Apple TV's local storage. Typical space usage:
+
+- A 5-minute HD video (1080p H.264) ≈ 500 MB – 1.5 GB
+- A 4K video ≈ 2–8 GB
+- Images ≈ 1–20 MB each
+
+Apple TV 4K has **32 GB or 64 GB** of storage (depending on model). Apple TV HD has **32 GB**.
+
+LightLoop automatically purges cached files for playlists that are removed from the feed — it doesn't accumulate stale files indefinitely.
+
+## Smart cache updates
+
+When content changes in the dashboard, LightLoop doesn't re-download everything — it only downloads what's different:
+
+- **Item added** → download the new item
+- **Item reordered** → no download needed (order metadata only)
+- **Item hidden/unhidden** → no download needed
+- **Item deleted** → purge the cached file
+- **Item replaced** → download the new version, purge the old
+
+This means pushing a minor change (like hiding one slide) is instant, even on slow connections.
+
+{/* VIDEO PLACEHOLDER: Screen recording showing a dashboard change (hiding one item) and the Apple TV updating within seconds with no visible re-download */}
+
+## Troubleshooting slow downloads
+
+If downloads are slower than expected:
+
+1. **Check your internet speed** — large video files need a decent connection. At 10 Mbps, a 1 GB video takes ~14 minutes.
+2. **Check your Google Drive quota** — if your Drive is full, files may fail to upload (and thus fail to download).
+3. **Restart the Apple TV** — a fresh boot can clear stalled download queues.
+4. **Check for incompatible items** — if a file fails to download, it may be flagged as incompatible. Check the media library in the dashboard for any items with a warning badge.

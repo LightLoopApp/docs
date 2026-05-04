@@ -1,0 +1,70 @@
+---
+title: "Google Drive"
+description: "LightLoop stores all your media in your own Google Drive — you stay in control of your files."
+---
+
+Google Drive is LightLoop's media storage layer. Every video, image, and audio file you upload is stored directly in your Google Drive — not on a third-party server. LightLoop never charges for storage.
+
+## How it works
+
+When you upload a file in LightLoop:
+
+1. Your browser uploads the file directly to Google Drive using your credentials
+2. LightLoop records a reference (file ID) in its database but never stores the raw file itself
+3. When an Apple TV needs to download the file, it fetches it from Google Drive via a secure, time-limited URL
+4. LightLoop generates thumbnail images and stores those in Cloudflare R2 for fast delivery
+
+{/* SCREENSHOT PLACEHOLDER: Diagram showing the upload flow: Browser → Google Drive → Apple TV, with LightLoop in the middle managing references and thumbnails */}
+
+## Permissions (scope)
+
+LightLoop requests only the `drive.file` OAuth scope. This means:
+
+- LightLoop can **only see files it created or uploaded** — never your personal documents, photos, or other Drive content
+- Revoking LightLoop's Google access removes its ability to fetch your media files
+
+<Note>
+  No one at LightLoop can see your Google Drive files. The `drive.file` scope is the most restrictive scope available for file access.
+</Note>
+
+## Choosing a storage folder
+
+During setup (and in Account Settings), you choose which Google Drive folder LightLoop uses for uploads.
+
+**Options:**
+- **Create a new folder** — LightLoop creates a `LightLoop Media` folder in the root of your Drive
+- **Use an existing folder** — pick any folder you've already created
+
+All uploaded files appear in this folder in your Google Drive, organized by file name.
+
+{/* SCREENSHOT PLACEHOLDER: Google Drive folder picker in the LightLoop dashboard showing "LightLoop Media" selected */}
+
+## Nonprofit storage
+
+Google Workspace for Nonprofits provides **100 TB of free storage** per organization. If your church or school uses Google Workspace, your media storage is effectively unlimited.
+
+Personal Google accounts include **15 GB** of free storage (shared across Drive, Gmail, and Photos).
+
+## Managing files in Drive
+
+Files uploaded by LightLoop appear in your chosen Drive folder like any other files. You can:
+
+- View them in Google Drive
+- Move them to subfolders (LightLoop follows the reference, not the path)
+- Share them with your team through Drive's sharing settings
+
+<Warning>
+  Don't delete files from Google Drive manually. If you need to remove a file from LightLoop, delete it through the LightLoop dashboard — this removes the reference, purges the thumbnail, and removes it from all playlists before deleting the Drive file. Deleting directly in Drive leaves orphaned references in LightLoop.
+</Warning>
+
+## Revoking access
+
+To revoke LightLoop's access to your Google Drive:
+
+1. Go to [myaccount.google.com/permissions](https://myaccount.google.com/permissions)
+2. Find **LightLoop** in the list
+3. Click **Remove Access**
+
+After revoking access, LightLoop can no longer fetch download URLs for your media files. Your Apple TVs will continue playing cached content until they restart or the cache is cleared.
+
+To fully remove your LightLoop account and all associated data, use the **Delete Account** option in LightLoop's Account Settings.

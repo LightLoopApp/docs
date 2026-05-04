@@ -1,0 +1,89 @@
+---
+title: "Kidddo"
+description: "Instant Welcome Party greetings triggered the moment a child scans in with Kidddo."
+---
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV showing the Kidddo Welcome Party overlay — child's name and photo in a joyful, celebratory full-screen display */}
+
+Kidddo is a children's ministry check-in system that integrates with LightLoop for near-instant Welcome Party greetings. Unlike the [Planning Center integration](/integrations/planning-center#welcome-party) which polls for new arrivals, Kidddo pushes a webhook to LightLoop the moment a child scans — so the greeting appears on screen within a second.
+
+## How Kidddo Welcome Party works
+
+1. A child scans their badge or tag at the Kidddo check-in station
+2. Kidddo sends a webhook to LightLoop instantly
+3. LightLoop pushes the greeting to subscribed Apple TVs over WebSocket
+4. The Welcome Party overlay appears on screen immediately
+5. The overlay auto-dismisses after the configured duration
+
+{/* VIDEO PLACEHOLDER: Side-by-side screen recording: a child scans a badge on an iPad (left) and the Welcome Party overlay appears on an Apple TV (right) within 1-2 seconds */}
+
+## Setting up Kidddo Welcome Party
+
+### Step 1 — Create a Welcome Party item
+
+1. In the Media library, click **Add Monitor → Welcome Party**
+2. Select **Kidddo** as the source
+3. Configure the display:
+
+| Setting | Description |
+|---------|-------------|
+| **Welcome message** | Custom text shown under the child's name (e.g., "So glad you're here!") |
+| **Display duration** | Seconds before the overlay auto-dismisses |
+| **Sound effect** | Bells, Cheer, Celebration, Fanfare, or None |
+
+4. Save the item
+
+{/* SCREENSHOT PLACEHOLDER: Welcome Party configuration panel with the Kidddo source selected, showing the message field, duration, and sound effect picker */}
+
+### Step 2 — Get your webhook URL
+
+After saving the Welcome Party item, LightLoop displays a **webhook URL**. Copy this URL.
+
+{/* SCREENSHOT PLACEHOLDER: Welcome Party item detail panel showing the webhook URL with a copy button */}
+
+### Step 3 — Configure the webhook in Kidddo
+
+1. Log in to your Kidddo admin panel
+2. Navigate to **Integrations** or **Webhooks**
+3. Add a new webhook and paste the LightLoop URL
+4. Set the trigger to **Check-in** events
+5. Save
+
+Kidddo will now send a POST request to LightLoop whenever a child checks in, including the child's name and photo.
+
+{/* SCREENSHOT PLACEHOLDER: Kidddo admin panel webhook configuration screen with the LightLoop URL pasted in */}
+
+### Step 4 — Add to a playlist
+
+Add the Welcome Party item to any playlist on your feed. It activates as an overlay — it doesn't replace the normal content, it appears on top.
+
+## What appears on screen
+
+The overlay shows:
+- The child's **photo** (from Kidddo)
+- A large **"Welcome, [Name]!"** heading
+- Your custom **welcome message**
+- An animated background
+- The configured **sound effect** plays once
+
+{/* SCREENSHOT PLACEHOLDER: Full-screen Welcome Party overlay with all elements labeled: photo circle, name heading, custom message, animated confetti background */}
+
+## Testing the integration
+
+To test without a real check-in:
+1. In the Welcome Party item detail panel, click **Send Test Greeting**
+2. Enter a test name and optionally a photo URL
+3. Click **Send** — the overlay should appear on any connected Apple TVs within a second
+
+{/* SCREENSHOT PLACEHOLDER: Test greeting panel with a name field and optional photo URL, plus a "Send Test" button */}
+
+## Kidddo vs. Planning Center
+
+| Feature | Kidddo | Planning Center |
+|---------|--------|-----------------|
+| Trigger method | Webhook (push) | Polling (pull) |
+| Delay from scan to screen | ~1 second | 3–10 seconds |
+| Requires PCO account | No | Yes |
+| Photo support | Yes | Yes |
+
+Use Kidddo if your organization uses Kidddo for check-in. Use Planning Center if you use PCO Check-In. Both produce the same on-screen experience — Kidddo is just faster.

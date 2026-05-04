@@ -1,0 +1,95 @@
+---
+title: "Quick Start"
+description: "Create your account, upload your first media, and get it playing on a screen in under 10 minutes."
+---
+
+## Step 1 — Sign in with Google
+
+Go to [lightloop.app](https://lightloop.app) and click **Sign in with Google**.
+
+LightLoop requests only `drive.file` scope — it can only see files it creates, never your personal Google Drive files.
+
+{/* SCREENSHOT PLACEHOLDER: Google OAuth consent screen showing the drive.file permission scope */}
+
+## Step 2 — Choose your Google Drive folder
+
+After signing in, LightLoop asks where to store your media files. You can:
+
+- **Create a new folder** — recommended; LightLoop creates a `LightLoop Media` folder in your Drive
+- **Choose an existing folder** — pick any folder you already use for media assets
+
+<Info>
+  Nonprofits using Google Workspace for Nonprofits have 100 TB of free storage. Personal Google accounts include 15 GB.
+</Info>
+
+{/* SCREENSHOT PLACEHOLDER: Drive folder picker modal with "Create New Folder" and folder browser options */}
+
+## Step 3 — Upload your first media
+
+From the **Media** tab, click **Upload** (or drag files directly onto the page).
+
+{/* SCREENSHOT PLACEHOLDER: Media library showing the upload drag-and-drop zone with a few items already uploaded */}
+
+LightLoop supports:
+- **Videos** — MP4, MOV, and most common formats
+- **Images** — JPEG, PNG, GIF, WebP
+- **Audio** — MP3, M4A, AAC (for background soundtracks)
+
+Files upload directly to your Google Drive. A thumbnail is generated automatically.
+
+## Step 4 — Create a playlist
+
+1. Click the **Playlists** tab
+2. Click **New Playlist**
+3. Give it a name (e.g., "Pre-Service Loop")
+4. Click **Add Items** and select the media you just uploaded
+5. Drag items to reorder them
+
+{/* SCREENSHOT PLACEHOLDER: Playlist editor showing three media items ordered by drag handles, with the Add Items button visible */}
+
+## Step 5 — Create a feed and add your playlist
+
+A **feed** is what your Apple TV subscribes to. One feed can contain multiple playlists.
+
+1. Click the **Feeds** tab
+2. Click **New Feed**
+3. Give it a name (e.g., "Main Lobby")
+4. Note the **Feed ID** — a 6-character code like `AB12CD`
+5. Click **Add Playlist** and select your playlist
+
+{/* SCREENSHOT PLACEHOLDER: Feed editor showing the Feed ID code prominently, with one playlist added */}
+
+<Tip>
+  Your Feed ID is what you'll type into the Apple TV app. Write it down or keep this tab open.
+</Tip>
+
+## Step 6 — Connect your Apple TV
+
+Open the **LightLoop app** on your Apple TV. You'll see the setup screen:
+
+1. Enter your **server URL** (shown on the Feeds page in the dashboard)
+2. Enter your **6-character Feed ID**
+3. Press **Connect**
+
+The Apple TV starts downloading your media immediately. Once the download completes, playback begins automatically.
+
+{/* SCREENSHOT PLACEHOLDER: tvOS setup screen showing the server URL and Feed ID input fields */}
+
+## You're live
+
+Your content is now playing on screen. Any changes you make in the dashboard — adding items, reordering, hiding — sync to the Apple TV in real time.
+
+<CardGroup cols={2}>
+  <Card title="Learn about content types" icon="photo-film" href="/web-app/content-types">
+    Livestreams, web snapshots, calendars, and more
+  </Card>
+  <Card title="Set up scheduling" icon="calendar" href="/web-app/scheduling">
+    Show the right playlist at the right time automatically
+  </Card>
+  <Card title="Invite your team" icon="users" href="/web-app/teams">
+    Give others access to upload or edit content
+  </Card>
+  <Card title="Connect Apple TV in detail" icon="tv" href="/apple-tv/connecting">
+    Full setup guide including orientation and screensaver settings
+  </Card>
+</CardGroup>

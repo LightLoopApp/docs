@@ -1,0 +1,163 @@
+---
+title: "FAQ"
+description: "Answers to the most common LightLoop questions."
+---
+
+## General
+
+<AccordionGroup>
+  <Accordion title="Is LightLoop really free?">
+    Yes — completely. There are no plans, no trial periods, and no feature limits. LightLoop is free for everyone.
+
+    The infrastructure (Cloudflare Workers, D1, R2) is operated by the LightLoop team. Media storage is in your own Google Drive — you pay nothing for that either (nonprofits on Google Workspace for Nonprofits get 100 TB free).
+
+    If LightLoop saves your organization time and money and you'd like to contribute, there's an optional supporter gift option in Account Settings — but it's entirely voluntary.
+  </Accordion>
+
+  <Accordion title="Does LightLoop work on Android TV, Roku, or Fire TV?">
+    Not currently. LightLoop is built specifically for Apple TV (tvOS). Apple TV was chosen for its reliability, consistent hardware, offline storage capabilities, and the automatic restart behavior needed for unattended displays.
+
+    Support for other platforms is not currently planned.
+  </Accordion>
+
+  <Accordion title="Can I use LightLoop without a Google account?">
+    No. Google sign-in is required because LightLoop stores all media files in Google Drive. Google Drive provides the free, reliable storage that makes LightLoop cost-free to use.
+  </Accordion>
+
+  <Accordion title="What happens to my content if LightLoop shuts down?">
+    All your files are in your Google Drive — they're yours. LightLoop stores references and metadata, but the actual media is always in your control. You can access, download, or move your files at any time through Google Drive directly.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Apple TV
+
+<AccordionGroup>
+  <Accordion title="What Apple TV models are supported?">
+    LightLoop supports Apple TV HD (4th generation, 2015) and all Apple TV 4K models (2017, 2021, 2022 and later). It requires tvOS 16 or later.
+
+    Apple TV 3rd generation and older are **not** supported — they don't run tvOS apps.
+  </Accordion>
+
+  <Accordion title="Can I connect multiple Apple TVs to the same feed?">
+    Yes. As many Apple TVs as you want can subscribe to the same feed. They all receive updates simultaneously via WebSocket.
+
+    If you want different screens to show different content, create separate feeds and give each Apple TV its own Feed ID.
+  </Accordion>
+
+  <Accordion title="The Apple TV isn't getting updates when I make changes. What's wrong?">
+    First, check that the Apple TV has an internet connection. If it does:
+
+    1. The WebSocket may have disconnected — the TV polls every 30 seconds as a fallback, so updates arrive within 30 seconds even if the WebSocket is down.
+    2. Restart the LightLoop app on the Apple TV to force a fresh connection.
+    3. If the problem persists, check your server URL in the Apple TV settings — make sure it hasn't changed.
+  </Accordion>
+
+  <Accordion title="A video plays fine on my computer but shows as incompatible on Apple TV. Why?">
+    Apple TV has a specific set of supported video codecs. The most common cause is:
+
+    - **HEVC (H.265)** — supported on Apple TV 4K only, not on Apple TV HD
+    - **Variable frame rate** — some cameras (especially GoPro and iPhone) record VFR; some Apple TVs have trouble with this
+    - **ProRes or other editing codecs** — these are for production, not playback
+    - **High bit rate** — very high bit rate files may stall
+
+    **Fix:** Re-export the video as **H.264, MP4, constant frame rate** at 1080p or 4K. Most video editing apps have a "Compatibility" or "Web" export preset that works well.
+  </Accordion>
+
+  <Accordion title="How do I prevent the Apple TV from going to sleep during a service?">
+    Enable **Prevent screensaver** in the feed settings:
+
+    1. Open the feed in the dashboard
+    2. Click **Settings**
+    3. Toggle on **Prevent screensaver**
+    4. Save
+
+    The Apple TV will stay awake during playback.
+  </Accordion>
+
+  <Accordion title="Can the Apple TV start automatically when it powers on?">
+    Yes. Place the LightLoop app in the **top-left position** of the Apple TV home screen. tvOS resumes the last-used app after a restart, so as long as LightLoop was the last thing playing, it will relaunch automatically.
+
+    Additionally, check **Settings → Apps → LightLoop** on tvOS for an "Open on Startup" option if available on your tvOS version.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Media & Uploads
+
+<AccordionGroup>
+  <Accordion title="What video format should I use?">
+    **H.264 (AVC), MP4 container, constant frame rate.** This is compatible with every Apple TV model and is the safest choice.
+
+    For 4K screens with an Apple TV 4K, you can also use H.265 (HEVC) for smaller file sizes.
+
+    Avoid ProRes, MXF, AVI, WMV, and other production formats — convert them before uploading.
+  </Accordion>
+
+  <Accordion title="How large can my video files be?">
+    There's no hard size limit from LightLoop. Files upload directly to your Google Drive, so the practical limit is your available Drive storage.
+
+    Keep in mind that large files take longer to download to the Apple TV. A 1 GB video takes about 14 minutes on a 10 Mbps connection. Try to push changes well before your service starts.
+  </Accordion>
+
+  <Accordion title="Can I use Google Slides as a background loop?">
+    Yes — use the [Web snapshot](/web-app/content-types#web-snapshot) feature. Set the URL to your published Google Slides presentation (in "Present" mode) and set a device profile of TV. LightLoop will screenshot the current slide and refresh it on your configured interval.
+
+    Note: auto-advancing slides require a timed redirect in the presentation itself, or you can export each slide as an image and upload them individually.
+  </Accordion>
+
+  <Accordion title="Can I upload a PDF?">
+    PDFs are not directly supported as playable media. To show a PDF on screen:
+
+    1. Export it as a series of JPEG images (one per page), or
+    2. Open it in Google Slides and use the Web snapshot feature, or
+    3. Export to video using a tool like Canva
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Integrations
+
+<AccordionGroup>
+  <Accordion title="Can I show my PCO service plan on screen?">
+    Not directly, but you can:
+
+    1. Use the **PCO Calendar** integration to show upcoming service times
+    2. Export your service plan to a Canva design and import it
+    3. Use a **Web snapshot** pointed at a PCO public calendar URL
+  </Accordion>
+
+  <Accordion title="Welcome Party isn't appearing on the Apple TV. What should I check?">
+    1. Confirm the Welcome Party item is added to a playlist in the active feed
+    2. Confirm the Apple TV is connected and receiving updates (check for real-time sync)
+    3. If using PCO: verify your PCO connection is active in **Integrations** and the correct event is selected
+    4. If using Kidddo: use the **Send Test Greeting** button in the Welcome Party item detail to verify the webhook pipeline end-to-end
+    5. Check that the Apple TV has an internet connection (Welcome Party requires live data)
+  </Accordion>
+
+  <Accordion title="Does LightLoop see all my Google Drive files?">
+    No. LightLoop uses the `drive.file` scope, which means it can only see and access files it created. Your personal photos, documents, and other Drive content are invisible to LightLoop.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Account & Privacy
+
+<AccordionGroup>
+  <Accordion title="How do I delete my account?">
+    1. Click your profile picture → **Settings**
+    2. Scroll to **Danger Zone**
+    3. Click **Delete Account**
+    4. Confirm
+
+    This permanently deletes all your LightLoop data — playlists, feeds, media metadata, team members, and integrations. Your media files in Google Drive are **also deleted** unless you've moved them out of the LightLoop folder first.
+  </Accordion>
+
+  <Accordion title="Can collaborators see my Google Drive files?">
+    No. Collaborators sign in with their own Google accounts. They interact with your media through LightLoop's interface — they never have direct access to your Google Drive.
+  </Accordion>
+</AccordionGroup>

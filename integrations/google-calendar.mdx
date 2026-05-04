@@ -1,0 +1,72 @@
+---
+title: "Google Calendar"
+description: "Display upcoming events from Google Calendar on your screens — auto-refreshing and always current."
+---
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV showing a Google Calendar display with a clean event list showing event names, times, and locations for the week ahead */}
+
+Connect Google Calendar to show upcoming events, service schedules, room bookings, or any calendar data directly on your screens.
+
+## Connecting Google Calendar
+
+<Note>
+  Google Calendar integration requires an expanded Google OAuth scope (`calendar.readonly`) beyond what's needed for file storage. You'll be asked to authorize this separately.
+</Note>
+
+1. Click your profile picture → **Integrations**
+2. Find **Google Calendar** and click **Connect**
+3. Sign in with your Google account and grant `calendar.readonly` access
+4. LightLoop lists all calendars visible to that Google account
+
+{/* SCREENSHOT PLACEHOLDER: Google Calendar OAuth screen showing the calendar.readonly permission being requested */}
+
+## Creating a calendar display
+
+1. In the Media library, click **Add Calendar**
+2. Select **Google Calendar**
+3. Choose which calendar(s) to include (you can show multiple calendars on one display)
+4. Configure the display:
+
+| Setting | Description |
+|---------|-------------|
+| **Title** | Label shown at the top of the display (e.g., "This Week at First Church") |
+| **Events to show** | How many upcoming events to display (1–20) |
+| **Date range** | How far ahead to look (today, this week, 30 days, etc.) |
+| **Text size** | Small, medium, or large — adjust for viewing distance |
+
+5. Save — the calendar item appears in your library
+6. Add it to any playlist
+
+{/* SCREENSHOT PLACEHOLDER: Google Calendar configuration panel with the calendar selector (multiple checkboxes for different calendars), title field, event count slider, and date range dropdown */}
+
+## Auto-refresh
+
+The calendar display always shows current data. LightLoop re-renders the JPEG image on a regular schedule so upcoming events stay accurate — no manual refresh needed.
+
+## Display layout
+
+Events are displayed in a clean, readable layout optimized for TV viewing:
+- Event name (large text)
+- Date and time
+- Location (if set in the calendar event)
+- Color coding by calendar (when showing multiple calendars)
+
+{/* SCREENSHOT PLACEHOLDER: Close-up of a calendar display showing 4 events: "Sunday Worship — 9:00 AM & 11:00 AM", "Staff Meeting — Tue 2:00 PM", "Community Dinner — Thu 6:00 PM" */}
+
+## Use cases
+
+- **Lobby display** — Show this week's services and events as people arrive
+- **Hallway** — Show room bookings and group meeting times
+- **Kidddo check-in area** — Show when classes start and end
+- **Office screen** — Display staff meeting schedule
+
+## Multiple calendars
+
+You can pull from multiple Google Calendars on one display — for example, your "Services" calendar and your "Events" calendar combined. Each calendar can be a different color in the display.
+
+## Disconnecting
+
+1. Click your profile picture → **Integrations**
+2. Click **Disconnect** next to Google Calendar
+
+Existing calendar display items will stop updating after disconnection. They'll show the last rendered image until reconnected or deleted.

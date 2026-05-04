@@ -1,0 +1,105 @@
+---
+title: "Playback"
+description: "How content plays on your Apple TV — from the playlist grid to full-screen presentation mode."
+---
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV showing the playlist grid with 6 playlist cards in a 3x2 layout, thumbnails visible, download status shown */}
+
+## The playlist grid
+
+After connecting, the Apple TV shows a grid of all playlists in your feed. Each card shows:
+
+- The playlist's **cover art** (or a default thumbnail if none is set)
+- The playlist **name**
+- A **download progress bar** (for items that need to be cached)
+- A **media type icon** indicating the primary content type
+
+### Selecting a playlist
+
+Use the Siri Remote to navigate the grid. Press the **center button** on the touchpad to open a playlist and begin playback.
+
+{/* VIDEO PLACEHOLDER: Short screen recording of navigating the playlist grid and selecting a playlist to open */}
+
+---
+
+## Presentation mode (full-screen playback)
+
+When a playlist opens, the Apple TV enters full-screen presentation mode:
+
+- The screen goes black and the first item begins playing
+- No system chrome (no status bar, no navigation)
+- Media fills the screen with a blurred letterbox effect if the aspect ratio doesn't match the display
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV in presentation mode showing a full-screen image with a soft blurred background fill in the letterbox areas */}
+
+### Auto-advance
+
+By default, playlists advance automatically. When one item finishes:
+- Videos: advance at the end of the file
+- Images: advance after the configured duration (default 10 seconds)
+- Livestreams: play continuously (never auto-advance unless they lose signal)
+
+If the playlist has **Auto-advance disabled**, playback pauses at the end of each item and waits for you to press the Siri Remote's **play/pause button** to continue.
+
+### Transitions
+
+If the playlist has a transition duration set, items fade through black between each item. A duration of 0 = instant cut.
+
+---
+
+## Pause points
+
+If a video has pause points set, playback automatically stops at each marked timestamp.
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV paused at a pause point, showing the video frozen with a subtle "paused" indicator and prompt to press Menu to continue */}
+
+A pause point is intended for curriculum videos or teaching material where the presenter needs time to discuss before continuing.
+
+**To advance past a pause point:** press the **Menu button** on the Siri Remote.
+
+---
+
+## Soundtracks
+
+If a playlist has a soundtrack assigned, background audio begins playing when the playlist opens. The soundtrack:
+
+- Plays independently behind the visual content
+- Loops (or shuffles, depending on the setting) without gaps
+- Continues across item transitions
+- Can be adjusted in volume from the dashboard, but not from Apple TV during playback
+
+---
+
+## Scheduled playlists
+
+If a [timed broadcast](/web-app/scheduling) is active, the Apple TV navigates to the scheduled playlist automatically at the configured time. When the broadcast duration ends, it returns to the normal feed content.
+
+{/* VIDEO PLACEHOLDER: Screen recording showing the Apple TV grid automatically switching to a scheduled playlist at the appointed time */}
+
+---
+
+## Welcome Party overlay
+
+If you have [Welcome Party](/integrations/planning-center#welcome-party) configured, a full-screen celebration overlay appears whenever a child checks in. This displays on top of whatever content is currently playing.
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV showing the Welcome Party overlay — child's name, photo, and a celebratory message over the normal content in the background */}
+
+The overlay auto-dismisses after the configured duration and playback resumes seamlessly.
+
+---
+
+## Screensaver prevention
+
+If the feed has **Prevent screensaver** enabled, the Apple TV will never sleep or activate its screensaver during playback. This is recommended for lobby and hallway displays.
+
+If it's disabled, the Apple TV's normal screensaver settings apply.
+
+---
+
+## Exiting playback
+
+Press the **Menu button** on the Siri Remote to exit a playlist and return to the playlist grid.
+
+<Note>
+  If a pause point is active, pressing Menu advances to the next section rather than exiting. Press Menu a second time (when not at a pause point) to exit to the grid.
+</Note>

@@ -1,0 +1,153 @@
+---
+title: "Content Types"
+description: "Everything LightLoop can display — from local videos and images to live web snapshots, check-in monitors, and calendar feeds."
+---
+
+LightLoop supports seven distinct content types. Each behaves differently in terms of how it's stored, how it gets to the Apple TV, and whether it needs an internet connection during playback.
+
+## Quick reference
+
+| Type | Storage | Needs internet to play | Apple TV download |
+|------|---------|------------------------|-------------------|
+| Video | Google Drive | No (cached) | Yes — downloaded before playing |
+| Image | Google Drive | No (cached) | Yes — downloaded before playing |
+| Audio | Google Drive | No (cached) | Yes — downloaded before playing |
+| Livestream | External HLS URL | Yes | No — streams live |
+| Web snapshot | Cloudflare (server-rendered) | No | Polled from server periodically |
+| Monitor | Cloudflare (server-rendered) | No | Polled from server periodically |
+| Calendar | Cloudflare (server-rendered) | No | Polled from server periodically |
+
+---
+
+## Video
+
+Standard video files uploaded from your computer or imported from YouTube.
+
+**Formats supported:** MP4, MOV, M4V, and most H.264-encoded files.
+
+**Best practices:**
+- Export as H.264 / MP4 for maximum compatibility across Apple TV generations
+- Use 1920×1080 (1080p) or 3840×2160 (4K) resolution
+- Avoid variable frame rate footage — convert to constant frame rate before uploading
+
+{/* SCREENSHOT PLACEHOLDER: Media detail panel for a video item showing thumbnail, duration, in/out marker fields, and pause points */}
+
+**Special options:**
+- [Pause points](/web-app/media-library#pause-points) — auto-pause at specific timestamps
+- [In/Out markers](/web-app/media-library#in--out-markers) — trim without re-encoding
+- [Subtitles](/web-app/media-library) — enable embedded or uploaded subtitle track
+
+---
+
+## Image
+
+Static images displayed for a configurable duration.
+
+**Formats supported:** JPEG, PNG, WebP, GIF (first frame only for GIF).
+
+**Duration:** Set a custom display time in the media detail panel (default: 10 seconds). This is how long the image stays on screen before advancing to the next item.
+
+{/* SCREENSHOT PLACEHOLDER: Image item detail panel showing the Duration field set to "15 seconds" */}
+
+---
+
+## Audio
+
+Audio files used as background soundtracks. Audio items are not visible on screen — they play as background music behind your visual content.
+
+**Formats supported:** MP3, M4A, AAC, WAV.
+
+**How to use:**
+1. Upload your audio files
+2. Create a playlist containing only audio items
+3. Assign this playlist as the [Soundtrack](/web-app/playlists#soundtracks) on another playlist
+
+Audio playlists can be set to loop, shuffle, and have their volume adjusted independently of the main content.
+
+{/* SCREENSHOT PLACEHOLDER: Playlist editor showing an audio-only playlist with 3 MP3 tracks and a music-note badge on each item */}
+
+---
+
+## Livestream
+
+An HLS (HTTP Live Streaming) URL that streams live content — a camera feed, broadcast stream, or any HLS-compatible source.
+
+**Livestreams are always ready.** There's no file to download — the Apple TV connects directly to the HLS URL when it's time to play.
+
+**How to add:**
+1. In the Media library, click **Add Livestream**
+2. Paste the HLS URL (ends in `.m3u8`)
+3. Give it a name
+
+{/* SCREENSHOT PLACEHOLDER: Add Livestream modal with a URL field and name field, with an example .m3u8 URL filled in */}
+
+**Graceful fallback:** If the stream URL is unavailable when it's time to play, the Apple TV skips that item and moves on rather than freezing.
+
+<Note>
+  Livestreams require an active internet connection at the Apple TV during playback. All other content types work offline once cached.
+</Note>
+
+---
+
+## Web snapshot
+
+A website captured as a JPEG by LightLoop's server-side rendering engine, then displayed like an image on screen.
+
+**Use cases:**
+- Display a Google Slides presentation without exporting
+- Show a live church bulletin or event website
+- Display a custom web page designed specifically for screens
+
+**How to add:**
+1. In the Media library, click **Add Web**
+2. Enter the URL of the page to capture
+3. Choose a **device profile** (Mobile, Tablet, or TV) — affects viewport and rendering
+4. Set a **refresh interval** (how often the server re-captures the page)
+
+{/* SCREENSHOT PLACEHOLDER: Add Web modal showing the URL field, device profile selector (Mobile/Tablet/TV), and refresh interval setting */}
+
+**How it works:** LightLoop's server opens the URL in a headless browser, takes a screenshot, and stores it as a JPEG. The Apple TV fetches this image periodically. The page is never rendered on the Apple TV itself.
+
+---
+
+## Monitor
+
+A live check-in roster rendered server-side as a JPEG. Currently supports Planning Center Online (PCO) check-in and Kidddo.
+
+**Use cases:**
+- Display who has checked in to children's ministry
+- Show check-in counts by room or event
+
+**How to add:**
+1. Connect your Planning Center account under **Account → Integrations**
+2. In the Media library, click **Add Monitor**
+3. Select the event or location to track
+
+{/* SCREENSHOT PLACEHOLDER: Monitor configuration panel showing PCO event selection, display format (name list vs count), and refresh rate */}
+
+The monitor updates automatically every few seconds. No manual refresh needed.
+
+See the [Planning Center integration guide](/integrations/planning-center) for setup details.
+
+---
+
+## Calendar
+
+Upcoming events from Google Calendar or Planning Center, rendered as a screen-ready JPEG.
+
+**Use cases:**
+- Show this week's service schedule on a lobby display
+- Display upcoming events in a hallway or common area
+- Show room bookings outside a conference room
+
+**How to add:**
+1. Connect your Google Calendar or PCO account under **Account → Integrations**
+2. In the Media library, click **Add Calendar**
+3. Select which calendar(s) to display
+4. Configure the look (event count, date range, text size)
+
+{/* SCREENSHOT PLACEHOLDER: Calendar display on Apple TV showing a styled event list with event names, times, and locations */}
+
+The calendar refreshes automatically and always shows current data.
+
+See the [Google Calendar integration guide](/integrations/google-calendar) and [Planning Center guide](/integrations/planning-center) for setup.
