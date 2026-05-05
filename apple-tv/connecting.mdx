@@ -1,38 +1,34 @@
 ---
 title: "Connecting to a Feed"
-description: "Pair your Apple TV with a LightLoop feed using your server URL and Feed ID."
+description: "Pair your Apple TV with a LightLoop feed using your Feed ID."
 ---
 
 {/* SCREENSHOT PLACEHOLDER: tvOS setup screen showing two input fields: Server URL and Feed ID, with a Connect button */}
 
-Before your Apple TV can play content, it needs to connect to a feed. You'll need two pieces of information from the web dashboard:
+Before your Apple TV can play content, it needs to connect to a feed. You'll need a piece of information from the web dashboard:
 
-- **Server URL** — the address of your LightLoop server (e.g., `https://screens.myorg.workers.dev`)
 - **Feed ID** — the 6-character code for the specific feed (e.g., `AB12CD`)
 
-Both are found on the **Feeds** page in the dashboard.
+It's found on the **Feeds** page in the dashboard.
 
 ## Entering your credentials
 
 <Steps>
   <Step title="Open LightLoop">
     Launch the app from the Apple TV home screen. First-time users see the setup screen automatically.
-  </Step>
-  <Step title="Enter the server URL">
-    Use the on-screen keyboard to type your server URL. You can also hold the microphone button on the Siri Remote to use voice dictation — say the URL letter by letter or spell it out.
-    
+
     {/* SCREENSHOT PLACEHOLDER: tvOS on-screen keyboard with the server URL being typed */}
   </Step>
-  <Step title="Enter the Feed ID">
+  <Step title="Enter the Feed ID" stepNumber={2}>
     Type the 6-character Feed ID. Capitalization doesn't matter.
-    
+
     {/* SCREENSHOT PLACEHOLDER: tvOS Feed ID input field with "AB12CD" typed in */}
   </Step>
-  <Step title="Press Connect">
+  <Step title="Press Connect" stepNumber={3}>
     Highlight the **Connect** button and press the Siri Remote's center button. The app validates your credentials and begins fetching the feed.
-    
-    If the connection fails, double-check the server URL (include `https://`) and Feed ID.
-    
+
+    If the connection fails, double-check the Feed ID.
+
     {/* SCREENSHOT PLACEHOLDER: Connection success — feed name appears at the top and the playlist grid starts loading */}
   </Step>
 </Steps>
