@@ -1,0 +1,107 @@
+{
+  "theme": "mint",
+  "name": "LightLoop",
+  "colors": {
+    "primary": "#6366F1",
+    "light": "#818CF8",
+    "dark": "#4338CA"
+  },
+  "favicon": "/images/favicon.png",
+  "logo": "/images/icon2.png",
+  "navbar": {
+    "links": [
+      {
+        "label": "Sign In",
+        "href": "https://lightloop.app/app"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Get Started Free",
+      "href": "https://lightloop.app"
+    }
+  },
+  "footer": {
+    "socials": {
+      "website": "https://lightloop.app"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "getting-started/introduction",
+              "getting-started/quick-start",
+              "getting-started/connect-apple-tv"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Web App",
+        "groups": [
+          {
+            "group": "Web App",
+            "pages": [
+              "web-app/dashboard",
+              "web-app/media-library",
+              "web-app/playlists",
+              "web-app/feeds",
+              "web-app/content-types",
+              "web-app/scheduling",
+              "web-app/teams"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Apple TV",
+        "groups": [
+          {
+            "group": "Apple TV App",
+            "pages": [
+              "apple-tv/installation",
+              "apple-tv/connecting",
+              "apple-tv/playback",
+              "apple-tv/remote-controls",
+              "apple-tv/offline-caching"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "groups": [
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/google-drive",
+              "integrations/canva",
+              "integrations/youtube",
+              "integrations/planning-center",
+              "integrations/google-calendar",
+              "integrations/kidddo"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reference",
+        "groups": [
+          {
+            "group": "Reference",
+            "pages": [
+              "reference/content-types",
+              "reference/faq",
+              "reference/troubleshooting"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
