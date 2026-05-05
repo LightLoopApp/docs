@@ -26,7 +26,7 @@ Kidddo is a children's ministry check-in system that integrates with LightLoop f
 3. Configure the display:
 
 | Setting | Description |
-|---------|-------------|
+| --- | --- |
 | **Welcome message** | Custom text shown under the child's name (e.g., "So glad you're here!") |
 | **Display duration** | Seconds before the overlay auto-dismisses |
 | **Sound effect** | Bells, Cheer, Celebration, Fanfare, or None |
@@ -44,26 +44,27 @@ After saving the Welcome Party item, LightLoop displays a **webhook URL**. Copy 
 ### Step 3 — Configure the webhook in Kidddo
 
 1. Log in to your Kidddo admin panel
-2. Navigate to **Integrations** or **Webhooks**
-3. Add a new webhook and paste the LightLoop URL
-4. Set the trigger to **Check-in** events
-5. Save
+2. Navigate to **Settings \> Use Label Printers \> Printer Name**
+3. Paste the LightLoop URL in the Webhook URL field
+4. If the **Remote Printer Name** field cannot be empty, if you're not using a printer simply enter any value in that field to activate the Webhook.
+5. Test the trigger by clicking the **Print Test Label** button
 
 Kidddo will now send a POST request to LightLoop whenever a child checks in, including the child's name and photo.
 
 {/* SCREENSHOT PLACEHOLDER: Kidddo admin panel webhook configuration screen with the LightLoop URL pasted in */}
 
-### Step 4 — Add to a playlist
+### Step 4 — Add to a Feed
 
-Add the Welcome Party item to any playlist on your feed. It activates as an overlay — it doesn't replace the normal content, it appears on top.
+Configure a Welcome Party on any feed. It activates as an overlay — it doesn't replace the normal content, it appears on top.
 
 ## What appears on screen
 
 The overlay shows:
+
 - The child's **photo** (from Kidddo)
-- A large **"Welcome, [Name]!"** heading
+- A large **"Welcome, \[Name\]!"** heading
 - Your custom **welcome message**
-- An animated background
+- An custom background gradient or color
 - The configured **sound effect** plays once
 
 {/* SCREENSHOT PLACEHOLDER: Full-screen Welcome Party overlay with all elements labeled: photo circle, name heading, custom message, animated confetti background */}
@@ -71,6 +72,7 @@ The overlay shows:
 ## Testing the integration
 
 To test without a real check-in:
+
 1. In the Welcome Party item detail panel, click **Send Test Greeting**
 2. Enter a test name and optionally a photo URL
 3. Click **Send** — the overlay should appear on any connected Apple TVs within a second
@@ -80,7 +82,7 @@ To test without a real check-in:
 ## Kidddo vs. Planning Center
 
 | Feature | Kidddo | Planning Center |
-|---------|--------|-----------------|
+| --- | --- | --- |
 | Trigger method | Webhook (push) | Polling (pull) |
 | Delay from scan to screen | ~1 second | 3–10 seconds |
 | Requires PCO account | No | Yes |
