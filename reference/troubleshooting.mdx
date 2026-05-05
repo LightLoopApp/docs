@@ -8,16 +8,13 @@ description: "Solutions for common issues with the LightLoop web app and Apple T
 ### Apple TV won't connect to the feed
 
 <Steps>
-  <Step title="Check the server URL">
-    Make sure the URL starts with `https://` and matches exactly what's shown in the dashboard. Even a trailing slash difference can cause a connection failure.
-  </Step>
-  <Step title="Check the Feed ID">
+  <Step title="Check the Feed ID" stepNumber={1}>
     Feed IDs are 6 characters. Double-check you haven't transposed any characters. The ID is not case-sensitive.
   </Step>
-  <Step title="Check internet connectivity">
+  <Step title="Check internet connectivity" stepNumber={2}>
     On the Apple TV, go to **Settings → Network** and verify the TV has an internet connection.
   </Step>
-  <Step title="Try restarting the app">
+  <Step title="Try restarting the app" stepNumber={3}>
     Press the **TV/Home button** twice to see the app switcher, swipe up on LightLoop to quit it, then relaunch.
   </Step>
 </Steps>
@@ -44,6 +41,7 @@ This means the Apple TV flagged the video as incompatible with its hardware.
 **Fix:** Re-export the video as **H.264, MP4, constant frame rate** and re-upload it to LightLoop. Delete the original incompatible item.
 
 Common causes:
+
 - H.265/HEVC on Apple TV HD (not supported — Apple TV 4K only)
 - Variable frame rate footage
 - Unsupported container format (MKV, AVI, WMV)
