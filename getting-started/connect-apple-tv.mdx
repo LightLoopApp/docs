@@ -5,46 +5,36 @@ description: "Pair your Apple TV with a LightLoop feed and start playing content
 
 ## Requirements
 
-- Apple TV **4th generation or newer** (Apple TV HD or Apple TV 4K)
+- Apple TV **4th generation or newer** (Apple TV HD or Apple TV 4K). 
 - LightLoop app installed from the App Store
-- Your **server URL** and **Feed ID** (both found on the Feeds page of the dashboard)
+- Your **Feed ID** (found on the Feeds page of the dashboard)
 
 {/* SCREENSHOT PLACEHOLDER: Apple TV App Store page for LightLoop showing the install button */}
 
-## Finding your server URL and Feed ID
+## Finding your Feed ID
 
 In the web dashboard, open the **Feeds** tab and select your feed. You'll see:
 
-- **Server URL** — the address of your LightLoop server (e.g., `https://screens.myorg.workers.dev`)
 - **Feed ID** — a 6-character code (e.g., `AB12CD`)
 
 {/* SCREENSHOT PLACEHOLDER: Feed details panel in the web dashboard highlighting the Server URL and Feed ID fields */}
-
-<Tip>
-  Your server URL is the same for all feeds in your account. Only the Feed ID changes per feed.
-</Tip>
 
 ## Pairing the Apple TV
 
 <Steps>
   <Step title="Open LightLoop on Apple TV">
     Launch the LightLoop app. First-time users will see the setup screen.
-    
+
     {/* SCREENSHOT PLACEHOLDER: tvOS app launch screen — LightLoop logo centered with "Get Started" prompt */}
   </Step>
-  <Step title="Enter your server URL">
-    Use the on-screen keyboard (or the Siri Remote's voice input) to type your server URL. Include `https://` at the start.
-    
-    {/* SCREENSHOT PLACEHOLDER: tvOS keyboard screen for entering the server URL */}
-  </Step>
-  <Step title="Enter your Feed ID">
+  <Step title="Enter your Feed ID" stepNumber={2}>
     Type the 6-character Feed ID. It is not case-sensitive.
-    
+
     {/* SCREENSHOT PLACEHOLDER: tvOS Feed ID entry screen */}
   </Step>
-  <Step title="Press Connect">
+  <Step title="Press Connect" stepNumber={3}>
     The app validates your credentials and begins fetching your feed. You'll see a playlist grid appear as media starts downloading.
-    
+
     {/* SCREENSHOT PLACEHOLDER: tvOS playlist grid with download progress bars on each playlist card */}
   </Step>
 </Steps>
