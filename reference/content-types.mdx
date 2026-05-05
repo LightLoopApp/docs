@@ -6,7 +6,7 @@ description: "Complete reference for all media types supported by LightLoop."
 ## Summary table
 
 | Type | Icon | Storage | Download required | Internet at playback | Notes |
-|------|------|---------|-------------------|---------------------|-------|
+| --- | --- | --- | --- | --- | --- |
 | **Video** | ▶ | Google Drive | Yes | No | H.264/MP4 recommended |
 | **Image** | 🖼 | Google Drive | Yes | No | JPEG, PNG, WebP |
 | **Audio** | ♪ | Google Drive | Yes | No | Soundtrack layer only |
@@ -19,16 +19,16 @@ description: "Complete reference for all media types supported by LightLoop."
 
 ## Video
 
-**File formats:** MP4, MOV, M4V  
-**Recommended codec:** H.264 (AVC) for maximum compatibility  
-**Max resolution:** 4K (3840×2160); 1080p for Apple TV HD  
+**File formats:** MP4, MOV, M4V\
+**Recommended codec:** H.264 (AVC) for maximum compatibility\
+**Max resolution:** 4K (3840×2160); 1080p for Apple TV HD\
 **Audio:** Stereo AAC recommended
 
 **Supported options:**
+
 - Custom duration override (for looping short clips)
 - In/Out markers (trim without re-encoding)
 - Pause points (auto-pause at timestamps)
-- Subtitle track (embedded or uploaded SRT)
 
 **Incompatibility:** If an Apple TV cannot decode the file, it flags the item as incompatible. The item is grayed out in the dashboard. Re-export as H.264 MP4 to resolve.
 
@@ -36,22 +36,24 @@ description: "Complete reference for all media types supported by LightLoop."
 
 ## Image
 
-**File formats:** JPEG, PNG, WebP, GIF (static — first frame only)  
+**File formats:** JPEG, PNG, WebP, GIF (static — first frame only)\
 **Recommended resolution:** 1920×1080 (16:9 landscape) or 1080×1920 (9:16 portrait)
 
 **Supported options:**
+
 - Custom duration (how long to show the image, in seconds; default: 10s)
 
 ---
 
 ## Audio
 
-**File formats:** MP3, M4A, AAC, WAV  
+**File formats:** MP3, M4A, AAC, WAV\
 **Use:** Soundtrack layer only (background audio behind visual content)
 
 Audio items cannot be added directly to a visual playlist as a primary content item — they are used as soundtracks assigned to a playlist.
 
 **Supported options:**
+
 - Loop (repeat the audio track)
 - Shuffle (randomize track order when multiple tracks are in a soundtrack playlist)
 - Volume (0–100%; independent of main content)
@@ -60,8 +62,14 @@ Audio items cannot be added directly to a visual playlist as a primary content i
 
 ## Livestream
 
-**Format:** HLS (.m3u8 URL)  
-**Requires internet at playback:** Yes — the Apple TV streams the HLS URL in real time  
+**Format:** HLS (.m3u8 URL)
+
+**Requires internet at playback:** 
+
+**NO** — If you're streaming a local HLS stream (say from an HLS encoder in your Worship Center e.g. http://192.168.1.111/stream.m3u8) to a TV elsewhere on campus) - you do not need internet connection - just local area network connection.
+
+**Yes** — if the HLS source feed is hosted online, the Apple TV streams the HLS URL in real time over the internet.
+
 **Download:** None — the URL is sent to Apple TV as metadata
 
 If the stream is unavailable when it's time to play, the Apple TV skips to the next item rather than stalling.
@@ -73,8 +81,9 @@ If the stream is unavailable when it's time to play, the Apple TV skips to the n
 **What it is:** A server-side screenshot of a live website, stored as a JPEG and updated at a configurable interval.
 
 **Device profiles:**
+
 | Profile | Viewport | Use case |
-|---------|----------|----------|
+| --- | --- | --- |
 | Mobile | 375×812 | Mobile-optimized pages |
 | Tablet | 768×1024 | General websites |
 | TV | 1920×1080 | Pages designed for large screens |
@@ -90,10 +99,11 @@ If the stream is unavailable when it's time to play, the Apple TV skips to the n
 **What it is:** A server-rendered live roster from Planning Center Check-In or Kidddo.
 
 **Supported sources:**
+
 - Planning Center Check-In (polls every few seconds)
 - Kidddo (webhook-triggered)
 
-**Refresh:** Automatically — no configuration needed  
+**Refresh:** Automatically — no configuration needed\
 **Requires internet:** Yes — renders live from PCO/Kidddo data
 
 ---
@@ -103,11 +113,12 @@ If the stream is unavailable when it's time to play, the Apple TV skips to the n
 **What it is:** A server-rendered upcoming-events display from Google Calendar or Planning Center.
 
 **Supported sources:**
+
 - Google Calendar (`calendar.readonly` OAuth scope)
 - Planning Center Calendar
 
-**Display options:** Event count, date range, text size, multi-calendar color coding  
-**Refresh:** Automatic — always shows current upcoming events  
+**Display options:** Event count, date range, text size, multi-calendar color coding\
+**Refresh:** Automatic — always shows current upcoming events\
 **Requires internet:** Yes — pulls live calendar data
 
 ---
@@ -117,7 +128,7 @@ If the stream is unavailable when it's time to play, the Apple TV skips to the n
 Every media item can override the feed-level orientation. Options:
 
 | Value | Description |
-|-------|-------------|
+| --- | --- |
 | **Inherit** | Use the feed's orientation setting |
 | **Landscape** | 16:9 horizontal |
 | **Portrait Left** | 9:16, rotated 90° counter-clockwise |
