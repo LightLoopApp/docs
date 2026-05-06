@@ -17,8 +17,8 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Get Started Free",
-      "href": "https://lightloop.app"
+      "label": "Login",
+      "href": "https://lightloop.app/app"
     }
   },
   "footer": {
