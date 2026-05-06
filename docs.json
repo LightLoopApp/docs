@@ -11,8 +11,8 @@
   "navbar": {
     "links": [
       {
-        "label": "Sign In",
-        "href": "https://lightloop.app/app"
+        "href": "https://lightloop.app",
+        "label": "Home"
       }
     ],
     "primary": {
