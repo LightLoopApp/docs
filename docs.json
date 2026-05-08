@@ -9,12 +9,7 @@
   "favicon": "/images/favicon.png",
   "logo": "/images/icon2.png",
   "navbar": {
-    "links": [
-      {
-        "href": "https://lightloop.app",
-        "label": "Home"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
       "label": "Login",
