@@ -1,0 +1,185 @@
+---
+title: "Songs"
+description: "Display synchronized lyric slides on your Apple TV — timed to a backing audio track, with full style control."
+---
+
+<Note>
+  Songs require **Apple TV app version 1.1 or later**. Update the LightLoop app on your Apple TV before using this feature.
+</Note>
+
+Songs are a purpose-built media type for displaying worship lyrics on screen. You create a song in LightLoop's web-based Song Editor, linking lyric slides to an audio track with precise timing markers. On the Apple TV, lyrics appear and transition automatically in sync with the music.
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV in full-screen song playback — lyrics centered on a background video, cross-dissolving between slides */}
+
+---
+
+## How Songs work
+
+A Song item contains:
+
+- **Lyric slides** — one or more lines of text per slide (blank slides create intentional pauses)
+- **Audio track** — the backing music file (MP3, M4A, AAC, or WAV)
+- **Background** — an image or video that plays behind the lyrics (optional)
+- **Markers** — timestamps that map each slide to a moment in the audio track
+- **Style settings** — font, size, color, alignment, effects, and more
+
+When the song plays on an Apple TV, the audio track plays from your device's cache while lyrics cross-dissolve in time with each marker.
+
+---
+
+## Creating a Song
+
+1. In the **Media Library**, click the **+ Song** button (or select **Song** from the upload menu)
+2. Give the song a name and click **Create**
+3. The **Song Editor** opens automatically
+
+{/* SCREENSHOT PLACEHOLDER: Media Library with the "New Song" button highlighted */}
+
+---
+
+## The Song Editor
+
+{/* SCREENSHOT PLACEHOLDER: Full Song Editor interface showing the lyrics panel on the left, style accordion below, audio/background slots on the right, and the preview area */}
+
+### Lyrics panel
+
+Type or paste your lyrics into the lyrics field. Slides are separated by line breaks:
+
+```
+Amazing grace, how sweet the sound
+That saved a wretch like me
+
+I once was lost, but now am found
+```
+
+**Formatting rules:**
+- A **single blank line** between two verses creates a new slide
+- **Two consecutive blank lines** create a blank (silent) slide — the screen goes empty
+- A **blank line at the start or end** creates a pause slide at the beginning or end of the song
+
+### Audio track
+
+Click the **Audio** slot to choose an audio file from your Media Library. The audio track is cached on the Apple TV for offline playback. Supported formats: MP3, M4A, AAC, WAV.
+
+### Background
+
+Click the **Background** slot to choose an image or video from your Media Library. The background fills the screen behind the lyrics.
+
+- **Images** display statically for the duration of the song
+- **Videos** loop continuously
+
+---
+
+## Setting timing markers
+
+Markers tell LightLoop exactly when each lyric slide should appear. You can set them in two ways.
+
+### Record in real time
+
+1. Click **▶ Preview** to open the full-screen preview
+2. Press **Space** to begin playback of the audio track
+3. Press **M** (or click **Mark**) at the moment you want each new slide to appear
+4. When finished, close the preview — your markers are saved automatically
+
+{/* SCREENSHOT PLACEHOLDER: Fullscreen preview with the waveform bar at the bottom, current slide text displayed, and "Press M to mark" instruction */}
+
+### Edit markers manually
+
+After recording, click **Edit Markers** to open the Marker Editor. This gives you a visual waveform timeline with precise control.
+
+{/* SCREENSHOT PLACEHOLDER: Edit Markers modal showing the WaveSurfer waveform with draggable orange marker handles and the slide preview on the left */}
+
+**In the Marker Editor you can:**
+
+- **Drag** any marker handle to reposition it
+- **Click** a marker to select it and see its exact timestamp
+- **Arrow keys** nudge a selected marker by ¹⁄₃₀ of a second per press (~33 ms)
+- **Zoom** in/out with the − and + buttons (5 levels, from overview to sample-level detail)
+- **Space** to play/pause audio while watching markers
+- **Clear All** to start fresh
+
+Changes in the Marker Editor are non-destructive — click **Save Changes** to apply or **Cancel** to discard.
+
+---
+
+## Style settings
+
+Open the **Style** accordion in the editor to customize how lyrics appear on screen.
+
+| Setting | Options | Default |
+| --- | --- | --- |
+| Font | Google Fonts or System | DM Sans |
+| Size | 8–120 pt | 52 pt |
+| Weight | Normal / Bold | Normal |
+| Style | Normal / Italic | Normal |
+| Case | Normal / ALL CAPS | Normal |
+| Color | Color picker | White (#ffffff) |
+| Alignment | Left / Center / Right | Center |
+| Vertical align | Top / Center / Bottom | Center |
+| Shadow opacity | 0–100% | 55% |
+| Stroke width | 0–20 pt | 0 |
+| Stroke color | Color picker | Black (#000000) |
+| Text background color | Color picker | Black (#000000) |
+| Text background opacity | 0–100% | 0% (off) |
+| Slide transition | 0–2 s crossfade | 0.3 s |
+
+**Text background** adds a colored panel behind the lyric text — useful for readability over busy backgrounds. Set opacity to 0 to disable it.
+
+{/* SCREENSHOT PLACEHOLDER: Style accordion expanded showing font, size, color, alignment, shadow, stroke, and text background fields */}
+
+---
+
+## Adding a Song to a Playlist
+
+From the Song Editor header, click **+ Add to Playlist** to open the playlist picker. Playlists are listed newest first. Search by name, then click any playlist to add the song immediately.
+
+You can also add songs to playlists from the Media Library — click a Song card, then click **Edit Song** in the detail panel, or drag the card directly onto a playlist in the sidebar.
+
+---
+
+## Playback on Apple TV
+
+<Note>
+  Requires **Apple TV app version 1.1+**.
+</Note>
+
+When a Song item plays on Apple TV:
+
+- The **audio track** begins from the locally cached file
+- The **background** image or video fills the screen
+- **Lyrics** appear and cross-dissolve at each marker timestamp
+- The song advances to the next playlist item when the audio track ends (or when **Auto-advance** is enabled on the playlist)
+
+If no markers are set, all lyrics are displayed on the first slide with no automatic transitions.
+
+If no audio track is linked, the song displays each slide for the playlist's configured **Duration** setting, advancing automatically like an image.
+
+---
+
+## Tips
+
+<AccordionGroup>
+  <Accordion title="How do I handle choruses that repeat?">
+    Paste the chorus text each time it appears — LightLoop treats each occurrence as an independent slide with its own marker. If you want a chorus to display identically each time, just copy-paste the lyrics in the editor.
+  </Accordion>
+
+  <Accordion title="The audio plays but lyrics don't advance — what's wrong?">
+    Check that markers have been recorded. Open **Edit Markers** to confirm marker count and positions. If there are no markers, lyrics stay on slide 1 for the full duration of the audio.
+  </Accordion>
+
+  <Accordion title="Can I use a video as the background?">
+    Yes. Select a video from your Media Library as the background. The video loops continuously behind the lyrics for the full duration of the song.
+  </Accordion>
+
+  <Accordion title="Does the song work offline?">
+    Yes — both the audio track and background media are cached to the Apple TV before playback. Once cached, no internet connection is needed during a service.
+  </Accordion>
+
+  <Accordion title="What happens if I remove the audio track?">
+    Without an audio track, the Apple TV treats each slide as a timed image, displaying it for the playlist's configured duration before advancing.
+  </Accordion>
+
+  <Accordion title="Can I reorder slides?">
+    Slide order is determined entirely by the order lyrics appear in the text editor. Reorder slides by editing the lyrics text directly.
+  </Accordion>
+</AccordionGroup>

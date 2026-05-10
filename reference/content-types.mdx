@@ -10,6 +10,7 @@ description: "Complete reference for all media types supported by LightLoop."
 | **Video** | ▶ | Google Drive | Yes | No | H.264/MP4 recommended |
 | **Image** | 🖼 | Google Drive | Yes | No | JPEG, PNG, WebP |
 | **Audio** | ♪ | Google Drive | Yes | No | Soundtrack layer only |
+| **Song** | 🎵 | Google Drive | Yes | No | Requires Apple TV app v1.1+ |
 | **Livestream** | 📡 | External (HLS) | No | Yes | .m3u8 URL |
 | **Web** | 🌐 | Cloudflare R2 | No | For refresh | Server-rendered JPEG |
 | **Monitor** | 📋 | Server-rendered | No | Yes | PCO/Kidddo rosters |
@@ -57,6 +58,28 @@ Audio items cannot be added directly to a visual playlist as a primary content i
 - Loop (repeat the audio track)
 - Shuffle (randomize track order when multiple tracks are in a soundtrack playlist)
 - Volume (0–100%; independent of main content)
+
+---
+
+## Song
+
+<Note>
+  Requires **Apple TV app version 1.1+**.
+</Note>
+
+**What it is:** Synchronized lyric slides timed to a backing audio track — purpose-built for worship display.
+
+**Components:**
+- Lyric text divided into slides (blank lines = slide breaks)
+- Optional audio track (MP3, M4A, AAC, WAV) — cached to the Apple TV
+- Optional background image or video — cached to the Apple TV
+- Timing markers — map each slide to a timestamp in the audio
+
+**Style options:** Font family, size, weight, italic, all-caps, color, alignment (horizontal + vertical), drop shadow, text stroke (width + color), text background color/opacity, slide transition duration
+
+**Playback behavior:** Audio begins from the local cache; lyrics cross-dissolve at each marker timestamp. If no audio is linked, slides advance on the playlist duration timer. If no markers are set, all lyrics display on slide 1 for the full duration.
+
+See the [Songs guide](/web-app/songs) for full documentation.
 
 ---
 

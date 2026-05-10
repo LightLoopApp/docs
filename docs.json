@@ -52,6 +52,7 @@
               "web-app/playlists",
               "web-app/feeds",
               "web-app/content-types",
+              "web-app/songs",
               "web-app/scheduling",
               "web-app/teams"
             ]
@@ -96,6 +97,7 @@
             "group": "Reference",
             "pages": [
               "reference/content-types",
+              "reference/changelog",
               "reference/faq",
               "reference/troubleshooting"
             ]

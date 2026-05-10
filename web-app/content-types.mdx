@@ -3,7 +3,7 @@ title: "Content Types"
 description: "Everything LightLoop can display — from local videos and images to live web snapshots, check-in monitors, and calendar feeds."
 ---
 
-LightLoop supports seven distinct content types. Each behaves differently in terms of how it's stored, how it gets to the Apple TV, and whether it needs an internet connection during playback.
+LightLoop supports eight distinct content types. Each behaves differently in terms of how it's stored, how it gets to the Apple TV, and whether it needs an internet connection during playback.
 
 ## Quick reference
 
@@ -12,6 +12,7 @@ LightLoop supports seven distinct content types. Each behaves differently in ter
 | Video | Google Drive | No (cached) | Yes — downloaded before playing |
 | Image | Google Drive | No (cached) | Yes — downloaded before playing |
 | Audio | Google Drive | No (cached) | Yes — downloaded before playing |
+| Song | Google Drive | No (cached) | Yes — audio + background cached | 
 | Livestream | External HLS URL | Yes | No — streams live |
 | Web snapshot | Cloudflare (server-rendered) | No | Polled from server periodically |
 | Monitor | Cloudflare (server-rendered) | No | Polled from server periodically |
@@ -65,6 +66,30 @@ Audio files used as background soundtracks. Audio items are not visible on scree
 Audio playlists can be set to loop, shuffle, and have their volume adjusted independently of the main content.
 
 {/* SCREENSHOT PLACEHOLDER: Playlist editor showing an audio-only playlist with 3 MP3 tracks and a music-note badge on each item */}
+
+---
+
+## Song
+
+<Note>
+  Songs require **Apple TV app version 1.1 or later**.
+</Note>
+
+Synchronized lyric slides timed to a backing audio track — purpose-built for worship.
+
+A Song item contains lyric text organized into slides, an audio file, an optional background image or video, and timing markers that map each slide to a timestamp in the audio. On Apple TV, lyrics cross-dissolve in sync with the music.
+
+**How to create:**
+1. In the Media Library, click **+ Song**
+2. The Song Editor opens — type your lyrics, attach audio and a background, then record timing markers
+3. Customize style (font, size, color, alignment, shadow, stroke, text background, and more)
+
+**Best practices:**
+- Use one verse or chorus section per slide for clean, readable lyrics
+- Record markers in real time during playback, then fine-tune in the **Edit Markers** modal
+- Set a text background color with low opacity for readability over video backgrounds
+
+See the full [Songs guide](/web-app/songs) for detailed instructions.
 
 ---
 
