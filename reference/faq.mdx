@@ -145,6 +145,39 @@ description: "Answers to the most common LightLoop questions."
 
 ---
 
+## LightLoop Remote
+
+<AccordionGroup>
+  <Accordion title="Do I need a LightLoop account to use the Remote app?">
+    No. LightLoop Remote connects directly to your Apple TV over your local network — it doesn't interact with the LightLoop web dashboard or require any login. Anyone in your building can use it as long as they're on the same Wi-Fi network as the Apple TV.
+  </Accordion>
+
+  <Accordion title="How does the Remote app find my Apple TV?">
+    It uses Apple's Multipeer Connectivity framework, which discovers nearby devices over Wi-Fi and Bluetooth. The Apple TV begins advertising automatically as soon as the LightLoop tvOS app is open. Your iOS device scans for it and the connection completes in a few seconds — no pairing codes or IP addresses needed.
+  </Accordion>
+
+  <Accordion title="Does the Remote app work over the internet or only on local Wi-Fi?">
+    Local network only. Both the iPhone/iPad and the Apple TV must be on the same Wi-Fi (or wired) network. Multipeer Connectivity does not route traffic through the internet, so the Remote app cannot control an Apple TV in a different building.
+  </Accordion>
+
+  <Accordion title="Can multiple people use the Remote app at the same time?">
+    Yes. Multiple iPhones and iPads can connect to the same Apple TV simultaneously. All devices receive the same live state and any device can send commands. A common setup is an iPhone in Control Mode for the operator and an iPad in Stage Mode for the presenter — both connected at the same time.
+  </Accordion>
+
+  <Accordion title="The Remote app isn't finding my Apple TV. What should I check?">
+    1. Make sure both devices are on the **same Wi-Fi network**.
+    2. Make sure the LightLoop app is **open and running** on the Apple TV (not in the background or closed).
+    3. Grant the **Local Network** permission to LightLoop Remote — go to iOS Settings → LightLoop Remote → Local Network and toggle it on.
+    4. If the TV still doesn't appear, try force-quitting and relaunching the Remote app.
+  </Accordion>
+
+  <Accordion title="What does the Remote app send over the network?">
+    Only presentation control commands (next, previous, seek, select item) and state updates (current item, slide index, playback position). No media files, no account data, and no personal information is transmitted. All traffic stays within your local network. See the [Privacy Policy](https://lightloop.app/privacy) for full details.
+  </Accordion>
+</AccordionGroup>
+
+---
+
 ## Account & Privacy
 
 <AccordionGroup>

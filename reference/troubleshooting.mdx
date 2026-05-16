@@ -77,6 +77,49 @@ LightLoop downloads videos before playing them, so network issues during playbac
 
 ---
 
+## LightLoop Remote issues
+
+### Remote app can't find the Apple TV
+
+<Steps>
+  <Step title="Check Local Network permission">
+    Go to **iOS Settings → Privacy & Security → Local Network** and make sure LightLoop Remote is toggled on. Without this permission, the app cannot discover devices on your network.
+  </Step>
+  <Step title="Confirm both devices are on the same network">
+    The iPhone or iPad and the Apple TV must be on the same Wi-Fi or local network. Guest networks and VLANs that isolate devices will prevent discovery.
+  </Step>
+  <Step title="Make sure the LightLoop tvOS app is open">
+    The Apple TV only advertises when the LightLoop app is actively running. Check that it's open and on the playlist grid — not in the background or at the tvOS home screen.
+  </Step>
+  <Step title="Force-quit and relaunch the Remote app">
+    Swipe up from the bottom of the screen, find LightLoop Remote in the app switcher, swipe it away, then relaunch. This restarts the discovery scan from scratch.
+  </Step>
+</Steps>
+
+---
+
+### Remote app connects but commands aren't working
+
+1. **Check the connection banner** — if the app shows "Connected" the command pipeline is live. If it shows "Reconnecting", wait a moment for it to reestablish.
+2. **Try a different command** — if one gesture doesn't respond, try tapping an item in the grid. If that works, the issue may be specific to one control type.
+3. **Disconnect and reconnect** — tap **Disconnect** in the app, then let it auto-reconnect (or select the device again from the discovery screen).
+
+---
+
+### Stage Mode transition direction looks wrong on some devices
+
+Slide transition direction (next vs previous) is now synchronized from the Apple TV to all connected iOS devices. If one device consistently shows the wrong direction, force-quit and relaunch that device's Remote app to clear any stale state.
+
+---
+
+### The Remote app crashes or freezes on launch
+
+1. Update to the latest version of LightLoop Remote from the App Store.
+2. Restart your iPhone or iPad.
+3. If the issue persists, delete and reinstall the app — no account data is stored, so nothing will be lost.
+
+---
+
 ## Web app issues
 
 ### Upload failed or stalled

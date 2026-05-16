@@ -39,6 +39,10 @@
       "url": "apple-tv"
     },
     {
+      "name": "iOS Remote",
+      "url": "ios-remote"
+    },
+    {
       "name": "Integrations",
       "url": "integrations"
     },
@@ -79,6 +83,14 @@
       ]
     },
     {
+      "group": "iOS Remote App",
+      "pages": [
+        "ios-remote/overview",
+        "ios-remote/control-mode",
+        "ios-remote/stage-mode"
+      ]
+    },
+    {
       "group": "Integrations",
       "pages": [
         "integrations/google-drive",
@@ -94,7 +106,8 @@
       "pages": [
         "reference/content-types",
         "reference/faq",
-        "reference/troubleshooting"
+        "reference/troubleshooting",
+        "reference/changelog"
       ]
     }
   ],
