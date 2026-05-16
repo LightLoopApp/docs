@@ -17,11 +17,11 @@ Songs are a purpose-built media type for displaying worship lyrics on screen. Yo
 
 A Song item contains:
 
-- **Lyric slides** — one or more lines of text per slide (blank slides create intentional pauses)
-- **Audio track** — the backing music file (MP3, M4A, AAC, or WAV)
+- **Lyric slides** — one or more lines of text per slide (blank slides create intentional pauses for instrumentals)
+- **Audio track** — the backing music file (optional) (MP3, M4A, AAC, or WAV)
 - **Background** — an image or video that plays behind the lyrics (optional)
-- **Markers** — timestamps that map each slide to a moment in the audio track
-- **Style settings** — font, size, color, alignment, effects, and more
+- **Markers** — timestamps that map each slide to a moment in the audio track (optional)
+- **Style settings** — font, size, color, alignment, effects, and more (optional)
 
 When the song plays on an Apple TV, the audio track plays from your device's cache while lyrics cross-dissolve in time with each marker.
 
@@ -29,9 +29,11 @@ When the song plays on an Apple TV, the audio track plays from your device's cac
 
 ## Creating a Song
 
-1. In the **Media Library**, click the **+ Song** button (or select **Song** from the upload menu)
+1. In the **Media Library**, click the **\+ Song** button (or select **Song** from the upload menu)
 2. Give the song a name and click **Create**
 3. The **Song Editor** opens automatically
+
+\*Alternatively, click any Audio item card in your Media Library and click 'Convert to Song'
 
 {/* SCREENSHOT PLACEHOLDER: Media Library with the "New Song" button highlighted */}
 
@@ -45,7 +47,7 @@ When the song plays on an Apple TV, the audio track plays from your device's cac
 
 Type or paste your lyrics into the lyrics field. Slides are separated by line breaks:
 
-```
+```text
 Amazing grace, how sweet the sound
 That saved a wretch like me
 
@@ -53,13 +55,14 @@ I once was lost, but now am found
 ```
 
 **Formatting rules:**
+
 - A **single blank line** between two verses creates a new slide
 - **Two consecutive blank lines** create a blank (silent) slide — the screen goes empty
 - A **blank line at the start or end** creates a pause slide at the beginning or end of the song
 
 ### Audio track
 
-Click the **Audio** slot to choose an audio file from your Media Library. The audio track is cached on the Apple TV for offline playback. Supported formats: MP3, M4A, AAC, WAV.
+Click the **Audio** slot to choose an audio file from your Media Library. The audio track is cached on the Apple TV for offline playback. Supported formats: MP3, M4A, AAC, WAV. If no audio track is selected, you can still manually control your lyrics.
 
 ### Background
 
@@ -94,7 +97,7 @@ After recording, click **Edit Markers** to open the Marker Editor. This gives yo
 - **Drag** any marker handle to reposition it
 - **Click** a marker to select it and see its exact timestamp
 - **Arrow keys** nudge a selected marker by ¹⁄₃₀ of a second per press (~33 ms)
-- **Zoom** in/out with the − and + buttons (5 levels, from overview to sample-level detail)
+- **Zoom** in/out with the − and \+ buttons (5 levels, from overview to sample-level detail)
 - **Space** to play/pause audio while watching markers
 - **Clear All** to start fresh
 
@@ -108,7 +111,7 @@ Open the **Style** accordion in the editor to customize how lyrics appear on scr
 
 | Setting | Options | Default |
 | --- | --- | --- |
-| Font | Google Fonts or System | DM Sans |
+| Font | Font Families | DM Sans |
 | Size | 8–120 pt | 52 pt |
 | Weight | Normal / Bold | Normal |
 | Style | Normal / Italic | Normal |
@@ -131,7 +134,7 @@ Open the **Style** accordion in the editor to customize how lyrics appear on scr
 
 ## Adding a Song to a Playlist
 
-From the Song Editor header, click **+ Add to Playlist** to open the playlist picker. Playlists are listed newest first. Search by name, then click any playlist to add the song immediately.
+From the Song Editor header, click **\+ Add to Playlist** to open the playlist picker. Playlists are listed newest first. Search by name, then click any playlist to add the song immediately.
 
 You can also add songs to playlists from the Media Library — click a Song card, then click **Edit Song** in the detail panel, or drag the card directly onto a playlist in the sidebar.
 
@@ -140,13 +143,13 @@ You can also add songs to playlists from the Media Library — click a Song card
 ## Playback on Apple TV
 
 <Note>
-  Requires **Apple TV app version 1.1+**.
+  Requires **Apple TV app version 1.1\+**.
 </Note>
 
 When a Song item plays on Apple TV:
 
-- The **audio track** begins from the locally cached file
-- The **background** image or video fills the screen
+- The **audio track (if assigned)** begins from the locally cached file
+- The **background** image or video (if assigned) fills the screen. Videos loop continuously.
 - **Lyrics** appear and cross-dissolve at each marker timestamp
 - The song advances to the next playlist item when the audio track ends (or when **Auto-advance** is enabled on the playlist)
 
@@ -176,7 +179,7 @@ If no audio track is linked, the song displays each slide for the playlist's con
   </Accordion>
 
   <Accordion title="What happens if I remove the audio track?">
-    Without an audio track, the Apple TV treats each slide as a timed image, displaying it for the playlist's configured duration before advancing.
+    Without an audio track, the Apple TV treats each slide as a timed image, displaying it for the playlist's configured duration before advancing. If no duration is set "0" - you can manually control the slides with your Apple TV remote.
   </Accordion>
 
   <Accordion title="Can I reorder slides?">
