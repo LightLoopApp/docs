@@ -5,37 +5,60 @@ description: "Pair your Apple TV with a LightLoop feed and start playing content
 
 ## Requirements
 
-- Apple TV **4th generation or newer** (Apple TV HD or Apple TV 4K). 
+- Apple TV **4th generation or newer** (Apple TV HD or Apple TV 4K)
 - LightLoop app installed from the App Store
-- Your **Feed ID** (found on the Feeds page of the dashboard)
+- A LightLoop account with at least one feed created
 
 {/* SCREENSHOT PLACEHOLDER: Apple TV App Store page for LightLoop showing the install button */}
 
-## Finding your Feed ID
-
-In the web dashboard, open the **Feeds** tab and select your feed. You'll see:
-
-- **Feed ID** — a 6-character code (e.g., `AB12CD`)
-
-{/* SCREENSHOT PLACEHOLDER: Feed details panel in the web dashboard highlighting the Server URL and Feed ID fields */}
-
 ## Pairing the Apple TV
+
+When you open LightLoop for the first time, the setup screen shows two ways to connect:
+
+### Option 1 — Scan the QR code (easiest)
 
 <Steps>
   <Step title="Open LightLoop on Apple TV">
-    Launch the LightLoop app. First-time users will see the setup screen.
+    Launch the LightLoop app. The setup screen appears automatically showing a QR code on the left side.
 
-    {/* SCREENSHOT PLACEHOLDER: tvOS app launch screen — LightLoop logo centered with "Get Started" prompt */}
+    {/* SCREENSHOT PLACEHOLDER: tvOS setup screen — QR code on the left, manual entry on the right */}
   </Step>
-  <Step title="Enter your Feed ID" stepNumber={2}>
-    Type the 6-character Feed ID. It is not case-sensitive.
+  <Step title="Scan the QR code with your phone">
+    Open your phone's camera (or a QR scanner) and point it at the TV. Tap the notification to open `lightloop.app/activate` in your browser.
 
-    {/* SCREENSHOT PLACEHOLDER: tvOS Feed ID entry screen */}
+    You must be **signed in to LightLoop** on your phone. If you're not, you'll be prompted to sign in first.
+
+    {/* SCREENSHOT PLACEHOLDER: Phone browser showing the feed picker list */}
   </Step>
-  <Step title="Press Connect" stepNumber={3}>
-    The app validates your credentials and begins fetching your feed. You'll see a playlist grid appear as media starts downloading.
+  <Step title="Select a feed">
+    Your feeds appear as a list. Tap the feed you want this TV to display.
 
-    {/* SCREENSHOT PLACEHOLDER: tvOS playlist grid with download progress bars on each playlist card */}
+    {/* SCREENSHOT PLACEHOLDER: Phone showing feed cards with feed name and ID */}
+  </Step>
+  <Step title="Done">
+    The Apple TV connects automatically — no typing required. Your phone returns to the LightLoop dashboard.
+
+    {/* SCREENSHOT PLACEHOLDER: tvOS playlist grid appearing as the TV connects */}
+  </Step>
+</Steps>
+
+### Option 2 — Enter your Feed ID manually
+
+<Steps>
+  <Step title="Find your Feed ID">
+    In the web dashboard, open the **Feeds** tab and select your feed. The **Feed ID** is the 6-character code shown (e.g., `AB12CD`).
+
+    {/* SCREENSHOT PLACEHOLDER: Feed details panel in the web dashboard highlighting the Feed ID */}
+  </Step>
+  <Step title="Type the Feed ID on Apple TV">
+    On the setup screen, select the Feed ID field on the right side and type the code using the on-screen keyboard. It is not case-sensitive.
+
+    {/* SCREENSHOT PLACEHOLDER: tvOS Feed ID entry field */}
+  </Step>
+  <Step title="Press Connect">
+    The app validates the ID and begins fetching your feed.
+
+    {/* SCREENSHOT PLACEHOLDER: tvOS playlist grid with download progress bars */}
   </Step>
 </Steps>
 
@@ -54,7 +77,7 @@ Once connected, the Apple TV:
 
 You can connect as many Apple TVs as you want to the same feed. All TVs receive the same updates simultaneously.
 
-For different screens showing different content, create a separate feed for each screen and give each TV its own Feed ID.
+For different screens showing different content, create a separate feed for each screen.
 
 ## Changing orientation
 
@@ -62,10 +85,10 @@ If your screen is mounted vertically (portrait mode), set the orientation in the
 
 1. Open the feed in the dashboard
 2. Click **Settings**
-3. Under **Orientation**, choose **Portrait Left** or **Portrait Right** (depending on which way your screen rotates)
+3. Under **Orientation**, choose **Portrait Left** or **Portrait Right**
 4. Save — the Apple TV will rotate its layout automatically
 
-{/* SCREENSHOT PLACEHOLDER: Feed settings panel showing the Orientation dropdown with Landscape/Portrait Left/Portrait Right options */}
+{/* SCREENSHOT PLACEHOLDER: Feed settings panel showing the Orientation dropdown */}
 
 ## Disconnecting a TV
 

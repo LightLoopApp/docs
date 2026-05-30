@@ -1,35 +1,59 @@
 ---
 title: "Connecting to a Feed"
-description: "Pair your Apple TV with a LightLoop feed using your Feed ID."
+description: "Pair your Apple TV with a LightLoop feed using QR code or Feed ID."
 ---
 
-{/* SCREENSHOT PLACEHOLDER: tvOS setup screen showing two input fields: Server URL and Feed ID, with a Connect button */}
+Before your Apple TV can play content, it needs to connect to a feed. The setup screen offers two ways to do this.
 
-Before your Apple TV can play content, it needs to connect to a feed. You'll need a piece of information from the web dashboard:
+{/* SCREENSHOT PLACEHOLDER: tvOS setup screen showing the QR code on the left and the Feed ID field on the right with an "OR" divider */}
 
-- **Feed ID** — the 6-character code for the specific feed (e.g., `AB12CD`)
+## QR code (recommended)
 
-It's found on the **Feeds** page in the dashboard.
-
-## Entering your credentials
+The fastest way to connect — no typing required.
 
 <Steps>
-  <Step title="Open LightLoop">
-    Launch the app from the Apple TV home screen. First-time users see the setup screen automatically.
-
-    {/* SCREENSHOT PLACEHOLDER: tvOS on-screen keyboard with the server URL being typed */}
+  <Step title="Open LightLoop on Apple TV">
+    Launch the app. First-time users see the setup screen automatically, with a QR code displayed on the left.
   </Step>
-  <Step title="Enter the Feed ID" stepNumber={2}>
-    Type the 6-character Feed ID. Capitalization doesn't matter.
+  <Step title="Scan the QR code">
+    Point your phone's camera at the QR code and tap the notification to open `lightloop.app/activate`. You must be signed in to LightLoop on your phone.
 
-    {/* SCREENSHOT PLACEHOLDER: tvOS Feed ID input field with "AB12CD" typed in */}
+    {/* SCREENSHOT PLACEHOLDER: Phone browser showing a list of feed cards */}
   </Step>
-  <Step title="Press Connect" stepNumber={3}>
-    Highlight the **Connect** button and press the Siri Remote's center button. The app validates your credentials and begins fetching the feed.
+  <Step title="Tap a feed">
+    Your feeds appear as a list. Tap the one you want this TV to display.
 
-    If the connection fails, double-check the Feed ID.
+    The Apple TV connects within a second or two — no further action needed on the TV side.
 
-    {/* SCREENSHOT PLACEHOLDER: Connection success — feed name appears at the top and the playlist grid starts loading */}
+    {/* SCREENSHOT PLACEHOLDER: Success state on phone with "TV Connected!" message */}
+  </Step>
+</Steps>
+
+<Note>
+  The QR code is unique to this setup session and expires after 10 minutes. If it expires, simply restart the LightLoop app to generate a new one.
+</Note>
+
+## Manual entry
+
+If you prefer to type the Feed ID directly:
+
+<Steps>
+  <Step title="Find your Feed ID">
+    In the LightLoop web dashboard, open **Feeds** and select your feed. The **Feed ID** is the 6-character code (e.g., `AB12CD`).
+
+    {/* SCREENSHOT PLACEHOLDER: Feed details panel highlighting the Feed ID */}
+  </Step>
+  <Step title="Enter the Feed ID on Apple TV">
+    On the setup screen, select the Feed ID field on the right side and type the code using the Siri Remote. Capitalization doesn't matter.
+
+    {/* SCREENSHOT PLACEHOLDER: tvOS on-screen keyboard with "AB12CD" typed in */}
+  </Step>
+  <Step title="Press Connect">
+    Highlight **Connect** and press the Siri Remote's center button. The app validates the ID and begins fetching the feed.
+
+    If the connection fails, double-check the Feed ID in the dashboard.
+
+    {/* SCREENSHOT PLACEHOLDER: Connection success — feed name appears and the playlist grid starts loading */}
   </Step>
 </Steps>
 
@@ -59,9 +83,9 @@ If the WebSocket is interrupted, the TV falls back to polling every 30 seconds.
 
 Your credentials are saved locally. When the Apple TV restarts, LightLoop automatically reconnects to the same feed — no re-entry needed.
 
-## Connecting to multiple feeds
+## Connecting multiple Apple TVs
 
-A single Apple TV can only connect to one feed at a time. If you need the same Apple TV to show different content, consolidate everything into one feed (using multiple playlists) or use separate Apple TVs for separate feeds.
+You can connect as many Apple TVs as you want to the same feed — all of them receive updates simultaneously. For screens showing different content, create a separate feed for each and connect each TV independently.
 
 ## Switching feeds
 
@@ -70,6 +94,10 @@ To connect a TV to a different feed:
 1. On the Apple TV, navigate to the **Settings** gear in the app
 2. Select **Disconnect**
 3. The app clears all cached files and returns to the setup screen
-4. Enter the new server URL and Feed ID
+4. Connect to the new feed via QR code or Feed ID
 
 {/* SCREENSHOT PLACEHOLDER: Settings panel on tvOS showing the Disconnect button */}
+
+<Warning>
+  Disconnecting removes all locally cached media from the device. Reconnecting will re-download everything from scratch.
+</Warning>
