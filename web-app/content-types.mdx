@@ -1,9 +1,9 @@
 ---
 title: "Content Types"
-description: "Everything LightLoop can display — from local videos and images to live web snapshots, check-in monitors, and calendar feeds."
+description: "Everything LightLoop can display — from local videos and images to live web snapshots, check-in monitors, calendar feeds, Bible verses, and birthday greetings."
 ---
 
-LightLoop supports eight distinct content types. Each behaves differently in terms of how it's stored, how it gets to the Apple TV, and whether it needs an internet connection during playback.
+LightLoop supports ten distinct content types. Each behaves differently in terms of how it's stored, how it gets to the Apple TV, and whether it needs an internet connection during playback.
 
 ## Quick reference
 
@@ -12,7 +12,9 @@ LightLoop supports eight distinct content types. Each behaves differently in ter
 | Video | Google Drive | No (cached) | Yes — downloaded before playing |
 | Image | Google Drive | No (cached) | Yes — downloaded before playing |
 | Audio | Google Drive | No (cached) | Yes — downloaded before playing |
-| Song | Google Drive | No (cached) | Yes — audio + background cached | 
+| Song | Google Drive | No (cached) | Yes — audio + background cached |
+| Bible | Cloudflare (server-rendered) | No | Polled from server periodically |
+| Birthday | Cloudflare (server-rendered) | No | Polled from server periodically |
 | Livestream | External HLS URL | Yes | No — streams live |
 | Web snapshot | Cloudflare (server-rendered) | No | Polled from server periodically |
 | Monitor | Cloudflare (server-rendered) | No | Polled from server periodically |
@@ -90,6 +92,47 @@ A Song item contains lyric text organized into slides, an audio file, an optiona
 - Set a text background color with low opacity for readability over video backgrounds
 
 See the full [Songs guide](/web-app/songs) for detailed instructions.
+
+---
+
+## Bible
+
+Scripture slides pulled from the YouVersion Bible platform and rendered server-side — perfect for sermon support, lobby displays, or verse-of-the-day rotations.
+
+**Supported translations:** NIV, NASB, NASB 2020, AMP, BSB, NIrV, NIVUK, TPT, WEBUS, ASV, LSV, and more.
+
+**How to add:**
+1. In the Media library, click **Add Bible**
+2. Search by book, chapter, and verse — or type a reference directly (e.g., `John 3:16` or `Psalm 23:1-6`)
+3. Select a translation
+4. Customize the slide style: font, size, color, alignment, background image or color
+5. Save — the slide is added to your library as a media item
+
+{/* SCREENSHOT PLACEHOLDER: Bible slide configuration panel showing the reference search, translation dropdown, verse preview, and style options */}
+
+Long passages are automatically split into multiple slides. Each slide shows the verse text, reference, and translation badge.
+
+<Note>
+  Bible slides require an internet connection the first time they're rendered. After that, the rendered image is cached and displayed even if the connection drops.
+</Note>
+
+See the [YouVersion Bible integration guide](/integrations/youversion) for details on available translations.
+
+---
+
+## Birthday
+
+A celebratory full-screen slide that highlights a person's birthday — great for lobby displays, welcome screens, and children's ministry.
+
+**How to add:**
+1. In the Media library, click **Add Birthday**
+2. Enter the person's name and optionally upload a photo
+3. Set the birthday date
+4. Customize the message, background, and style
+
+{/* SCREENSHOT PLACEHOLDER: Apple TV showing a Birthday slide — festive design with the person's name, photo, and a "Happy Birthday!" message */}
+
+Birthday slides are rendered server-side and refresh automatically. You can add multiple birthday items to a playlist — LightLoop will only show a birthday slide on the matching date and skip it on other days.
 
 ---
 
