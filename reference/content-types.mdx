@@ -11,6 +11,8 @@ description: "Complete reference for all media types supported by LightLoop."
 | **Image** | 🖼 | Google Drive | Yes | No | JPEG, PNG, WebP |
 | **Audio** | ♪ | Google Drive | Yes | No | Soundtrack layer only |
 | **Song** | 🎵 | Google Drive | Yes | No | Requires Apple TV app v1.1+ |
+| **Bible** | 📖 | Server-rendered | No | For refresh | YouVersion Platform API |
+| **Birthday** | 🎂 | Server-rendered | No | No | Date-conditional display |
 | **Livestream** | 📡 | External (HLS) | No | Yes | .m3u8 URL |
 | **Web** | 🌐 | Cloudflare R2 | No | For refresh | Server-rendered JPEG |
 | **Monitor** | 📋 | Server-rendered | No | Yes | PCO/Kidddo rosters |
@@ -80,6 +82,34 @@ Audio items cannot be added directly to a visual playlist as a primary content i
 **Playback behavior:** Audio begins from the local cache; lyrics cross-dissolve at each marker timestamp. If no audio is linked, slides advance on the playlist duration timer. If no markers are set, all lyrics display on slide 1 for the full duration.
 
 See the [Songs guide](/web-app/songs) for full documentation.
+
+---
+
+## Bible
+
+**Source:** YouVersion Bible Platform API\
+**Render:** Server-side JPEG, cached after first render\
+**Requires internet:** Only for initial render and style updates
+
+**Supported translations:** NIV, NASB, NASB2020, AMP, BSB, NIrV, NIVUK, TPT, WEBUS, WMB, ASV, LSV, GNV, EASY, CPDV, FBV, PEV, TOJB2011
+
+**Style options:** Font family, size, weight, italic, all-caps, color, alignment, vertical alignment, drop shadow, text stroke, text background color/opacity, background image
+
+**Passage entry:** Book + chapter + verse or range (e.g. `John 3:16`, `Psalm 23:1-6`). Multi-verse passages are split automatically into multiple slides.
+
+See the [YouVersion Bible guide](/integrations/youversion) for full details.
+
+---
+
+## Birthday
+
+**Source:** Name, photo, and date entered manually\
+**Render:** Server-side JPEG\
+**Requires internet:** No — rendered once and cached
+
+**Behavior:** Date-conditional — the slide is only displayed on the configured birthday date and skipped on all other days. Multiple birthday items can coexist in a playlist; only the matching one(s) will play on any given day.
+
+**Style options:** Custom background, message text, font, and colors.
 
 ---
 

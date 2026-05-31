@@ -68,6 +68,7 @@
         "web-app/playlists",
         "web-app/feeds",
         "web-app/content-types",
+        "web-app/songs",
         "web-app/scheduling",
         "web-app/teams"
       ]
@@ -98,7 +99,8 @@
         "integrations/youtube",
         "integrations/planning-center",
         "integrations/google-calendar",
-        "integrations/kidddo"
+        "integrations/kidddo",
+        "integrations/youversion"
       ]
     },
     {
