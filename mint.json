@@ -70,6 +70,7 @@
         "web-app/content-types",
         "web-app/songs",
         "web-app/scheduling",
+        "web-app/sharing",
         "web-app/teams"
       ]
     },
