@@ -1,0 +1,146 @@
+---
+title: "TV Wall Output"
+description: "Drive four independent outputs from a single Apple TV — program, stage display, lower-thirds, and media — using a low-cost 2×2 HDMI wall controller."
+---
+
+TV Wall Output turns one Apple TV into **four independent 1080p outputs**. With an inexpensive HDMI "video wall" controller set to 2×2 mode, the Apple TV's single 4K signal is split into four 1080p quadrants — and LightLoop renders something different in each one.
+
+A common live-production setup:
+
+<CardGroup cols={2}>
+  <Card title="Audience screen" icon="tv">
+    **Program Output** — the full presentation your congregation sees.
+  </Card>
+  <Card title="Confidence monitor" icon="eye">
+    **Stage Display** — current lyric/verse, the next preview, a clock, and speaker timers.
+  </Card>
+  <Card title="Switcher input 1" icon="layer-group">
+    **Lower-Third Overlay** — song/Bible text only, for keying over a livestream.
+  </Card>
+  <Card title="Switcher input 2" icon="key">
+    **Overlay Alpha (DSK)** — the same lower-third as a solid-white fill matte for downstream keying.
+  </Card>
+</CardGroup>
+
+<Note>
+  TV Wall Output requires an external 2×2 HDMI wall controller set to **2×2 mode at 16:9 aspect ratio**. LightLoop renders the four quadrants; the controller splits them across your physical screens.
+</Note>
+
+---
+
+## Enabling TV Wall
+
+TV Wall is configured per feed in the web app.
+
+<Steps>
+  <Step title="Open the Feeds tab">
+    In the web app, go to **Feeds** and find the feed connected to the Apple TV you want to drive.
+  </Step>
+  <Step title="Turn on TV Wall Output">
+    Toggle **TV Wall Output** on the feed card. A **Config** button appears.
+  </Step>
+  <Step title="Configure the quadrants">
+    Click **Config** to open the **TV Wall Output Config** modal and choose what each quadrant displays.
+  </Step>
+  <Step title="Present">
+    Connect the Apple TV through your 2×2 controller (2×2 mode, 16:9) and start presenting. The TV wall grid replaces the normal full-screen output.
+  </Step>
+</Steps>
+
+---
+
+## Quadrant backgrounds
+
+Each of the four quadrants (Top Left, Top Right, Bottom Left, Bottom Right) is set to one of:
+
+<CardGroup cols={2}>
+  <Card title="Empty (Black)" icon="square">
+    A solid black quadrant — use it for unused outputs or as a clean black field behind an Alpha overlay.
+  </Card>
+  <Card title="Program Output" icon="play">
+    The full presentation — identical to normal full-screen output (songs, Bible, video, images, monitors, calendars, countdown banners). Rendered at full 1080p and scaled into the quadrant so it's pixel-accurate.
+  </Card>
+  <Card title="Stage Display" icon="rectangle-list">
+    A confidence monitor: the current lyric/verse in large text, a **Next** preview, optional clock and live video/thumbnails. Lyric and verse changes animate directionally (up on next, down on previous).
+  </Card>
+  <Card title="Media" icon="image">
+    An independent looping image or video pulled from your Media Library — separate from the program playback. Optional **loop** and **mute**.
+  </Card>
+</CardGroup>
+
+---
+
+## Overlays — lower-thirds & alpha
+
+Any quadrant that isn't a Stage Display can also carry a foreground **overlay**:
+
+| Overlay | What it shows |
+|---------|---------------|
+| **No Overlay** | Background only. |
+| **Lower-Third Overlay** | Song lyrics / Bible text rendered as a lower-third on top of the background. |
+| **Overlay Alpha (DSK)** | The same lower-third rendered as a solid-white **fill matte on black** for downstream keying. |
+
+Lower-thirds apply to **Songs and Bible** items — the only content types with separate foreground (text) and background layers. All other content is full-screen and has no separate lower-third.
+
+### Alpha for downstream keying
+
+The **Overlay Alpha** quadrant renders an exact copy of the lower-third with every color driven to **100% white on black**, preserving the true coverage of text, drop shadows, background shapes, borders, and media. Feed it into an ATEM (or any switcher) downstream keyer as the **key/alpha**, and the matching **Lower-Third Overlay** quadrant as the **fill** — and your song and Bible text keys cleanly over your livestream.
+
+<Tip>
+  A typical streaming rig uses **two** quadrants for one lower-third: one **Lower-Third Overlay** (fill → switcher input 1) and one **Overlay Alpha** (key → switcher input 2), both using the same template.
+</Tip>
+
+---
+
+## Lower-third templates
+
+Lower-Third and Alpha overlays use reusable **lower-third templates** that give you precise control over placement and styling — including text that shrinks to fit a defined area rather than the whole screen.
+
+Templates are created in a **visual editor** (drag-to-move, drag-to-resize zones on a 16:9 canvas) and selected per overlay quadrant. There are two template types:
+
+<CardGroup cols={2}>
+  <Card title="Song templates" icon="music">
+    A single lyrics zone with full styling and shrink-to-fit.
+  </Card>
+  <Card title="Bible templates" icon="book">
+    Two independent zones — **reference** (e.g. "John 3:16") and **verse text** — each placed and styled separately.
+  </Card>
+</CardGroup>
+
+Each zone supports:
+
+- **Font** (DM Sans, Montserrat, Oswald, Playfair Display, Fredoka, OPTI Improv Wide Nine), max size, color, bold/italic/ALL CAPS, alignment, vertical alignment, stroke, text background, and drop shadow.
+- **Box styling** — padding, border, corner radius, and a background that fills the zone (solid color, gradient, or a looping image/video from your Media Library) with hidden overflow.
+- **Transitions** — cross-dissolve (default), directional (up/down following navigation), or cut.
+- **Hide when empty** — automatically hide the whole overlay when there's no text to show.
+- **Blank-slide media** — optionally show a full-screen watermark or holding graphic (image or looping video) on blank slides instead of going empty (when *Hide when empty* is on).
+- **Hide Media** (off by default) — by default, non-song/bible items (videos, images, monitors, etc.) play **full-view** in an overlay quadrant, with a full-frame Alpha matte for keying. Turn this on to show **only** lower-thirds/alpha and leave the quadrant blank for other content.
+
+Templates are per-user and reusable across feeds. When no template is selected, a simple bottom-third bar is used.
+
+---
+
+## Stage Display extras
+
+A **Stage Display** quadrant has a few options of its own:
+
+<CardGroup cols={2}>
+  <Card title="Show Clock" icon="clock">
+    A live clock (AM/PM) pill in the upper-right corner.
+  </Card>
+  <Card title="Show Countdowns" icon="hourglass-half">
+    Mirror program countdown banners onto the stage too — shrinking the stage view to make room without covering the **Next** preview.
+  </Card>
+</CardGroup>
+
+For timed media (video, audio, songs with a track), the Stage Display also shows a small **time-remaining** pill, and **stage-only speaker timers** appear as a pill in the upper-left corner. Set these up under a playlist item's **Actions → Countdown Timer** (see [Playlists](/web-app/playlists)).
+
+<Note>
+  Dynamic, server-rendered content (Planning Center monitors and calendars) renders in **Program** and **Media** quadrants. In a Stage Display quadrant they appear as a labeled placeholder, since the stage view is built for lyrics and verses.
+</Note>
+
+---
+
+## Performance
+
+LightLoop reuses a **single decode** of the program video across quadrants — one `AVPlayer` can feed multiple on-screen layers — so showing the same video in the Program and Stage quadrants doesn't double the decoding cost. Media-quadrant images and videos are streamed/cached independently.
