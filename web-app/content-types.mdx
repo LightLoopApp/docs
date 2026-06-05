@@ -3,7 +3,7 @@ title: "Content Types"
 description: "Everything LightLoop can display — from local videos and images to live web snapshots, check-in monitors, calendar feeds, Bible verses, and birthday greetings."
 ---
 
-LightLoop supports ten distinct content types. Each behaves differently in terms of how it's stored, how it gets to the Apple TV, and whether it needs an internet connection during playback.
+LightLoop supports eleven distinct content types. Each behaves differently in terms of how it's stored, how it gets to the Apple TV, and whether it needs an internet connection during playback.
 
 ## Quick reference
 
@@ -13,6 +13,7 @@ LightLoop supports ten distinct content types. Each behaves differently in terms
 | Image | Google Drive | No (cached) | Yes — downloaded before playing |
 | Audio | Google Drive | No (cached) | Yes — downloaded before playing |
 | Song | Google Drive | No (cached) | Yes — audio + background cached |
+| Sermon | LightLoop data + Google Drive | No (cached) | Yes — referenced media cached |
 | Bible | Cloudflare (server-rendered) | No | Polled from server periodically |
 | Birthday | Cloudflare (server-rendered) | No | Polled from server periodically |
 | Livestream | External HLS URL | Yes | No — streams live |
@@ -95,11 +96,33 @@ See the full [Songs guide](/web-app/songs) for detailed instructions.
 
 ---
 
+## Sermon
+
+A whole teaching, talk, or presentation built as one item — an ordered list of mixed slides (text/notes, scripture, full-screen media, and blanks) that an operator advances slide-by-slide from the iOS Remote.
+
+A Sermon contains text slides (styled headings + body), Bible slides (scripture from the [Bible integration](/integrations/youversion)), media slides (full-screen image/video/audio with optional blur fill and trim/loop/advance), and blank slides. Sermon-level **Background media** sits behind text slides and **Title media** shows on blanks.
+
+**How to create:**
+1. In the Media Library, choose **New Sermon** from the new-media menu
+2. The Sermon Builder opens — add slides with **Add Slide** or the **＋ Add ▾** menu (media, upload, Bible, blank)
+3. Reorder by dragging, drop files between slides, and style the text — changes autosave
+
+**Best practices:**
+- Use the **＋ Add ▾ → Add Bible** flow to drop scripture straight into the message flow
+- Assign a **Title media** card so blank slides show a sermon title instead of black
+- Set per-slide **trim** and **end behavior** for video clips so they play exactly the segment you want
+
+See the full [Sermons guide](/web-app/sermons) for detailed instructions.
+
+---
+
 ## Bible
 
-Scripture slides pulled from the YouVersion Bible platform and rendered server-side — perfect for sermon support, lobby displays, or verse-of-the-day rotations.
+Scripture slides — perfect for sermon support, lobby displays, or verse-of-the-day rotations.
 
-**Supported translations:** NIV, NASB, NASB 2020, AMP, BSB, NIrV, NIVUK, TPT, WEBUS, ASV, LSV, and more.
+**Two translation sources:**
+- **YouVersion** — popular licensed English translations (NIV, NASB, AMP, BSB, TPT, and more) kept at the top of the picker.
+- **Free Use Bible** — a free, open library of **1,200+ translations across 1,000+ languages**. Choose **Free Use Bible (all languages) — search…** in the translation picker and search by name or language.
 
 **How to add:**
 1. In the Media library, click **Add Bible**

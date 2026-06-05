@@ -1,13 +1,18 @@
 ---
-title: "YouVersion Bible"
-description: "Display scripture on your screens — search any passage, pick a translation, and style the slide to match your brand."
+title: "Bible (Scripture)"
+description: "Display scripture on your screens — search any passage, pick a translation from two sources, and style the slide to match your brand."
 ---
 
 {/* SCREENSHOT PLACEHOLDER: Apple TV showing a Bible slide — Jeremiah 29:11 in large white text over a dark cinematic background, with "NIV" translation badge in the lower corner */}
 
-LightLoop connects to the YouVersion Bible platform to pull scripture text on demand. Search any passage, choose a translation, and customize the slide — LightLoop renders it server-side and sends it to your Apple TVs.
+LightLoop pulls scripture from **two sources**, both in the same translation picker — used in the Media Library **Add Bible** flow and the [Sermon Builder](/web-app/sermons):
 
-## Available translations
+- **YouVersion** — popular licensed English translations, listed at the top of the picker.
+- **Free Use Bible** — a free, open library of **1,200+ translations across 1,000+ languages**, available below YouVersion as a searchable option.
+
+Search any passage, choose a translation, and customize the slide.
+
+## YouVersion translations
 
 LightLoop has access to the following English translations via the YouVersion Platform API:
 
@@ -36,11 +41,26 @@ LightLoop has access to the following English translations via the YouVersion Pl
   ESV, NLT, NKJV, CSB, and The Message are not available through the YouVersion Platform API regardless of licensing and cannot be added at this time.
 </Note>
 
+## Free Use Bible (all languages)
+
+Below the YouVersion presets, the translation picker includes **Free Use Bible (all languages) — search…**, powered by the [Free Use Bible API](https://bible.helloao.org). It offers **1,200+ public-domain and openly-licensed translations across 1,000+ languages** — many you won't find anywhere else.
+
+To use it:
+
+1. Open the translation picker and choose **Free Use Bible (all languages) — search…**
+2. Type a translation **name, abbreviation, or language** (e.g. `Berean`, `Spanish`, `Swahili`)
+3. Pick a result — your choice is remembered for next time
+4. Enter your passage reference as usual and search
+
+<Tip>
+  If a YouVersion translation throws an error (some are intermittently unavailable), the Free Use Bible source is a reliable fallback — and the only way to display many non-English languages.
+</Tip>
+
 ## Adding a Bible slide
 
 1. In the **Media Library**, click **Add Bible**
 2. Type a passage reference — e.g. `John 3:16`, `Psalm 23`, or `Romans 8:28-30`
-3. Select a **translation** from the dropdown
+3. Select a **translation** — a YouVersion preset, or **Free Use Bible (all languages) — search…** for any other language/translation
 4. The verse text appears in the preview — review it before saving
 5. Customize the slide style (see below)
 6. Click **Save** — the slide is added to your library as a Bible item

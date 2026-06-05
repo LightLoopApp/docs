@@ -85,13 +85,35 @@ See the [Songs guide](/web-app/songs) for full documentation.
 
 ---
 
+## Sermon
+
+<Note>
+  Requires the latest **Apple TV app** and **iOS Remote** updates.
+</Note>
+
+**What it is:** A whole teaching/talk/presentation as one item — an ordered list of mixed slides advanced manually from the iOS Remote.
+
+**Slide types:**
+- **Text** — heading/reference + body, over the sermon's background media
+- **Bible** — scripture inserted from the Bible integration
+- **Media** — full-screen image/video/audio (fit-to-frame, optional blur fill, per-slide trim and stop/loop/advance)
+- **Blank** — empty slide; shows the sermon's Title media (or black)
+
+**Sermon-level settings:** Background media (behind text slides), Title media (on blank slides), reference + text styles (same engine as Songs/Bible).
+
+**Playback behavior:** Renders natively on Apple TV. Operator advances slides from the iOS Remote (Control Mode sub-grid). In TV Wall mode, text slides drive the lower-third, media slides go full-screen, and the Stage quadrant shows current/next (with thumbnails for media slides).
+
+See the [Sermons guide](/web-app/sermons) for full documentation.
+
+---
+
 ## Bible
 
-**Source:** YouVersion Bible Platform API\
-**Render:** Server-side JPEG, cached after first render\
-**Requires internet:** Only for initial render and style updates
+**Sources:** YouVersion Platform API (popular English translations) **and** the Free Use Bible API (1,200+ translations / 1,000+ languages, searchable)\
+**Requires internet:** Only when fetching/rendering a passage; cached after
 
-**Supported translations:** NIV, NASB, NASB2020, AMP, BSB, NIrV, NIVUK, TPT, WEBUS, WMB, ASV, LSV, GNV, EASY, CPDV, FBV, PEV, TOJB2011
+**YouVersion translations:** NIV, NASB, NASB2020, AMP, BSB, NIrV, NIVUK, TPT, WEBUS, WMB, ASV, LSV, GNV, EASY, CPDV, FBV, PEV, TOJB2011\
+**Free Use Bible:** any of 1,200+ public-domain / openly-licensed translations across 1,000+ languages — pick **Free Use Bible (all languages) — search…** in the translation picker
 
 **Style options:** Font family, size, weight, italic, all-caps, color, alignment, vertical alignment, drop shadow, text stroke, text background color/opacity, background image
 
