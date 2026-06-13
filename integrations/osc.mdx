@@ -1,0 +1,90 @@
+---
+title: "OSC (Open Sound Control)"
+description: "Control LightLoop playback from an external device, and trigger lighting consoles and other OSC gear from playlist items — over your local network."
+---
+
+LightLoop speaks **OSC (Open Sound Control)** in both directions over your local network (UDP):
+
+- **Inbound** — an external device (lighting console, [TouchOSC](https://hexler.net/touchosc), stream deck, show-control system) can drive playback on an Apple TV: next, previous, play/pause, jump to an item or song slide.
+- **Outbound** — a playlist item can **send OSC cues** to a lighting console or other gear when it goes live, so your visuals and lighting fire together.
+
+<Note>
+  OSC runs over UDP on your **local network**. The Apple TV and the controlling/receiving device must be on the same network. Because OSC is unauthenticated, only enable it on networks you trust.
+</Note>
+
+---
+
+## Inbound — control an Apple TV with OSC
+
+### 1. Enable OSC Control on the feed
+
+In the **Feeds** tab, each feed card has an **OSC Control** toggle plus a **port** and **namespace**:
+
+- **OSC Control** — off by default. Turn it on for the screens that should accept external control.
+- **Port** — the UDP port the Apple TV listens on. Default **8000**.
+- **Namespace** — an address prefix. Default **`/lightloop`**.
+
+{/* SCREENSHOT PLACEHOLDER: Feed card showing the OSC Control toggle enabled, with port 8000 and namespace /lightloop, and a green "Connected" line showing an Apple TV's IP address */}
+
+### 2. Find the Apple TV's address
+
+OSC senders need the Apple TV's IP address. LightLoop shows it in two places:
+
+- **On the Apple TV** — a small `OSC  192.168.x.x:8000` badge on the browse screen.
+- **In the web app** — the feed card shows each connected screen, e.g. *🟢 Connected: Living Room Apple TV — 192.168.1.50:8000*.
+
+<Tip>
+  Give the Apple TV a **static/reserved IP** in your router's DHCP settings so the address doesn't change between services.
+</Tip>
+
+### 3. Send commands
+
+Send OSC messages to that IP and port. The namespace prefix is optional — `/lightloop/next` and `/next` both work.
+
+| Address | Action |
+| --- | --- |
+| `/next` · `/forward` · `/go` | Next item |
+| `/previous` · `/prev` · `/back` | Previous item |
+| `/playpause` · `/toggle` · `/play` · `/pause` | Play / pause |
+| `/goto` *(int)* | Jump to item by index |
+| `/slide` *(int)* | Jump to a song slide by index |
+
+<Note>
+  Many controllers send a button as `1` on press and `0` on release. LightLoop treats a trailing `0`/`false` as the release and ignores it, so a single press fires once.
+</Note>
+
+---
+
+## Outbound — trigger lighting cues from a playlist
+
+### 1. Define your OSC targets
+
+In **Settings → OSC**, add the destinations you want to send to — each is a **name**, **host/IP**, and **port** (for example *Main Console → 192.168.1.20:8000*). Defining a target once means you can reference it from any cue, and if the console's IP ever changes you update it in a single place.
+
+{/* SCREENSHOT PLACEHOLDER: Settings → OSC section with a target named "Main Console" at 192.168.1.20:8000 */}
+
+### 2. Add an OSC Cue to a playlist item
+
+Open a playlist, click a item's **Actions** button, and find the **OSC Cues** section:
+
+1. Click **+ Add OSC Message**.
+2. Pick a **Target** (or choose **Custom host:port…** for a one-off destination).
+3. Enter the **address** to send, e.g. `/cue/12/go`.
+4. Optionally add **arguments** — space-separated. LightLoop infers the type: `5` → integer, `0.5` → float, `true`/`false` → boolean, anything else → string.
+
+The cue fires the moment that item becomes current on the Apple TV — making it a clean "go" trigger for a lighting cue, scene change, or any OSC-controllable action.
+
+{/* SCREENSHOT PLACEHOLDER: Item Actions modal showing an OSC Cue row with target "Main Console", address /cue/12/go, and no args */}
+
+<Tip>
+  Lighting desks and show-control systems vary in their OSC address scheme — check your console's OSC documentation for the exact addresses (cue triggers, fader values, scene recalls) it accepts.
+</Tip>
+
+---
+
+## Notes & limitations
+
+- OSC is **UDP on the local network** — there's no delivery confirmation, and it won't traverse the public internet.
+- Inbound control is **per-feed**: enable it only on the screens that should accept it.
+- OSC targets are **account-level** and shared by everyone on your team who edits playlists.
+- Because OSC is unauthenticated, anyone on the same network can send commands to an enabled Apple TV. Use it on trusted networks, and the per-feed enable + namespace as guardrails.

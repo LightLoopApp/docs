@@ -101,7 +101,8 @@
         "integrations/planning-center",
         "integrations/google-calendar",
         "integrations/kidddo",
-        "integrations/youversion"
+        "integrations/youversion",
+        "integrations/osc"
       ]
     },
     {

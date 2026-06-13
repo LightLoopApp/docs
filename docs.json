@@ -83,7 +83,8 @@
               "integrations/planning-center",
               "integrations/google-calendar",
               "integrations/youversion",
-              "integrations/kidddo"
+              "integrations/kidddo",
+              "integrations/osc"
             ]
           }
         ]
