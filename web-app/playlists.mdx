@@ -90,6 +90,31 @@ To set an item-level soundtrack:
   If an item has no action soundtrack set, the playlist-wide soundtrack continues playing uninterrupted through that item.
 </Note>
 
+## Overlays
+
+A playlist item can show an **overlay** — a small layer that floats in a corner above the content (above everything except a countdown banner). Three types are available:
+
+- **Watermark** — an image from your Media Library (logo, sponsor mark, "live" bug), with adjustable opacity.
+- **QR Code** — generated from any URL, with custom foreground/background colors and an optional caption (e.g. "Scan to give").
+- **Weather** — current conditions for a US ZIP code (°F), refreshed every 60 seconds while shown.
+
+To add an overlay:
+
+1. In the playlist editor, open an item's **Actions**.
+2. Under **Overlay**, choose **Show** (or **Hide** to clear one).
+3. Pick the **Duration**:
+   - **This item** — the overlay shows only while this item is on screen.
+   - **Until cleared** — the overlay persists across following items until an item with an Overlay **Hide** action.
+4. Choose the **Type** and fill in its settings, then set the **Corner**, **Size**, and **Padding**.
+
+{/* SCREENSHOT PLACEHOLDER: Item Actions modal Overlay section set to Show / Until cleared / Watermark, with the searchable image grid and corner/size/padding controls */}
+
+Overlays render on Apple TV (including TV Wall **Program** output) and on the shared preview page.
+
+<Tip>
+  Use **Until cleared** with a watermark to keep your church logo or a sponsor mark on screen across an entire playlist, then drop a **Hide** overlay action on the item where it should disappear.
+</Tip>
+
 ## Sharing a playlist for review
 
 Before a service, share a read-only preview link with your team, pastor, or worship leader for approval.
