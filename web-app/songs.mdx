@@ -132,6 +132,88 @@ Open the **Style** accordion in the editor to customize how lyrics appear on scr
 
 ---
 
+## Chords
+
+<Note>
+  Chords appear **only on stage and confidence displays** — the TV Wall **Stage Display** quadrant and the iOS Remote's **Stage Mode**. Your audience output (program screen, web preview, lower-thirds) always stays lyrics-only. Showing chords on stage requires the latest Apple TV and LightLoop Remote apps.
+</Note>
+
+LightLoop songs support inline [ChordPro](https://www.chordpro.org/) chords. Write a chord in square brackets immediately before the syllable it falls on:
+
+```text
+[G]Amazing [G/B]grace, how [C]sweet the [G]sound
+That [Em]saved a [D]wretch like [G]me
+```
+
+As soon as LightLoop detects chords in your lyrics, the **Chords** controls appear in the **Style** panel.
+
+### Showing chords on stage
+
+- Turn on **Show chords on stage view** to render chords above the lyrics on stage displays.
+- Pick a **Chord color** (default amber, `#FFD400`) so chords stand out from the lyric text.
+
+The same lyrics — minus the chords — continue to display on the audience screen, so you only ever maintain one copy of the song.
+
+### Original key & Display key
+
+LightLoop reads your chords and **auto-detects the song's key**, shown as the **Original key**. It uses real music-theory scoring rather than guessing from the first chord — it weighs how well every chord fits each major and minor key and uses the **dominant (V) chord** to tell a key apart from its relative minor:
+
+| Chords | Detected key |
+| --- | --- |
+| `Em C G D` | G |
+| `Bm D A G Em` | D |
+| `C F G Am` | C |
+| `Am Dm E Am` | A minor |
+
+If a detection is ever off, just pick the correct **Original key** from the dropdown to override it.
+
+Set a **Display key** to transpose the chord chart. Every chord — roots, slash basses (`D/F#`), and whole-measure chord charts (`[|Ab / / / |]`) — shifts to the new key, with sensible sharp/flat spelling for the destination. The lyrics never change; only the chords move.
+
+### Sync to Audio
+
+When the song has an audio track assigned, a **Sync to Audio** toggle appears next to **Display key**:
+
+- **On** — the chord Display key automatically follows the audio [transposition](#transposition). Transpose the track and the stage chart moves with it. (Display key is locked while synced.)
+- **Off** — chords stay in whatever Display key you choose, independent of the audio. Use this when a player is reading in a different key — for example, capoing.
+
+### What renders on stage
+
+- Chords sit above the syllable they precede, in your chosen chord color.
+- Whole-measure **chord charts** (e.g. `[|Ab / / / |]`) render as their own line, with no lyric beneath.
+- The **"Next" preview** on stage displays shows the upcoming slide's first chord line — also transposed to your Display key.
+
+---
+
+## Transposition
+
+<Note>
+  Audio transposition runs on LightLoop's servers and works regardless of Apple TV app version. The **original audio file is always kept** — every transpose re-shifts from the original, and you can revert at any time.
+</Note>
+
+LightLoop can change a song's key without re-recording: it pitch-shifts the attached audio track to a new key **while preserving the original tempo**.
+
+### Automatic key detection
+
+When you assign an audio track to a song, LightLoop **detects its musical key in the background** and stores it as the song's key — no action needed. This becomes the starting point ("from" key) for transposing.
+
+### Transposing the audio
+
+1. In the Song Editor, open the **Audio** card and click **Transpose**.
+2. In the dialog, set the **From key** (pre-filled from the detected key — change it to correct a misdetection) and the **To key**. LightLoop shows the number of semitones it will shift.
+3. Click **Transpose**. LightLoop pitch-shifts the track and attaches the result. Processing happens in the background; the Audio card shows the status and updates when it's ready.
+
+The transposed track now plays everywhere the song plays — Apple TV, TV Wall, and previews.
+
+### Reverting
+
+The original audio is never overwritten. Click **Revert** on the Audio card to drop the transposed file and return to the original track.
+
+### Keeping chords in step
+
+If you also display [chords](#chords), turn on **Sync to Audio** in the Style panel so the chord chart's Display key follows every audio transposition automatically. Leave it off to transpose the audio while keeping the on-screen chords in their original (or a different) key.
+
+---
+
 ## Adding a Song to a Playlist
 
 From the Song Editor header, click **\+ Add to Playlist** to open the playlist picker. Playlists are listed newest first. Search by name, then click any playlist to add the song immediately.

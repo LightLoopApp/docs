@@ -5,6 +5,22 @@ description: "New features, improvements, and fixes — in the order they shippe
 
 ## June 2026
 
+### Song Transposition — Pitch-Shift Audio & Chords <span style={{fontSize:'0.7em',fontWeight:600,background:'rgba(108,141,255,0.15)',color:'#818CF8',padding:'2px 8px',borderRadius:'100px',marginLeft:'8px',verticalAlign:'middle'}}>New</span>
+
+Change a song's key without re-recording. Open a song's **Audio** card and click **Transpose** — pick the *from* and *to* keys and LightLoop pitch-shifts the track to match **while preserving its tempo**. When you assign audio, LightLoop also **auto-detects its key** in the background. The original file is always kept, so revert is one click. Turn on **Sync to Audio** and the stage chord chart's display key follows every transposition automatically.
+
+See the [Transposition section](/web-app/songs#transposition).
+
+---
+
+### Chords on Stage — ChordPro with Smart Key Detection <span style={{fontSize:'0.7em',fontWeight:600,background:'rgba(108,141,255,0.15)',color:'#818CF8',padding:'2px 8px',borderRadius:'100px',marginLeft:'8px',verticalAlign:'middle'}}>New</span>
+
+Add inline **ChordPro `[chords]`** to any song and they render above the lyrics on stage and confidence displays — the TV Wall **Stage Display** and the iOS Remote's **Stage Mode** — while the audience screen stays clean, lyrics-only. LightLoop reads the chords and **detects the key** with real music-theory scoring, using the dominant chord to tell a key from its relative minor (`Em C G D` → G, `Bm D A G…` → D). Set a separate **Display key** to transpose the whole chart on the fly; chord charts and the "Next" preview transpose too.
+
+See the [Chords section](/web-app/songs#chords).
+
+---
+
 ### Overlays — Watermark, QR & Weather <span style={{fontSize:'0.7em',fontWeight:600,background:'rgba(108,141,255,0.15)',color:'#818CF8',padding:'2px 8px',borderRadius:'100px',marginLeft:'8px',verticalAlign:'middle'}}>New</span>
 
 A new **Overlay** playlist item action floats a layer in a corner above your content (above everything but a countdown banner). Three types: a **Watermark** image (logo/sponsor/"live" bug, with opacity), a **QR Code** from any URL (custom colors + caption), or live **Weather** for a US ZIP code (°F, refreshed every 60s). Choose **This item** or **Until cleared** so a watermark can ride across a whole playlist until you hide it. Renders on Apple TV, TV Wall Program output, and the shared preview page.
