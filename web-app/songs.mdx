@@ -147,6 +147,16 @@ That [Em]saved a [D]wretch like [G]me
 
 As soon as LightLoop detects chords in your lyrics, the **Chords** controls appear in the **Style** panel.
 
+### Pasting ChordPro or OnSong charts
+
+You don't have to write chords by hand. **Paste a [ChordPro](https://www.chordpro.org/) or [OnSong](https://onsongapp.com/docs/features/formats/onsong/) chart** into the lyrics box and LightLoop converts it to its inline form automatically:
+
+- **Chords over lyrics** — a line of chords sitting above the lyric line (the OnSong style) is merged into inline `[chords]` at the right positions. Inline `[C]` charts are kept as-is.
+- **Section labels** — `Intro`, `Verse 1`, `Pre-Chorus 2`, `Chorus:`, `REPEAT CHORUS`, `Turnaround`, etc. (both bare and the OnSong colon form) are recognized as sections: hidden from the audience screen, shown as a dim cue on stage.
+- **Metadata header** — `Key:`, `Tempo:`, `Title:`, `Artist:` and similar lines are read from the top of the chart. The `Key:` value seeds the song's key, the title fills in the song name (when empty), and the metadata lines are removed from the lyrics.
+
+The conversion is lossless to re-paste — pasting an already-inline chart changes nothing.
+
 ### Showing chords on stage
 
 - Turn on **Show chords on stage view** to render chords above the lyrics on stage displays.
