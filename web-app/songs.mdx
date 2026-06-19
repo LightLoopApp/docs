@@ -224,6 +224,35 @@ If you also display [chords](#chords), turn on **Sync to Audio** in the Style pa
 
 ---
 
+## Instrumental (karaoke)
+
+<Note>
+  Instrumental generation runs on LightLoop's servers and works regardless of Apple TV app version. The **original audio is always kept** — turning the toggle off restores it.
+</Note>
+
+LightLoop can remove the lead/backing vocals from a song's audio to create an **instrumental (karaoke)** track — useful for congregational singing, rehearsals, or "vocals out" moments.
+
+### Turning it on and off
+
+The Audio card has a single **Instrumental** switch:
+
+- **On** — if no instrumental exists yet, LightLoop generates one (this takes about a minute and runs in the background — the switch shows the progress). When it's ready, the instrumental is **automatically used on your outputs**.
+- **Off** — removes the instrumental and restores the original track with vocals.
+
+That's the whole model: switch on for an instrumental, switch off for vocals. There's nothing else to manage.
+
+### Where it plays
+
+When the instrumental is on, it plays everywhere the song plays — Apple TV, TV Wall, and the preview pages (including the editor's full-screen Preview). Your lyric **timing markers are unaffected**, because the instrumental has the exact same timing as the original.
+
+### Working with transposed audio
+
+The instrumental is built from the song's **current** audio. So if you've [transposed](#transposition) the song, the instrumental is generated from the transposed track and comes out **in the new key**. If both are active, the instrumental is what plays on your outputs.
+
+Because the instrumental is a snapshot of the audio at the time it was made, **changing the key afterward doesn't rebuild it automatically**. To refresh it after transposing (or after replacing the audio), toggle **Instrumental off, then on again** to regenerate from the current track.
+
+---
+
 ## Adding a Song to a Playlist
 
 From the Song Editor header, click **\+ Add to Playlist** to open the playlist picker. Playlists are listed newest first. Search by name, then click any playlist to add the song immediately.
