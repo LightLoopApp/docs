@@ -39,6 +39,38 @@ When the song plays on an Apple TV, the audio track plays from your device's cac
 
 ---
 
+## Importing songs & charts
+
+Drag a chord or lyric file straight into the **Media Library** (or onto a playlist) and LightLoop parses it — no copy-and-paste. Supported file types: **`.onsong`**, **`.chordpro`**, **`.cho`**, **`.crd`**, and **`.txt`** (plus ProPresenter `.pro`/`.probundle`). You can drop several at once.
+
+### Files with chords → Song
+
+If the file contains chords, it imports as a **Song** automatically:
+
+- **ChordPro** (`[C]inline` chords), **OnSong** (including *chords-over-lyrics*, where a line of chords sits above the lyric), and **CCLI SongSelect** ChordPro exports are all understood.
+- **Title** comes from the file's embedded title (`Title:` / `{title: …}`), falling back to the filename (a trailing `- Artist` is trimmed, so `Just That Good - Kristian Stanfill.txt` → "Just That Good").
+- **Key** comes from the embedded key (`Key:`, `Original Key:`, `{key: …}` — `[A]` brackets are fine); if there's none, LightLoop detects it from the chords.
+- Metadata you don't want on screen — CCLI number, copyright, tempo, capo, book, notes — is recognized and kept out of the lyrics.
+- Section labels (`Verse 1`, `Chorus:`, `REPEAT CHORUS`, …) become [stage section headers](#chords), hidden from the audience.
+
+Open the imported song to record [timing markers](#setting-timing-markers), attach audio, or tweak the [display key](#chords).
+
+### Files without chords → choose Song or Sermon
+
+If no chords are found, LightLoop asks how to import the text (this applies to the whole batch you dropped):
+
+- **Song lyrics** — each blank-line-separated block becomes a lyric slide.
+- **Sermon** — each block becomes a slide in a new [Sermon](/web-app/sermons). To mark a slide as scripture, put the reference in brackets on its own line and the verse text beneath it:
+
+  ```text
+  [John 3:16]
+  For God so loved the world, that he gave his only begotten Son…
+  ```
+
+  The bracket fills the slide's reference; the text below is used as-is (nothing is fetched). Blocks without a bracket are plain text slides.
+
+---
+
 ## The Song Editor
 
 {/* SCREENSHOT PLACEHOLDER: Full Song Editor interface showing the lyrics panel on the left, style accordion below, audio/background slots on the right, and the preview area */}
