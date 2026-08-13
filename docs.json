@@ -72,6 +72,20 @@
         ]
       },
       {
+        "tab": "iOS Remote",
+        "groups": [
+          {
+            "group": "LightLoop Remote",
+            "pages": [
+              "ios-remote/overview",
+              "ios-remote/control-mode",
+              "ios-remote/stage-mode",
+              "ios-remote/voice-follow"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Integrations",
         "groups": [
           {

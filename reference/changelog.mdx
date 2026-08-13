@@ -3,6 +3,36 @@ title: "Changelog"
 description: "New features, improvements, and fixes — in the order they shipped."
 ---
 
+## August 2026
+
+### Voice Follow — Spoken Scripture Straight to the Screen <span style={{fontSize:'0.7em',fontWeight:600,background:'rgba(108,141,255,0.15)',color:'#818CF8',padding:'2px 8px',borderRadius:'100px',marginLeft:'8px',verticalAlign:'middle'}}>New</span>
+
+"This won't be on the screen, but **Genesis 3:12** says…" — the line every operator dreads. Switch on **Voice Follow** in **Feeds → Settings** and the LightLoop Remote listens through your iPhone, recognizes the spoken reference, and fades the verse onto your Apple TV in your translation and Bible template — then **follows along verse by verse** as it's read, and fades out when the speaker moves on.
+
+It understands how people actually speak: *"John three sixteen"*, *"first Corinthians chapter twelve, beginning in verse three"*, *"the second chapter of Acts"*. Cite a chapter with no verse — *"in John ten, Jesus said, my sheep hear my voice"* — and it loads the chapter, then jumps to verse 27 on hearing the words. Every number is validated against the book's real chapter and verse counts, so ordinary speech never triggers it. Speech is transcribed **on-device** (no audio leaves the phone) and parsed by a deterministic grammar, not an AI model.
+
+Requires LightLoop Remote **1.3.2** on **iOS 26+** and the Apple TV app **1.3.2**.
+
+See [Voice Follow](/ios-remote/voice-follow).
+
+---
+
+### Follow Slides — Your Presentation Keeps Up With the Speaker <span style={{fontSize:'0.7em',fontWeight:600,background:'rgba(108,141,255,0.15)',color:'#818CF8',padding:'2px 8px',borderRadius:'100px',marginLeft:'8px',verticalAlign:'middle'}}>New</span>
+
+The second half of Voice Follow. Turn on **Follow Slides** and LightLoop matches what's being said against every text slide in the running playlist — **sermon points, quotes, Bible slides, and song lyrics** — then jumps the live presentation to it. Read a quote off a slide you prepared and the screen goes there; skip two points and it catches up. If a verse is already a slide in your sermon, your slide is shown instead of a fetched one.
+
+For songs it stays a step ahead: as the last words of a slide are sung, the next is already up. Repeated choruses won't drag it backwards — it only moves when another slide matches better than the one on screen, and prefers moving forward. Say **"next"** or **"next slide"** on its own to advance manually. Every automatic move shows a banner with one-tap **Undo**, and a sensitivity slider controls how eager it is.
+
+See [Follow Slides](/ios-remote/voice-follow#follow-slides).
+
+---
+
+### Device Storage for Your Apple TVs <span style={{fontSize:'0.7em',fontWeight:600,background:'rgba(52,211,153,0.15)',color:'#34D399',padding:'2px 8px',borderRadius:'100px',marginLeft:'8px',verticalAlign:'middle'}}>Improved</span>
+
+A new **Device Storage** section in **Settings** lists every Apple TV currently connected to your feeds with a usage bar, free space, and how much of it LightLoop's media cache is using — useful before pushing a large video playlist to a 32 GB Apple TV.
+
+---
+
 ## June 2026
 
 ### Import Songs & Charts by Drag-and-Drop <span style={{fontSize:'0.7em',fontWeight:600,background:'rgba(108,141,255,0.15)',color:'#818CF8',padding:'2px 8px',borderRadius:'100px',marginLeft:'8px',verticalAlign:'middle'}}>New</span>

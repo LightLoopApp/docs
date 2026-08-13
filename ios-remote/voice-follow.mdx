@@ -1,0 +1,193 @@
+---
+title: "Voice Follow"
+description: "Let the Remote listen: spoken scripture appears on the Apple TV automatically, and your prepared slides follow the speaker."
+---
+
+Sooner or later every operator hears it:
+
+> "…and this one won't be on the screen, but **Genesis 3:12** says, 'The woman whom you gave to be with me…'"
+
+**Voice Follow** is the answer to that moment. Turn it on and the LightLoop Remote listens through your iPhone's microphone, recognizes spoken scripture references, and displays the verse on your Apple TV — in your translation, styled with your Bible template — then follows along verse by verse as it's read.
+
+It also works the other way round: when the words being spoken match a slide you already prepared, Voice Follow jumps the live presentation to it.
+
+<CardGroup cols={2}>
+  <Card title="Live Scripture" icon="book-bible">
+    Spoken references that **aren't** in your deck are fetched and shown as an overlay on top of whatever is playing.
+  </Card>
+  <Card title="Follow Slides" icon="wand-magic-sparkles">
+    Spoken words that **match** a prepared slide — a sermon point, a quote, a lyric — jump the presentation to that slide.
+  </Card>
+</CardGroup>
+
+<Note>
+  All speech is transcribed **on the iPhone**, using Apple's on-device speech engine. No audio is recorded, uploaded, or sent to any server. References are matched by a deterministic grammar, not an AI model — the same words always give the same result.
+</Note>
+
+---
+
+## Requirements
+
+<CardGroup cols={2}>
+  <Card title="iOS 26 or newer" icon="mobile">
+    Voice Follow uses Apple's on-device **SpeechAnalyzer**, introduced in iOS 26. The rest of LightLoop Remote still works on iOS 17+ — the buttons simply don't appear on older versions.
+  </Card>
+  <Card title="App versions" icon="arrow-up-right-dots">
+    LightLoop Remote **1.3.2+** and the LightLoop Apple TV app **1.3.2+**.
+  </Card>
+</CardGroup>
+
+The Remote must stay in the **foreground** while listening — iOS doesn't allow reliable background microphone access. In practice the phone sits on the podium, at the sound desk, or in the operator's hand.
+
+---
+
+## Turning it on
+
+<Steps>
+  <Step title="Enable Voice Follow for the feed">
+    In the web app, open **Feeds → your feed → Settings** and switch on **Voice Follow**. It's **off by default** and set per feed, so you can enable it for the sanctuary without affecting lobby signage.
+  </Step>
+  <Step title="Set your translation and template">
+    Voice Follow uses your account's **default Bible translation** and **default Bible theme** (background, fonts, colors). Set these once in the Bible editor — see [YouVersion & Bible translations](/integrations/youversion).
+  </Step>
+  <Step title="Tap the button in the Remote">
+    Connect [LightLoop Remote](/ios-remote/overview) to your Apple TV. Two buttons appear in the toolbar: a **bible** icon (Live Scripture) and a **viewfinder** icon (Follow Slides). Tap either — or both.
+  </Step>
+</Steps>
+
+Each button fills bottom-up with a live **microphone level meter** while listening, so you can always tell it's hearing the room. A rolling transcript appears below the toolbar showing the words being recognized.
+
+<Tip>
+  Choose a **Free Use Bible** translation and LightLoop preloads the entire Bible to the Remote in the background the first time it's used — after that, lookups are instant even on poor Wi-Fi.
+</Tip>
+
+---
+
+## What it understands
+
+Voice Follow is built for the way people actually speak a reference aloud:
+
+| Spoken | Recognized as |
+| --- | --- |
+| "John three sixteen" | John 3:16 |
+| "First Corinthians chapter twelve, beginning in verse three" | 1 Corinthians 12:3 |
+| "The second chapter of Acts" | Acts 2 |
+| "In Genesis one, one through three" | Genesis 1:1–3 |
+| "In John ten, Jesus said, my sheep hear my voice" | John 10 → verse 27 |
+
+Book names, ordinal prefixes ("first", "second"), the words "chapter" and "verse", and number words are all weighted — and every number is validated against the **real** chapter and verse counts of that book. A reference to "Genesis fifty-two" is rejected, because Genesis has 50 chapters.
+
+<Note>
+  This validation is why ordinary speech doesn't set it off. Phrases like "three points this morning", "for the love of God", or "chapter of my life" contain no valid book-plus-number combination, so nothing happens.
+</Note>
+
+### Chapter-only references
+
+If a chapter is cited without a verse, Voice Follow loads the whole chapter and shows the first verse immediately — then **jumps to the right verse when it hears the text being read**. Saying *"in John ten, Jesus said, my sheep hear my voice"* puts John 10:27 on screen.
+
+---
+
+## Following the reading
+
+Once a verse is displayed, Voice Follow tracks the reading:
+
+<CardGroup cols={2}>
+  <Card title="Advances verse by verse" icon="forward">
+    As the passage is read aloud, the display moves to the next verse automatically.
+  </Card>
+  <Card title="Responds to verse cues" icon="hashtag">
+    Say "verse six" and it jumps straight there.
+  </Card>
+  <Card title="Fades out on its own" icon="circle-half-stroke">
+    When the speech drifts away from the remaining text for about five seconds, the verse fades out. Nobody has to clear it.
+  </Card>
+  <Card title="Handles a new reference" icon="rotate">
+    Cite a different passage and it becomes the new context — fetched, displayed, and followed.
+  </Card>
+</CardGroup>
+
+---
+
+## Follow Slides
+
+With **Follow Slides** on, Voice Follow matches what's being said against the text of every slide in the **currently running playlist** — song lyric slides, Bible verses, and sermon text and quote slides — and navigates the live presentation to the best match.
+
+<CardGroup cols={2}>
+  <Card title="Your slides win" icon="crown">
+    If a verse is already a slide in your sermon, Follow Slides shows **your** slide rather than fetching one. Your design is always preferred.
+  </Card>
+  <Card title="Stays a step ahead on songs" icon="music">
+    As the **last words** of a lyric slide are sung, the next slide is already up — like a teleprompter that listens.
+  </Card>
+  <Card title="Repeats don't drag it back" icon="repeat">
+    A repeated chorus won't send the screen backwards. It only moves when another slide matches **better** than the one on screen, and it prefers moving forward.
+  </Card>
+  <Card title="Undo on every move" icon="arrow-rotate-left">
+    Each automatic jump shows a banner on your phone — tap it to return to exactly where you were.
+  </Card>
+</CardGroup>
+
+### Say "next"
+
+Say **"next"** or **"next slide"** on its own — with a beat of silence either side — to advance manually. If a Live Scripture verse is on screen it moves to the next verse; otherwise it advances the presentation.
+
+The silence on both sides is what makes this safe: a mid-sentence "next week we'll be looking at…" won't move anything, because words follow immediately.
+
+### Sensitivity
+
+Tap the **transcript preview** below the toolbar to reveal a **sensitivity slider**. It sets how many matched words are needed before Voice Follow acts — from *Sooner* (react as soon as it hears a match) to *Precise* (wait until more of the line has been read). Navigation always uses a stricter threshold than the scripture overlay, because moving the live presentation is more disruptive than showing a verse.
+
+---
+
+## Staying in control
+
+<CardGroup cols={2}>
+  <Card title="Tap to dismiss" icon="hand">
+    Tap the verse banner on your phone to clear the verse from the Apple TV.
+  </Card>
+  <Card title="Long-press to pin" icon="thumbtack">
+    Long-press to keep the verse on screen indefinitely — for a responsive reading or a moment of reflection. It stays until you tap it again. A pinned banner is visually distinct from a temporary one.
+  </Card>
+  <Card title="Two independent switches" icon="toggle-on">
+    Run Live Scripture alone, Follow Slides alone, or both. The microphone runs whenever either is on.
+  </Card>
+  <Card title="Off by default" icon="lock">
+    Voice Follow is opt-in per feed and never enabled without you switching it on.
+  </Card>
+</CardGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The buttons don't appear in the Remote">
+    Check three things: **Voice Follow** is switched on for that feed in **Feeds → Settings**; the iPhone is running **iOS 26 or newer**; and both apps are on **1.3.2+**. The buttons are hidden entirely when any of these isn't met.
+  </Accordion>
+  <Accordion title="It hears me, but no verse appears">
+    Watch the transcript preview. If the words are being recognized but the reference isn't firing, the book name is probably being misheard — check the transcript for what it actually captured. Numbers and less common book names are the usual culprits in a noisy room.
+  </Accordion>
+  <Accordion title="The verse takes a few seconds the first time">
+    The first reference into a chapter has to be fetched. Switching your default translation to a **Free Use Bible** translation enables the full-Bible preload, after which lookups are instant. YouVersion translations are fetched per chapter on demand.
+  </Accordion>
+  <Accordion title="The background from my Bible theme isn't showing">
+    Voice Follow uses your **default** Bible theme. If that theme's background isn't already cached on the Apple TV it's downloaded on first use, so the very first verse may appear over a dimmed screen before the background arrives.
+  </Accordion>
+  <Accordion title="It jumped to the wrong slide">
+    Tap **Undo** on the banner to go straight back. Then raise the **sensitivity** slider toward *Precise* so more of a line must match before it acts.
+  </Accordion>
+  <Accordion title="The meter is moving but nothing is transcribed">
+    The meter reflects raw microphone input, so it moves for any sound. If no words appear, the speaker may be too far from the phone — move it closer to the platform or the sound desk.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Privacy
+
+Voice Follow processes speech entirely on the iPhone:
+
+- Audio is **never recorded**, stored, or transmitted.
+- No audio is sent to LightLoop's servers, Apple's servers, or anywhere else.
+- The only network requests it makes are ordinary Bible verse lookups — the same requests the web app makes when you add a Bible item.
+- Transcription uses Apple's on-device speech model; the reference parser and slide matcher run locally in the app.

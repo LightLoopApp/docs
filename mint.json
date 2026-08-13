@@ -89,7 +89,8 @@
       "pages": [
         "ios-remote/overview",
         "ios-remote/control-mode",
-        "ios-remote/stage-mode"
+        "ios-remote/stage-mode",
+        "ios-remote/voice-follow"
       ]
     },
     {
