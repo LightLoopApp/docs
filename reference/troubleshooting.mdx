@@ -155,6 +155,40 @@ Slide transition direction (next vs previous) is now synchronized from the Apple
 
 ---
 
+### The ⬇ Lyric Video button isn't there
+
+The button only appears once the song has [timing markers](/web-app/songs#setting-timing-markers). It sits next to **▶ Preview**, and both stay hidden until the first marker is recorded — record markers in the Song Editor and the button appears.
+
+If the button is there but the export stops immediately with **Assign audio first** or **That audio has no downloadable file**, the song has no audio track linked, or the linked track has no file behind it in Drive. Link an audio track from the Media Library and try again.
+
+---
+
+### The lyric video render fails partway
+
+The progress panel turns the current stage red and shows what went wrong. The common ones:
+
+- **"Set the audio markers first"** or **"No slides fall inside the audio markers"** — the audio **in** and **out** markers exclude every lyric marker. The render only covers the audio between in and out; open **Edit Markers** and check the two sit either side of your slides.
+- **"Too many slides"** — an export carries at most **400 marker segments**. Songs that repeat a chorus a dozen times can reach it; remove redundant markers.
+- **"Could not fetch the song audio"** or **"Could not fetch the background"** — the LightLoop media server couldn't download the file. Confirm the audio or background still plays in the web app (a file deleted or moved in Drive will fail here), then re-link it and retry.
+- **A message from the renderer about the video stream** — almost always the background video. Re-export it as **H.264, MP4, constant frame rate** and re-upload, the same fix as an [incompatible video](#a-video-is-grayed-out-and-shows-a-warning-badge).
+- **"Lost contact with the render server"** — the browser failed to reach the media server on five consecutive checks. Confirm the media server is running, then start the export again.
+
+<Note>
+  **"Waiting for the render server…"** is not an error. The media server runs one job at a time, so a transcode, transpose or stem separation already under way holds the render in the queue until it finishes.
+</Note>
+
+Keep the Song Editor open while it renders. The page is what tracks progress and hands you the **Download** button, so navigating away loses the file even if the server finishes it.
+
+---
+
+### The Download button vanished, or the link no longer works
+
+Rendered videos are scratch space on the media server, not library items — **nothing is added to your media library or Drive folder**. Each export is swept about **three hours** after it's made, and the download link stops working at that point.
+
+Download the MP4 while the panel is still open. If you've lost it, run the export again — re-rendering is the only way to get the file back.
+
+---
+
 ## Getting more help
 
 If you're experiencing an issue not covered here, please file a bug report at [github.com/lightloop/issues](https://github.com/lightloop/issues) with:
