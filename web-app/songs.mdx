@@ -285,6 +285,39 @@ Because the instrumental is a snapshot of the audio at the time it was made, **c
 
 ---
 
+## Lyric video (MP4)
+
+<Note>
+  Requires [timing markers](#setting-timing-markers). The rendered file downloads to your device — **nothing is added to your media library or Drive folder**.
+</Note>
+
+Once a song has markers, LightLoop can render it as a **1920×1080 MP4 lyric video** — your slides, your styling and your transitions, timed to the audio exactly as they play on stage.
+
+### Rendering one
+
+Click **⬇ Lyric Video** next to **▶ Preview** in the marker toolbar. A panel reports each stage — drawing the slides, uploading them, then rendering — and hands you a **Download** button when the file is ready.
+
+### What's in the video
+
+Everything the full-screen Preview shows:
+
+- **Your style** — font, size, weight, italic, all-caps, colour, alignment, vertical position, stroke, shadow and the text background box.
+- **Your transitions** — cross-dissolve or slide, at the transition duration you set in the Style panel.
+- **Your background** — the assigned image or video, with the same darkening scrim. Video backgrounds loop to cover the whole song; still images are used at **full resolution**, not the thumbnail.
+- **Your audio**, trimmed to the song's in and out markers. If the [Instrumental](#instrumental-karaoke) switch is on, the video uses the instrumental — the same track your outputs are playing.
+
+Chords are never rendered into the video: like on stage, they're for [stage displays](#showing-chords-on-stage) only.
+
+### How long it takes
+
+Roughly in proportion to the song's length rather than the number of slides, and longer for a video background than a still image, since every frame has to be composited. Progress is shown as a percentage of the song's duration.
+
+<Tip>
+  Want the video in a different key, or without vocals? Transpose the song or switch on the Instrumental **first** — the render always uses the song's current audio.
+</Tip>
+
+---
+
 ## Adding a Song to a Playlist
 
 From the Song Editor header, click **\+ Add to Playlist** to open the playlist picker. Playlists are listed newest first. Search by name, then click any playlist to add the song immediately.
@@ -308,7 +341,7 @@ When a Song item plays on Apple TV:
 
 If no markers are set, all lyrics are displayed on the first slide with no automatic transitions.
 
-If no audio track is linked, the song displays each slide for the playlist's configured **Duration** setting, advancing automatically like an image.
+If no audio track is linked, the song displays each slide for the playlist's **Looping Slideshow** interval, advancing automatically like an image. If Looping Slideshow is **Disabled**, slides wait for you to advance them with the remote.
 
 ---
 
@@ -332,7 +365,7 @@ If no audio track is linked, the song displays each slide for the playlist's con
   </Accordion>
 
   <Accordion title="What happens if I remove the audio track?">
-    Without an audio track, the Apple TV treats each slide as a timed image, displaying it for the playlist's configured duration before advancing. If no duration is set "0" - you can manually control the slides with your Apple TV remote.
+    Without an audio track, the Apple TV treats each slide as a timed image, displaying it for the playlist's **Looping Slideshow** interval before advancing. When Looping Slideshow is set to **Disabled**, you control the slides manually with your Apple TV remote.
   </Accordion>
 
   <Accordion title="Can I reorder slides?">

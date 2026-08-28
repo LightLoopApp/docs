@@ -1,0 +1,83 @@
+---
+title: "Transpose Tool"
+description: "Change the key of any track, pull out an instrumental, or split it into stems — without adding anything to your library."
+---
+
+<Note>
+  The Transpose tool is a **scratchpad**. Nothing you drop into it is added to your media library or written to your Google Drive folder — files are processed on demand, downloaded to your device, and deleted from the server a few hours later.
+</Note>
+
+The Transpose tool at [lightloop.app/transpose](https://lightloop.app/transpose) gives you the Song Editor's audio processing on its own, for any track — not just songs in your library. Use it when you need a key change or a backing track for something outside LightLoop: a rehearsal file, a track for another app, or a one-off for a guest musician.
+
+It's the same engine behind [song transposition](/web-app/songs#transposition) and [instrumentals](/web-app/songs#instrumental-karaoke), so results match what you'd get in the editor.
+
+Sign in with the Google account you use for LightLoop — the tool is behind your normal login.
+
+---
+
+## Adding audio
+
+Two ways in:
+
+- **Drop a file** — drag an audio file onto the page, or click to browse. MP3, M4A, WAV, AIFF, FLAC and most video files work; audio is pulled out of a video automatically.
+- **Paste a YouTube link** — paste the URL and click **Fetch audio**. LightLoop downloads the video's audio track. (Nothing is added to your library — this is separate from the [YouTube import](/integrations/youtube) in the Media Library.)
+
+Once the audio is in, LightLoop reads it and **detects the musical key**, then shows a player so you can hear the track and check that key by ear before committing to anything.
+
+Each step reports its own progress — uploading, reading the file, detecting the key.
+
+<Tip>
+  Key detection is a best guess from the audio. If it can't make a confident call, the **From** field is flagged **set this yourself** — play the track, work out the key, and pick it manually.
+</Tip>
+
+---
+
+## Choosing the key
+
+Set the **From** key (pre-filled with the detected key) and the **To** key. LightLoop shows the shift in semitones and always takes the shortest path — up to six semitones in either direction.
+
+Pitch shifting **preserves the original tempo**. The song doesn't get faster or slower, only higher or lower.
+
+Leaving both keys the same is fine — pick an extra below and you'll still get a file out.
+
+---
+
+## Extras
+
+Three options, one at a time:
+
+| Option | What you get |
+| --- | --- |
+| **Just the transposed track** | The pitch-shifted audio on its own. |
+| **Instrumental** | The vocals removed, for a backing track. Adds a minute or two. |
+| **Stem separation** | The track split into its separate parts — vocals, drums, bass and the rest — as individual files, plus a mixed instrumental. Takes several minutes. |
+
+Extras are always applied **after** the pitch shift, so stems and instrumentals come out in the key you asked for.
+
+<Note>
+  Stem separation quality depends on the model installed on your LightLoop media server. With a multi-stem model available you get four parts plus an instrumental; otherwise it falls back to a two-part split (vocals and instrumental). The **Ready** panel tells you how many parts you actually got.
+</Note>
+
+---
+
+## Generating and downloading
+
+Click **Generate**. Each stage reports progress — decoding, shifting, separating, encoding — and separation shows a **countdown** based on how long previous runs took on your server, so you know roughly how long to wait.
+
+When it finishes:
+
+- Every file is listed with its size and its own **Download** button.
+- If there's more than one, a **Download all** button at the top hands you everything in a single zip.
+
+Files stay on the server for a few hours and are then deleted automatically. **Start over** clears the session immediately.
+
+---
+
+## What it doesn't do
+
+The Transpose tool is deliberately separate from your library:
+
+- Nothing appears in your **Media Library**, and nothing is written to your **Google Drive** folder.
+- It has no lyrics, timing markers or slides — for that, work in the [Song Editor](/web-app/songs), where transposition and instrumentals are attached to the song and play on your outputs.
+
+If you want the transposed track **in LightLoop**, upload the downloaded file to your Media Library as normal, or transpose the song directly in the editor instead.

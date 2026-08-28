@@ -5,6 +5,30 @@ description: "New features, improvements, and fixes — in the order they shippe
 
 ## August 2026
 
+### Lyric Videos From Your Songs <span style={{fontSize:'0.7em',fontWeight:600,background:'rgba(108,141,255,0.15)',color:'#818CF8',padding:'2px 8px',borderRadius:'100px',marginLeft:'8px',verticalAlign:'middle'}}>New</span>
+
+Any song with timing markers can now be rendered as a **1920×1080 MP4 lyric video**. Click **⬇ Lyric Video** next to **▶ Preview** in the Song Editor and LightLoop renders your slides over your background, in your styling, with your cross-dissolve or slide transitions, timed to the audio exactly as it plays on stage.
+
+It's the full-screen Preview, exported: font, colour, stroke, shadow, alignment and the text background box all carry through, video backgrounds loop for the length of the song, and still images are used at full resolution rather than the thumbnail. The audio is trimmed to the song's in and out markers — and if the **Instrumental** switch is on, that's what you get. Nothing is added to your media library or Drive folder; the file downloads straight to your device.
+
+Useful for pre-service loops, social clips, livestream beds, or handing a track to someone who doesn't have an Apple TV.
+
+See [Lyric video](/web-app/songs#lyric-video-mp4).
+
+---
+
+### Transpose Tool — Key Changes and Stems for Any Track <span style={{fontSize:'0.7em',fontWeight:600,background:'rgba(108,141,255,0.15)',color:'#818CF8',padding:'2px 8px',borderRadius:'100px',marginLeft:'8px',verticalAlign:'middle'}}>New</span>
+
+A new standalone page at [lightloop.app/transpose](https://lightloop.app/transpose) puts the Song Editor's audio processing to work on **any** track, not just songs in your library. Drop in an audio file or paste a YouTube link, and LightLoop detects the key and gives you a player so you can check it by ear.
+
+Pick a target key and it pitch-shifts the track while **preserving the tempo**. Optionally pull out an **instrumental**, or run full **stem separation** to get the vocals, drums, bass and the rest as separate files. Everything downloads to your device — individually, or all at once as a zip — and **nothing is saved to your library or Drive folder**.
+
+Progress is reported at every stage, and separation shows a countdown estimated from how long previous runs took on your own media server.
+
+See [Transpose Tool](/web-app/transpose).
+
+---
+
 ### Voice Follow — Spoken Scripture Straight to the Screen <span style={{fontSize:'0.7em',fontWeight:600,background:'rgba(108,141,255,0.15)',color:'#818CF8',padding:'2px 8px',borderRadius:'100px',marginLeft:'8px',verticalAlign:'middle'}}>New</span>
 
 "This won't be on the screen, but **Genesis 3:12** says…" — the line every operator dreads. Switch on **Voice Follow** in **Feeds → Settings** and the LightLoop Remote listens through your iPhone, recognizes the spoken reference, and fades the verse onto your Apple TV in your translation and Bible template — then **follows along verse by verse** as it's read, and fades out when the speaker moves on.
@@ -21,7 +45,7 @@ See [Voice Follow](/ios-remote/voice-follow).
 
 The second half of Voice Follow. Turn on **Follow Slides** and LightLoop matches what's being said against every text slide in the running playlist — **sermon points, quotes, Bible slides, and song lyrics** — then jumps the live presentation to it. Read a quote off a slide you prepared and the screen goes there; skip two points and it catches up. If a verse is already a slide in your sermon, your slide is shown instead of a fetched one.
 
-For songs it stays a step ahead: as the last words of a slide are sung, the next is already up. Repeated choruses won't drag it backwards — it only moves when another slide matches better than the one on screen, and prefers moving forward. Say **"next"** or **"next slide"** on its own to advance manually. Every automatic move shows a banner with one-tap **Undo**, and a sensitivity slider controls how eager it is.
+For songs you advance by hand it stays a step ahead: as the last words of a slide are sung, the next is already up. Repeated choruses won't drag it backwards — it only moves when another slide matches better than the one on screen, and prefers moving forward. **Songs with an audio track and timing markers are left alone entirely**, so lyrics never drift out of sync with the music. Say **"next"** or **"next slide"** on its own to advance manually. Every automatic move shows a banner with one-tap **Undo**, and a sensitivity slider controls how eager it is.
 
 See [Follow Slides](/ios-remote/voice-follow#follow-slides).
 

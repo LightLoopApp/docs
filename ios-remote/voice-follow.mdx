@@ -112,12 +112,19 @@ Once a verse is displayed, Voice Follow tracks the reading:
 
 With **Follow Slides** on, Voice Follow matches what's being said against the text of every slide in the **currently running playlist** — song lyric slides, Bible verses, and sermon text and quote slides — and navigates the live presentation to the best match.
 
+<Note>
+  **Songs with audio and timing markers are never touched.** Those slides are already synchronized to the track, and that timing is the source of truth — stepping on it from speech would visibly desync the lyrics from the music. Follow Slides only drives items whose slides advance manually: Bible items, sermons, and songs with no markers. Live Scripture's verse overlay still works over a playing song, because it draws on top without altering playback.
+</Note>
+
 <CardGroup cols={2}>
   <Card title="Your slides win" icon="crown">
     If a verse is already a slide in your sermon, Follow Slides shows **your** slide rather than fetching one. Your design is always preferred.
   </Card>
   <Card title="Stays a step ahead on songs" icon="music">
     As the **last words** of a lyric slide are sung, the next slide is already up — like a teleprompter that listens.
+  </Card>
+  <Card title="Never fights your audio" icon="waveform-lines">
+    Songs with an audio track and timing markers keep advancing **from the markers**. Follow Slides leaves them alone entirely, so lyrics never drift out of sync with the music.
   </Card>
   <Card title="Repeats don't drag it back" icon="repeat">
     A repeated chorus won't send the screen backwards. It only moves when another slide matches **better** than the one on screen, and it prefers moving forward.

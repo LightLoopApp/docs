@@ -48,6 +48,7 @@
               "web-app/feeds",
               "web-app/content-types",
               "web-app/songs",
+              "web-app/transpose",
               "web-app/sermons",
               "web-app/scheduling",
               "web-app/teams"

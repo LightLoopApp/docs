@@ -69,6 +69,7 @@
         "web-app/feeds",
         "web-app/content-types",
         "web-app/songs",
+        "web-app/transpose",
         "web-app/scheduling",
         "web-app/sharing",
         "web-app/teams"
