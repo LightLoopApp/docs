@@ -102,6 +102,65 @@ To set an item-level soundtrack:
   If an item has no action soundtrack set, the playlist-wide soundtrack continues playing uninterrupted through that item.
 </Note>
 
+## Countdown banner
+
+A playlist item can put a **countdown banner** on screen when it becomes current — the "Service begins in 5:00" bar across a pre-service loop. It draws above everything else, including overlays.
+
+To add one:
+
+1. In the playlist editor, open an item's **Actions**
+2. Next to **Countdown Banner**, click **Start** (**Stop** on a later item clears a running countdown; **None** leaves it alone)
+3. Choose how it counts:
+   - **Static** — a fixed duration in minutes and seconds, starting when the item appears
+   - **To Time** — counts down to a clock time, e.g. `10:30`, however long that takes
+
+{/* SCREENSHOT PLACEHOLDER: Item Actions modal Countdown Banner section set to Start, showing Type / Duration / Position / Display and the styling controls */}
+
+### Where it shows
+
+**Display** decides who sees it:
+
+- **Program** — the audience output, and optionally mirrored onto a TV Wall Stage quadrant
+- **Stage Only** — a speaker's timer shown only on stage displays (the iOS Remote's Stage Mode and the Apple TV's TV Wall Stage Display), never on the audience screen. See [Stage countdown timer](/ios-remote/stage-mode#stage-countdown-timer).
+
+**Position** places the bar at the **top** or **bottom** of the screen.
+
+### Styling
+
+| Setting | Description |
+| --- | --- |
+| **Background** | **Gradient** (with start and end colors), a solid **Color**, or **None** for text straight over the content |
+| **Pretext** | The words before the timer — defaults to `Begins in: ` |
+| **Colors** | Separate colors for the pretext and the timer digits |
+| **Font / Size / Align** | Typeface, point size, and left/center/right alignment |
+
+### On Complete
+
+What the banner does when it reaches zero:
+
+- **Hide Banner** (default) — the banner fades away and the item keeps playing
+- **Allow Overrun** — the timer keeps counting *past* zero into negative time, in your chosen **Overrun Color**, so a speaker can see how far over they are
+
+### Automation
+
+The countdown can also drive the screen when it reaches zero:
+
+| Option | What happens at zero |
+| --- | --- |
+| **None** (default) | Nothing — the **On Complete** behavior applies |
+| **Playlist** | The chosen playlist goes live, exactly as if you had switched to it |
+| **Next Slide** | The screen advances one step, exactly as if an operator had pressed **Next** — the next slide of a song if one is playing, otherwise the next item in the playlist |
+
+**Next Slide** is the simplest way to let a hold slide time out on its own: put a countdown on a "service begins in 5:00" slide and let it hand over to whatever comes next, with no second playlist to build.
+
+<Note>
+  Choosing a **Playlist** here adds it to every feed that contains this playlist, so the Apple TV already has it downloaded and can switch instantly. Both automations override **On Complete** — the banner clears as the screen moves.
+</Note>
+
+<Note>
+  **Next Slide** requires the Apple TV app **1.3.6** or later. Earlier versions ignore it and fall back to the **On Complete** setting.
+</Note>
+
 ## Overlays
 
 A playlist item can show an **overlay** — a small layer that floats in a corner above the content (above everything except a countdown banner). Three types are available:

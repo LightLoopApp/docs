@@ -52,6 +52,7 @@ Click any item in the library to open its detail panel on the right side.
 | **Tags** | Custom labels for filtering and organization |
 | **Duration** | The media's own length (videos and audio). How long a static image holds on screen is set per playlist with [Looping Slideshow](/web-app/playlists), not here. |
 | **In / Out markers** | Trim start and end of a video |
+| **Volume** | Playback level for videos, audio tracks and songs — used to match items recorded at different levels |
 | **Pause points** | Timestamps where playback auto-pauses during a service |
 
 ### Pause points
@@ -66,6 +67,26 @@ Pause points let you insert automatic pauses into a video — perfect for curric
 4. Save
 
 When this item plays on an Apple TV, playback automatically stops at each pause point. Press **Menu** on the Siri Remote to advance to the next section.
+
+### Volume
+
+Imported media rarely arrives at the same level: the bumper video is hot, the testimony clip was filmed on a phone, the pre-service track is quiet. Rather than riding the TV volume through a service, give each item its own level.
+
+1. Open the media detail panel for a **video**, **audio** track or **song**
+2. Drag the **Volume** slider (0–100%)
+3. Save
+
+The preview player in the panel follows the slider as you drag it, so you can set the level by ear. **Reset** returns the item to 100%.
+
+The level is stored on the media item, so it applies **everywhere that item is used** — every playlist, every feed, every screen, plus TV Wall tiles and shareable preview links. For a song, it sets the level of the backing track.
+
+An audio item used as a [soundtrack](/web-app/playlists#soundtracks) combines its own level with the playlist's soundtrack volume, so a single quiet track can be brought into line without changing the setting for the whole playlist.
+
+<Note>
+  Volume only turns an item **down** from its original recording — there is no boost above 100%. To level a playlist, pull the loud items down to match the quietest one, then set the room volume once.
+</Note>
+
+Items you haven't changed stay at 100%, exactly as they played before. Playback on Apple TV requires the Apple TV app **1.3.6** or later; earlier versions ignore the setting and play at the original level.
 
 ### In / Out markers
 
