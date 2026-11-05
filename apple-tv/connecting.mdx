@@ -5,6 +5,10 @@ description: "Pair your Apple TV with a LightLoop feed using QR code or Feed ID.
 
 Before your Apple TV can play content, it needs to connect to a feed. The setup screen offers two ways to do this.
 
+<Tip>
+  Setting up many Apple TVs? If you use Jamf or another MDM, you can push the Feed ID to every TV at once. See [Jamf & MDM Deployment](/apple-tv/mdm).
+</Tip>
+
 {/* SCREENSHOT PLACEHOLDER: tvOS setup screen showing the QR code on the left and the Feed ID field on the right with an "OR" divider */}
 
 ## QR code (recommended)
@@ -101,3 +105,7 @@ To connect a TV to a different feed:
 <Warning>
   Disconnecting removes all locally cached media from the device. Reconnecting will re-download everything from scratch.
 </Warning>
+
+<Note>
+  On an Apple TV whose feed is set by an MDM, Disconnect isn't available. Change the `feedId` in your MDM instead. See [Jamf & MDM Deployment](/apple-tv/mdm).
+</Note>

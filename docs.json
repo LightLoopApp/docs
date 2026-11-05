@@ -64,6 +64,7 @@
             "pages": [
               "apple-tv/installation",
               "apple-tv/connecting",
+              "apple-tv/mdm",
               "apple-tv/playback",
               "apple-tv/tv-wall",
               "apple-tv/remote-controls",

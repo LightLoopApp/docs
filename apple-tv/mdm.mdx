@@ -1,0 +1,82 @@
+---
+title: "Jamf & MDM Deployment"
+description: "Configure LightLoop on many Apple TVs at once with Jamf or any MDM using Managed App Configuration."
+---
+
+If you manage your Apple TVs with **Jamf** or another mobile device management (MDM) tool, you can connect every screen to its feed from the MDM. Nobody needs to use the setup screen on each TV.
+
+LightLoop supports Apple's standard **Managed App Configuration**. Your MDM sends a small dictionary of settings to each Apple TV, and LightLoop uses them in place of the [QR code or Feed ID setup](/apple-tv/connecting).
+
+<Note>
+  Requires the LightLoop Apple TV app **1.3.7** or later.
+</Note>
+
+## Configuration keys
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `feedId` | String | Yes | The 6-character Feed ID from the LightLoop dashboard (e.g. `AB12CD`). Capitalization doesn't matter. |
+| `serverURL` | String | No | Defaults to `https://lightloop.app`. Only set this if you've been given a different server address. |
+
+Everything else, including playlists, schedules, OSC control and **Prevent screensaver**, comes from the feed itself and is managed in the LightLoop dashboard.
+
+## Setting it up in Jamf Pro
+
+<Steps>
+  <Step title="Copy your Feed ID">
+    In the LightLoop dashboard, open **Feeds**, select the feed, and copy its **Feed ID**. Create one feed for each group of screens that should show the same content.
+  </Step>
+  <Step title="Add LightLoop for tvOS">
+    In Jamf Pro, add the free **LightLoop** app for tvOS from the App Store, or assign it through Apple School Manager or Apple Business Manager. Set it to install automatically.
+  </Step>
+  <Step title="Add the App Configuration">
+    On the app's **App Configuration** tab, paste:
+
+    ```xml
+    <dict>
+      <key>feedId</key>
+      <string>AB12CD</string>
+    </dict>
+    ```
+
+    Replace `AB12CD` with your Feed ID.
+  </Step>
+  <Step title="Scope to your Apple TVs">
+    Scope the app to your Apple TVs or a smart group and save. Each TV installs LightLoop, launches into the feed and starts caching media.
+  </Step>
+</Steps>
+
+<Tip>
+  To show different content in different buildings or room types, create a feed for each, then scope a separate copy of the app record (or a separate App Configuration) to each smart group.
+</Tip>
+
+Other MDMs use the same keys. Look for the setting called **App Configuration**, **Managed App Config** or **Custom configuration** for the LightLoop tvOS app.
+
+## What changes on a managed Apple TV
+
+- **No setup screen.** LightLoop skips the QR code and Feed ID screen and connects directly to the configured feed.
+- **Live re-pointing.** If you change `feedId` in your MDM, running Apple TVs switch to the new feed. They clear the old feed's cached media and download the new one.
+- **Leaving the feed is disabled.** Selecting the feed name shows a *Managed Feed* message instead of the **Leave** option, and **Change Feed** is hidden on the error screen.
+- **Removing the configuration** leaves the Apple TV on its current feed, and the option to leave the feed comes back.
+
+## Recommended companion settings
+
+- **Single App Mode:** For supervised Apple TVs, a Jamf configuration profile with the Single App Mode payload keeps the TV in LightLoop as a dedicated display.
+- **Prevent screensaver:** Turn this on in the feed's **Settings** in the LightLoop dashboard so screens stay on.
+
+## Local Network permission
+
+The first time LightLoop launches, tvOS may ask for **Local Network** access. LightLoop uses it for the [LightLoop Remote](/ios-remote/overview) and [OSC control](/integrations/osc). Choose **Allow** once on each TV. Feed playback works either way.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The Apple TV still shows the setup screen">
+    - Confirm the App Configuration contains a `feedId` key spelled exactly that way, with a string value.
+    - Confirm the device is in scope for the app and that Jamf shows the app as installed with the configuration applied.
+    - Relaunch LightLoop. Configuration is read at launch and whenever the MDM updates it.
+  </Accordion>
+  <Accordion title="The TV shows a connection error">
+    Double-check the Feed ID in the LightLoop dashboard. If you set `serverURL`, remove it to use the default `https://lightloop.app`.
+  </Accordion>
+</AccordionGroup>
